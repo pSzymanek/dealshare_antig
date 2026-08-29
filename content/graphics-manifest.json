@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "slug": "jak-przygotowac-firme-do-kredytu",
+    "title": "Jak przygotować firmę do uzyskania kredytu? 10 rzeczy, które sprawdzi bank",
+    "cover": "graphics/covers/jak-przygotowac-firme-do-kredytu.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/jak-przygotowac-firme-do-kredytu.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Dokumenty finansowe firmy, wykres i symbol zatwierdzenia wniosku kredytowego",
+    "concept": "Checklista i dokumenty potrzebne przed rozmową z bankiem.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "przygotowanie_firmy_do_kredytu.png",
+    "sha256": "7a4cb19ecb53709444485fe9f49344cc0de5752e6ff378e0544faa1033e024dc"
+  },
+  {
+    "id": 2,
+    "slug": "kredyt-firmowy-bez-zabezpieczenia",
+    "title": "Kredyt dla firmy bez zabezpieczenia – kto ma realne szanse na finansowanie?",
+    "cover": "graphics/covers/kredyt-firmowy-bez-zabezpieczenia.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/kredyt-firmowy-bez-zabezpieczenia.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Tarcza bez kłódki obok wykresu wyników firmy",
+    "concept": "Przedsiębiorca analizujący możliwości finansowania bez zabezpieczenia.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "praca_biurowa_w_nowoczesnym_wnętrzu.png",
+    "sha256": "d200d3c8c7a398b2825ebfed5fb2d03097803f8058125fe7920df86d5eeed05a"
+  },
+  {
+    "id": 3,
+    "slug": "kredyt-firmowy-a-prywatny-bik-wlasciciela",
+    "title": "Kredyt firmowy a prywatny BIK właściciela – co bank naprawdę sprawdza?",
+    "cover": "graphics/covers/kredyt-firmowy-a-prywatny-bik-wlasciciela.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/kredyt-firmowy-a-prywatny-bik-wlasciciela.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Dwa połączone raporty kredytowe: prywatny i firmowy",
+    "concept": "Wizualizacja profilu kredytowego i danych BIK.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "nowoczesne_biuro_z_tabelą_kredytową.png",
+    "sha256": "dba1fb64351c5c104cdc91c33d4c5e55d0d63e1d29fcbc6b091d709f2fb42d14"
+  },
+  {
+    "id": 4,
+    "slug": "jak-zwiekszyc-zdolnosc-kredytowa-firmy",
+    "title": "Jak zwiększyć zdolność kredytową firmy przed złożeniem wniosku?",
+    "cover": "graphics/covers/jak-zwiekszyc-zdolnosc-kredytowa-firmy.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/jak-zwiekszyc-zdolnosc-kredytowa-firmy.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Rosnący wykres zdolności kredytowej firmy",
+    "concept": "Wspólna analiza finansów i zdolności kredytowej firmy.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "współpraca_w_nowoczesnym_biurze.png",
+    "sha256": "49cd1d22d13be51aba3e1bbe7c11da34f7fb31f45eb90656e15c90232d9d0847"
+  },
+  {
+    "id": 5,
+    "slug": "dokumenty-do-kredytu-firmowego",
+    "title": "Kredyt dla JDG i spółki – jakie dokumenty przygotować do analizy przed wnioskiem?",
+    "cover": "graphics/covers/dokumenty-do-kredytu-firmowego.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/dokumenty-do-kredytu-firmowego.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Uporządkowana teczka dokumentów kredytowych z raportami BIK",
+    "concept": "Uporządkowane dokumenty przedsiębiorcy i wniosek kredytowy.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "porządek_w_biurze_kredytowym.png",
+    "sha256": "ecd7b460dc429a9b5118e224c54024ada83ae95bcf350535206df0b2ee056c85"
+  },
+  {
+    "id": 6,
+    "slug": "kredyt-obrotowy-czy-inwestycyjny",
+    "title": "Kredyt obrotowy czy inwestycyjny – które finansowanie wybrać?",
+    "cover": "graphics/covers/kredyt-obrotowy-czy-inwestycyjny.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/kredyt-obrotowy-czy-inwestycyjny.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Dwie ścieżki finansowania: kapitał obrotowy i inwestycja",
+    "concept": "Wybór między finansowaniem obrotowym i inwestycyjnym.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "znaki_kierunkowe_w_biznesowej_dzielnicy.png",
+    "sha256": "bb35f44ce13dfffb1ed448b61030100bf09ffa390c95831b6fd22e4b0725b979"
+  },
+  {
+    "id": 7,
+    "slug": "dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy",
+    "title": "Dlaczego bank odrzucił wniosek o kredyt firmowy? Najczęstsze przyczyny",
+    "cover": "graphics/covers/dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Odrzucony wniosek kredytowy obok listy przyczyn",
+    "concept": "Przedsiębiorca po otrzymaniu odmownej decyzji banku.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "stresująca_praca_biurowa_z_dokumentem.png",
+    "sha256": "1f0b8c41aeb6a355c01311f8fcdc5c929f041b6689522126f03480b1f30b48f1"
+  },
+  {
+    "id": 8,
+    "slug": "finansowanie-firmy-z-krotka-historia",
+    "title": "Finansowanie firmy z krótką historią – jakie są dostępne możliwości?",
+    "cover": "graphics/covers/finansowanie-firmy-z-krotka-historia.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/finansowanie-firmy-z-krotka-historia.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Młoda roślina wyrastająca z wykresu finansowego",
+    "concept": "Młody zespół rozwijający firmę z krótką historią.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "kreatywna_przestrzeń_biurowa_startupu.png",
+    "sha256": "021db31b445abb131f91d974d0449ee0648acbb112fab077b8fa0dc3bca1c68f"
+  },
+  {
+    "id": 9,
+    "slug": "jak-czytac-oferte-kredytu-firmowego",
+    "title": "Jak czytać ofertę kredytu firmowego i nie przepłacić?",
+    "cover": "graphics/covers/jak-czytac-oferte-kredytu-firmowego.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/jak-czytac-oferte-kredytu-firmowego.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Lupa nad warunkami oferty kredytu firmowego",
+    "concept": "Dokładna analiza kosztów i warunków oferty kredytowej.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "oferta_kredytu_firmowego_na_stole.png",
+    "sha256": "cd0e4a56117ecbff153c14f3861d4234569406019b36660fb451a5dd0286c0db"
+  },
+  {
+    "id": 10,
+    "slug": "kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem",
+    "title": "Kredyt dla firmy z wysokimi obrotami, ale niskim dochodem – czy jest możliwy?",
+    "cover": "graphics/covers/kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Duży wykres obrotu i mały wykres dochodu firmy",
+    "concept": "Analiza wysokich obrotów przy niskiej rentowności firmy.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "analiza_wyników_w_biurze_magazynowym.png",
+    "sha256": "a9848c75e766d72c9f87ad21e31f4aeca8373da7da0ef168eec01da83ec70085"
+  },
+  {
+    "id": 11,
+    "slug": "restrukturyzacja-firmy-kiedy-warto",
+    "title": "Restrukturyzacja firmy – kiedy warto działać, zanim będzie za późno?",
+    "cover": "graphics/covers/restrukturyzacja-firmy-kiedy-warto.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/restrukturyzacja-firmy-kiedy-warto.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Firma na rozdrożu między naprawą a kryzysem",
+    "concept": "Wczesna diagnoza problemów z płynnością i restrukturyzacją.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_realistic_office_scene_wide_shot_interior_desk_11_batch_1.png",
+    "sha256": "1551e1d999495375d4abc1528fafeeed7f02888f108484278f14ddb48135f3f9"
+  },
+  {
+    "id": 12,
+    "slug": "zaleglosci-zus-i-urzad-skarbowy-co-robic",
+    "title": "Firma ma zaległości wobec ZUS i urzędu skarbowego – co można zrobić?",
+    "cover": "graphics/covers/zaleglosci-zus-i-urzad-skarbowy-co-robic.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/zaleglosci-zus-i-urzad-skarbowy-co-robic.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Dokumenty ZUS i podatkowe z planem ratalnym",
+    "concept": "Zaległości wobec ZUS i urzędu skarbowego oraz terminy płatności.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_close_up_well_lit_desktop_office_still_life_sce_12_batch_2.png",
+    "sha256": "df6362f51d5d2b5d0fcbd9a56a336aeb9adb22631dc01ca76afc7c278d101e30"
+  },
+  {
+    "id": 13,
+    "slug": "restrukturyzacja-czy-upadlosc",
+    "title": "Restrukturyzacja a upadłość – czym się różnią i co wybrać?",
+    "cover": "graphics/covers/restrukturyzacja-czy-upadlosc.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/restrukturyzacja-czy-upadlosc.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Dwie drogi: restrukturyzacja firmy i upadłość",
+    "concept": "Wybór między restrukturyzacją a upadłością.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_clean_professional_office_financial_themed_stil_13_batch_3.png",
+    "sha256": "f5ac35485ef9c3a7e4f29da99f963f76dafd2a598547c751a2aa4204429091b0"
+  },
+  {
+    "id": 14,
+    "slug": "czy-restrukturyzacja-chroni-przed-komornikiem",
+    "title": "Czy restrukturyzacja chroni firmę przed komornikiem?",
+    "cover": "graphics/covers/czy-restrukturyzacja-chroni-przed-komornikiem.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/czy-restrukturyzacja-chroni-przed-komornikiem.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Tarcza chroniąca firmę przed młotkiem egzekucyjnym",
+    "concept": "Ochrona przedsiębiorstwa w restrukturyzacji przed egzekucją.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_clean_professional_office_tabletop_still_life_s_14_batch_4.png",
+    "sha256": "ae94c685dc684c4c924aa90e75390bb7ff3bdebf9c5a2d7de3f40d117e346b03"
+  },
+  {
+    "id": 15,
+    "slug": "postepowanie-restrukturyzacyjne-krok-po-kroku",
+    "title": "Jak wygląda postępowanie restrukturyzacyjne krok po kroku?",
+    "cover": "graphics/covers/postepowanie-restrukturyzacyjne-krok-po-kroku.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/postepowanie-restrukturyzacyjne-krok-po-kroku.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Kolejne etapy postępowania restrukturyzacyjnego na osi czasu",
+    "concept": "Etapy i harmonogram postępowania restrukturyzacyjnego.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_clean_corporate_office_desktop_scene_photographe_15_batch_5.png",
+    "sha256": "433ea329fd21e475a26ef1098c49fca0bbc0664a9cd9cbcf27214b0b68fdbf82"
+  },
+  {
+    "id": 16,
+    "slug": "utrata-plynnosci-finansowej-pierwsze-kroki",
+    "title": "Firma traci płynność finansową – pierwsze działania, które warto podjąć",
+    "cover": "graphics/covers/utrata-plynnosci-finansowej-pierwsze-kroki.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/utrata-plynnosci-finansowej-pierwsze-kroki.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Pusty przepływ gotówki firmy i plan naprawczy",
+    "concept": "Plan działania przy spadającej płynności finansowej.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_realistic_high_resolution_corporate_office_scen_16_batch_6.png",
+    "sha256": "bd04fee2c67d05dc900006abff19320e439ffd83f3720f09161b875ae03f8468"
+  },
+  {
+    "id": 17,
+    "slug": "uklad-z-wierzycielami-obnizenie-rat",
+    "title": "Układ z wierzycielami – jak można obniżyć raty i wydłużyć spłatę?",
+    "cover": "graphics/covers/uklad-z-wierzycielami-obnizenie-rat.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/uklad-z-wierzycielami-obnizenie-rat.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Uzgodniony harmonogram spłat między firmą i wierzycielami",
+    "concept": "Negocjowanie układu, niższych rat i dłuższego okresu spłaty.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_professional_office_meeting_scene_viewed_in_wide_17_batch_7.png",
+    "sha256": "12ab8f9efd730319ed4222784fe8602026d169c8c8b0f42ae0eeb41bb6e3dee3"
+  },
+  {
+    "id": 18,
+    "slug": "prowadzenie-firmy-w-restrukturyzacji",
+    "title": "Czy podczas restrukturyzacji można dalej prowadzić firmę?",
+    "cover": "graphics/covers/prowadzenie-firmy-w-restrukturyzacji.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/prowadzenie-firmy-w-restrukturyzacji.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Działająca firma wewnątrz procesu restrukturyzacji",
+    "concept": "Dalsze prowadzenie działalności podczas restrukturyzacji.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_bright_modern_office_warehouse_scene_with_multip_18_batch_8.png",
+    "sha256": "4e61d77fe605474005112e163c83f4261c2f47e1631df0b0d469ba4eaedf85f4"
+  },
+  {
+    "id": 19,
+    "slug": "restrukturyzacja-jdg",
+    "title": "Restrukturyzacja jednoosobowej działalności gospodarczej – najważniejsze zasady",
+    "cover": "graphics/covers/restrukturyzacja-jdg.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/restrukturyzacja-jdg.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Jednoosobowa działalność i właściciel objęci jednym planem restrukturyzacji",
+    "concept": "Przedsiębiorca JDG przygotowujący plan naprawczy.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_well_lit_modern_home_office_workspace_scene_ove_19_batch_9.png",
+    "sha256": "5fc5aa47b62182b2df71e40397196a1324b242260cd53b0a54bb85e293b188f8"
+  },
+  {
+    "id": 20,
+    "slug": "bledy-przedsiebiorcow-w-kryzysie-finansowym",
+    "title": "Najczęstsze błędy przedsiębiorców w kryzysie finansowym",
+    "cover": "graphics/covers/bledy-przedsiebiorcow-w-kryzysie-finansowym.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/bledy-przedsiebiorcow-w-kryzysie-finansowym.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Lista błędów prowadzących firmę do pogłębienia kryzysu",
+    "concept": "Najczęstsze błędy popełniane przez przedsiębiorców w kryzysie.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "a_dramatic_office_desk_scene_with_a_stressed_man_a_20_batch_10.png",
+    "sha256": "8dede8b7f756ca6f5293a6fdfbe9ec0d13946f87eb8a44c229ad372c9b886e76"
+  },
+  {
+    "id": 21,
+    "slug": "sankcja-kredytu-darmowego",
+    "title": "Sankcja kredytu darmowego – na czym polega i kto może z niej skorzystać?",
+    "cover": "graphics/covers/sankcja-kredytu-darmowego.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/sankcja-kredytu-darmowego.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Umowa kredytowa z przekreślonymi odsetkami i kosztami",
+    "concept": "Analiza umowy kredytu konsumenckiego pod kątem sankcji kredytu darmowego.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "umowa_pożyczki_na_biurku.png",
+    "sha256": "1aabd73faddc911780ffc00bb8ea68c3e13ff0be4b3460b19640d75a40e3f139"
+  },
+  {
+    "id": 22,
+    "slug": "bledy-w-umowie-kredytowej",
+    "title": "Jak sprawdzić, czy umowa kredytowa zawiera błędy?",
+    "cover": "graphics/covers/bledy-w-umowie-kredytowej.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/bledy-w-umowie-kredytowej.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Lupa analizująca zapisy umowy kredytowej",
+    "concept": "Lupa nad umową kredytową i wyszukiwanie nieprawidłowości.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "szczegóły_umowy_pożyczki_na_biurku.png",
+    "sha256": "4abd973f664ba1023fa8a489e4874222acfe453dcbdcbce838d5609197c4de69"
+  },
+  {
+    "id": 23,
+    "slug": "odzyskanie-odsetek-i-prowizji-z-kredytu",
+    "title": "Czy można odzyskać od banku odsetki i prowizje z kredytu konsumenckiego?",
+    "cover": "graphics/covers/odzyskanie-odsetek-i-prowizji-z-kredytu.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/odzyskanie-odsetek-i-prowizji-z-kredytu.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Monety wracające z umowy kredytowej do konsumenta",
+    "concept": "Rozliczenie kredytu oraz potencjalny zwrot odsetek i prowizji.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "podsumowanie_spłat_kredytu_w_biurze.png",
+    "sha256": "60c1540d035bae48135fd84ac06996028096d1934ae57b3aa6e925afe3e03d5d"
+  },
+  {
+    "id": 24,
+    "slug": "kredyt-frankowy-mozliwosci-kredytobiorcy",
+    "title": "Kredyt frankowy – jakie możliwości ma dziś kredytobiorca?",
+    "cover": "graphics/covers/kredyt-frankowy-mozliwosci-kredytobiorcy.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/kredyt-frankowy-mozliwosci-kredytobiorcy.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Umowa kredytu CHF z symbolem franka i polskiego złotego",
+    "concept": "Konsultacja dotycząca kredytu frankowego i kursu CHF/PLN.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "spotkanie_biznesowe_przy_stole_konsultacyjnym.png",
+    "sha256": "e256d01d03716fc01e9464e5e5eb6f8ee6d68355dacccfad7f8b58be20a37ee3"
+  },
+  {
+    "id": 25,
+    "slug": "ugoda-czy-uniewaznienie-kredytu-walutowego",
+    "title": "Unieważnienie kredytu walutowego czy ugoda z bankiem – co bardziej się opłaca?",
+    "cover": "graphics/covers/ugoda-czy-uniewaznienie-kredytu-walutowego.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/ugoda-czy-uniewaznienie-kredytu-walutowego.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Waga porównująca ugodę bankową i unieważnienie umowy",
+    "concept": "Porównanie ugody z bankiem i unieważnienia umowy walutowej.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "spotkanie_biznesowe_w_nowoczesnym_biurze.png",
+    "sha256": "92a89c6771a9a83b70b7749fe1d77122eb14d0650d33e48b5d4b4c75456ead03"
+  },
+  {
+    "id": 26,
+    "slug": "dokumenty-do-analizy-umowy-kredytowej",
+    "title": "Jak przygotować dokumenty do analizy umowy kredytowej?",
+    "cover": "graphics/covers/dokumenty-do-analizy-umowy-kredytowej.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/dokumenty-do-analizy-umowy-kredytowej.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Komplet uporządkowanych dokumentów do analizy umowy kredytowej",
+    "concept": "Komplet dokumentów przygotowany do profesjonalnej analizy umowy.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "biurko_z_dokumentami_i_laptopem.png",
+    "sha256": "6af03f6f5ccd98f7626bc3b904dfdaf3a1ba9f6cc441cd5f1f1f15178c9e0150"
+  },
+  {
+    "id": 27,
+    "slug": "magazyn-energii-dla-firmy-oplacalnosc",
+    "title": "Magazyn energii dla firmy – kiedy inwestycja zaczyna się opłacać?",
+    "cover": "graphics/covers/magazyn-energii-dla-firmy-oplacalnosc.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/magazyn-energii-dla-firmy-oplacalnosc.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Przemysłowy magazyn energii połączony z firmą i instalacją PV",
+    "concept": "Analiza opłacalności magazynu energii i okresu zwrotu inwestycji.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "nowoczesne_biuro_z_analizami_energii.png",
+    "sha256": "f1f50d1b61d4c0d72651ad757347c2ae53a3fa6aef638dd081e794b4408486e6"
+  },
+  {
+    "id": 28,
+    "slug": "finansowanie-farmy-fotowoltaicznej",
+    "title": "Finansowanie farmy fotowoltaicznej – kredyt, leasing czy inwestor?",
+    "cover": "graphics/covers/finansowanie-farmy-fotowoltaicznej.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/finansowanie-farmy-fotowoltaicznej.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Farma fotowoltaiczna finansowana przez bank i inwestora",
+    "concept": "Rozmowa o finansowaniu farmy fotowoltaicznej.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "spotkanie_biznesowe_w_biurze_z_energią_odnawialną.png",
+    "sha256": "585e66452e2390c8c849e413525a0f54c67d5cb86d52cbdb624d3c13764e5ae4"
+  },
+  {
+    "id": 29,
+    "slug": "projekt-energetyczny-dla-inwestora",
+    "title": "Jak przygotować projekt energetyczny do rozmowy z inwestorem?",
+    "cover": "graphics/covers/projekt-energetyczny-dla-inwestora.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/projekt-energetyczny-dla-inwestora.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Data room projektu energetycznego prezentowany inwestorowi",
+    "concept": "Prezentacja projektu energetycznego dla potencjalnego inwestora.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "prezentacja_projektu_energii_odnawialnej.png",
+    "sha256": "e3db10d89316873c4e042e4b442dbff83018249660c77276d27107368444e21a"
+  },
+  {
+    "id": 30,
+    "slug": "bledy-przy-finansowaniu-farm-i-magazynow-energii",
+    "title": "Najczęstsze błędy przy finansowaniu farm i magazynów energii",
+    "cover": "graphics/covers/bledy-przy-finansowaniu-farm-i-magazynow-energii.png",
+    "coverSize": [
+      1600,
+      900
+    ],
+    "og": "graphics/og/bledy-przy-finansowaniu-farm-i-magazynow-energii.png",
+    "ogSize": [
+      1200,
+      630
+    ],
+    "alt": "Znaki ostrzegawcze przy projekcie farmy PV i magazynu energii",
+    "concept": "Analiza ryzyk i błędnych założeń projektu farmy i magazynu energii.",
+    "style": "fotorealistyczna grafika stockowa z oryginalnym logo Dealshare",
+    "sourceFile": "biurko_analityczne_projektu_energii_słonecznej.png",
+    "sha256": "5da4dbbdf082a713bb845f43a3a3a900c005e94a20bd71b16ad4baa4035d60ac"
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "name": "dealshare",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "export:webd": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/export-webd.ps1",
+    "webd:start": "node server.js",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "board:schema": "node scripts/apply-board-schema.mjs",
+    "board:seed-users": "node scripts/seed-board-users.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
+    "next": "16.3.0",
+    "nodemailer": "^9.0.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/nodemailer": "^8.0.1",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "10.4.19",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.10",
+    "pg": "^8.23.0",
+    "postcss": "^8.5.19",
+    "tailwindcss": "3.4.4",
+    "typescript": "^6.0.3"
+  }
+}

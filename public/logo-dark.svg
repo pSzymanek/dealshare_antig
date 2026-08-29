@@ -1,0 +1,7 @@
+<svg width="680" height="160" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M58 32L105 5L152 32V86L105 113L58 86V32Z" fill="white"/>
+  <path d="M82 47L115 28L132 43L98 62L130 62L130 81L97 100L80 85L113 66L82 66V47Z" fill="#001F4D"/>
+  <text x="176" y="94" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-1" fill="white">dealshare</text>
+  <path d="M176 124H340" stroke="white" stroke-width="4"/>
+  <path d="M356 124H526" stroke="white" stroke-width="4" stroke-dasharray="24 16"/>
+</svg>

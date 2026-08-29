@@ -1,0 +1,1598 @@
+[
+  {
+    "id": "ds-blog-001",
+    "slug": "jak-przygotowac-firme-do-kredytu",
+    "title": "Jak przygotować firmę do uzyskania kredytu? 10 rzeczy, które sprawdzi bank",
+    "excerpt": "Praktyczna lista obszarów, które warto uporządkować przed złożeniem wniosku o finansowanie firmowe.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "kredyt firmowy",
+      "zdolność kredytowa",
+      "przygotowanie wniosku"
+    ],
+    "publishedAt": "2026-03-09",
+    "updatedAt": "2026-06-18",
+    "readingTime": 4,
+    "seoTitle": "Jak przygotować firmę do kredytu? 10 rzeczy do sprawdzenia",
+    "seoDescription": "Sprawdź, co bank analizuje przed udzieleniem kredytu firmowego i jak przygotować finanse, dokumenty, BIK oraz cel finansowania.",
+    "canonicalUrl": "https://dealshare.pl/blog/jak-przygotowac-firme-do-kredytu",
+    "heroImage": "/blog/covers/jak-przygotowac-firme-do-kredytu.png",
+    "ogImage": "/blog/og/jak-przygotowac-firme-do-kredytu.png",
+    "imageAlt": "Dokumenty finansowe firmy, wykres i symbol zatwierdzenia wniosku kredytowego",
+    "relatedSlugs": [
+      "dokumenty-do-kredytu-firmowego",
+      "jak-zwiekszyc-zdolnosc-kredytowa-firmy",
+      "dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "BIK_BUSINESS_CREDIT",
+      "BIK_COMPANY_REPORT",
+      "KNF_CREDITWORTHINESS"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "kredyt firmowy",
+    "faq": [
+      {
+        "question": "Ile wcześniej warto przygotować firmę do wniosku kredytowego?",
+        "answer": "Najlepiej rozpocząć analizę co najmniej kilka tygodni przed planowanym wnioskiem, a przy potrzebie poprawy wyników lub historii płatniczej nawet kilka miesięcy wcześniej."
+      },
+      {
+        "question": "Czy wysoki obrót gwarantuje kredyt firmowy?",
+        "answer": "Nie. Bank ocenia również dochód, cash flow, zadłużenie, branżę, historię BIK i cel finansowania."
+      },
+      {
+        "question": "Czy warto składać wnioski do kilku banków jednocześnie?",
+        "answer": "Najpierw warto porównać polityki i dopasowanie produktów. Chaotyczne składanie wielu wniosków nie naprawia słabego profilu i może utrudnić kontrolę procesu."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-002",
+    "slug": "kredyt-firmowy-bez-zabezpieczenia",
+    "title": "Kredyt dla firmy bez zabezpieczenia – kto ma realne szanse na finansowanie?",
+    "excerpt": "Wyjaśniamy, co w praktyce zastępuje zabezpieczenie rzeczowe i kiedy firma może otrzymać finansowanie bez hipoteki.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "kredyt bez zabezpieczenia",
+      "kredyt firmowy",
+      "JDG"
+    ],
+    "publishedAt": "2026-02-22",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Kredyt firmowy bez zabezpieczenia – kto ma szanse?",
+    "seoDescription": "Kredyt dla firmy bez hipoteki: sprawdź, jakie znaczenie mają dochód, obroty, historia BIK, staż firmy i obecne zadłużenie.",
+    "canonicalUrl": "https://dealshare.pl/blog/kredyt-firmowy-bez-zabezpieczenia",
+    "heroImage": "/blog/covers/kredyt-firmowy-bez-zabezpieczenia.png",
+    "ogImage": "/blog/og/kredyt-firmowy-bez-zabezpieczenia.png",
+    "imageAlt": "Tarcza bez kłódki obok wykresu wyników firmy",
+    "relatedSlugs": [
+      "jak-przygotowac-firme-do-kredytu",
+      "kredyt-firmowy-a-prywatny-bik-wlasciciela",
+      "finansowanie-firmy-z-krotka-historia"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "BIK_COMPANY_REPORT",
+      "BIK_BUSINESS_CREDIT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "kredyt bez zabezpieczenia",
+    "faq": [
+      {
+        "question": "Czy kredyt bez zabezpieczenia jest całkowicie bez zabezpieczeń?",
+        "answer": "Niekoniecznie. Brak hipoteki lub zastawu może nadal oznaczać weksel, poręczenie właściciela albo inne zabezpieczenia osobiste."
+      },
+      {
+        "question": "Jaki staż firmy jest potrzebny?",
+        "answer": "Minimalny staż zależy od produktu i banku. Część ofert wymaga kilkunastu miesięcy, a inne dwóch lub więcej zakończonych lat."
+      },
+      {
+        "question": "Czy taki kredyt jest droższy?",
+        "answer": "Często tak, ponieważ finansujący nie ma zabezpieczenia rzeczowego i mocniej wycenia ryzyko w marży, prowizji lub dostępnej kwocie."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-003",
+    "slug": "kredyt-firmowy-a-prywatny-bik-wlasciciela",
+    "title": "Kredyt firmowy a prywatny BIK właściciela – co bank naprawdę sprawdza?",
+    "excerpt": "Prywatne zobowiązania właściciela mogą wpływać na kredyt firmowy, szczególnie przy JDG i spółkach osobowych.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "BIK",
+      "kredyt firmowy",
+      "historia kredytowa"
+    ],
+    "publishedAt": "2026-04-12",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Kredyt firmowy a prywatny BIK właściciela",
+    "seoDescription": "Sprawdź, kiedy bank analizuje prywatny BIK właściciela firmy, jakie zobowiązania mogą obniżyć zdolność i co zweryfikować przed wnioskiem.",
+    "canonicalUrl": "https://dealshare.pl/blog/kredyt-firmowy-a-prywatny-bik-wlasciciela",
+    "heroImage": "/blog/covers/kredyt-firmowy-a-prywatny-bik-wlasciciela.png",
+    "ogImage": "/blog/og/kredyt-firmowy-a-prywatny-bik-wlasciciela.png",
+    "imageAlt": "Dwa połączone raporty kredytowe: prywatny i firmowy",
+    "relatedSlugs": [
+      "dokumenty-do-kredytu-firmowego",
+      "kredyt-firmowy-bez-zabezpieczenia",
+      "jak-zwiekszyc-zdolnosc-kredytowa-firmy"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BIK_PERSONAL_REPORT",
+      "BIK_COMPANY_REPORT",
+      "BANKING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "BIK",
+    "faq": [
+      {
+        "question": "Czy bank zawsze sprawdza prywatny BIK właściciela?",
+        "answer": "Nie zawsze, ale jest to częste przy JDG, spółkach osobowych, poręczeniu właściciela i finansowaniu bez zabezpieczenia."
+      },
+      {
+        "question": "Czy niewykorzystana karta kredytowa obniża zdolność?",
+        "answer": "Może być traktowana jako potencjalne obciążenie. Sposób uwzględnienia limitu zależy od modelu banku."
+      },
+      {
+        "question": "Czy można usunąć prawidłowe opóźnienia z BIK?",
+        "answer": "Nie ma legalnego automatycznego czyszczenia wszystkich danych. Można korygować błędy i korzystać z praw dotyczących przetwarzania danych w określonych sytuacjach."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-004",
+    "slug": "jak-zwiekszyc-zdolnosc-kredytowa-firmy",
+    "title": "Jak zwiększyć zdolność kredytową firmy przed złożeniem wniosku?",
+    "excerpt": "Zdolności nie poprawia się jednym trikiem. Największy efekt daje uporządkowanie wyniku, przepływów, zadłużenia i dokumentów.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "zdolność kredytowa",
+      "kredyt firmowy",
+      "cash flow"
+    ],
+    "publishedAt": "2026-04-19",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Jak zwiększyć zdolność kredytową firmy przed wnioskiem?",
+    "seoDescription": "Poznaj praktyczne sposoby poprawy zdolności kredytowej firmy: wynik, rachunek, limity, BIK, podatki, dokumenty i dobór produktu.",
+    "canonicalUrl": "https://dealshare.pl/blog/jak-zwiekszyc-zdolnosc-kredytowa-firmy",
+    "heroImage": "/blog/covers/jak-zwiekszyc-zdolnosc-kredytowa-firmy.png",
+    "ogImage": "/blog/og/jak-zwiekszyc-zdolnosc-kredytowa-firmy.png",
+    "imageAlt": "Rosnący wykres zdolności kredytowej firmy",
+    "relatedSlugs": [
+      "jak-przygotowac-firme-do-kredytu",
+      "kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem",
+      "dokumenty-do-kredytu-firmowego"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "KNF_CREDITWORTHINESS",
+      "BIK_COMPANY_REPORT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "zdolność kredytowa",
+    "faq": [
+      {
+        "question": "Co najszybciej poprawia zdolność firmy?",
+        "answer": "Najczęściej spłata lub zamknięcie zbędnych obciążeń, poprawa bieżącego wyniku i uporządkowanie przepływów, ale efekt zależy od przyczyny problemu."
+      },
+      {
+        "question": "Czy zabezpieczenie zastępuje zdolność kredytową?",
+        "answer": "Zwykle nie. Zabezpieczenie ogranicza ryzyko straty banku, ale firma nadal powinna wykazać źródło spłaty."
+      },
+      {
+        "question": "Czy amortyzacja może zostać dodana do dochodu?",
+        "answer": "Część banków dokonuje własnych korekt o wybrane pozycje niegotówkowe. Nie jest to automatyczne i zależy od produktu."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-005",
+    "slug": "dokumenty-do-kredytu-firmowego",
+    "title": "Kredyt dla JDG i spółki – jakie dokumenty przygotować do analizy przed wnioskiem?",
+    "excerpt": "Kompletna checklista dokumentów finansowych, bankowych i BIK potrzebnych do rzetelnej analizy możliwości finansowania.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "dokumenty kredytowe",
+      "Raport BIK",
+      "JDG",
+      "spółka"
+    ],
+    "publishedAt": "2026-07-11",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Dokumenty do kredytu firmowego – pełna checklista z BIK",
+    "seoDescription": "Sprawdź dokumenty do analizy kredytu firmowego: PIT/CIT, KPiR, bilans, wyciągi, zobowiązania, ZUS/US oraz Raport BIK i BIK Moja Firma.",
+    "canonicalUrl": "https://dealshare.pl/blog/dokumenty-do-kredytu-firmowego",
+    "heroImage": "/blog/covers/dokumenty-do-kredytu-firmowego.png",
+    "ogImage": "/blog/og/dokumenty-do-kredytu-firmowego.png",
+    "imageAlt": "Uporządkowana teczka dokumentów kredytowych z raportami BIK",
+    "relatedSlugs": [
+      "kredyt-firmowy-a-prywatny-bik-wlasciciela",
+      "jak-przygotowac-firme-do-kredytu",
+      "dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BIK_PERSONAL_REPORT",
+      "BIK_COMPANY_REPORT",
+      "BIK_BUSINESS_CREDIT",
+      "BANKING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "dokumenty kredytowe",
+    "faq": [
+      {
+        "question": "Czy bank potrzebuje Raportu BIK pobranego przez klienta?",
+        "answer": "Bank przeprowadzi własną weryfikację. Raport klienta służy przede wszystkim analizie przedwnioskowej i wykryciu problemów zanim rozpocznie się formalny proces."
+      },
+      {
+        "question": "Które raporty BIK warto przygotować?",
+        "answer": "W zależności od formy prawnej: Raport BIK właściciela lub poręczycieli oraz Raport BIK Moja Firma dla podmiotu gospodarczego."
+      },
+      {
+        "question": "Ile miesięcy wyciągów przygotować?",
+        "answer": "Najczęściej warto zacząć od sześciu pełnych miesięcy, a przy sezonowości lub bardziej złożonej analizie przygotować dwanaście."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-006",
+    "slug": "kredyt-obrotowy-czy-inwestycyjny",
+    "title": "Kredyt obrotowy czy inwestycyjny – które finansowanie wybrać?",
+    "excerpt": "Dobór finansowania powinien wynikać z cyklu życia wydatku: kapitał obrotowy finansuje bieżącą działalność, inwestycyjny – aktywa długoterminowe.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "kredyt obrotowy",
+      "kredyt inwestycyjny",
+      "finansowanie"
+    ],
+    "publishedAt": "2026-04-13",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Kredyt obrotowy czy inwestycyjny – porównanie",
+    "seoDescription": "Porównaj kredyt obrotowy i inwestycyjny. Zobacz różnice w celu, okresie, spłacie, dokumentach, zabezpieczeniach i ryzykach.",
+    "canonicalUrl": "https://dealshare.pl/blog/kredyt-obrotowy-czy-inwestycyjny",
+    "heroImage": "/blog/covers/kredyt-obrotowy-czy-inwestycyjny.png",
+    "ogImage": "/blog/og/kredyt-obrotowy-czy-inwestycyjny.png",
+    "imageAlt": "Dwie ścieżki finansowania: kapitał obrotowy i inwestycja",
+    "relatedSlugs": [
+      "jak-czytac-oferte-kredytu-firmowego",
+      "jak-przygotowac-firme-do-kredytu",
+      "finansowanie-farmy-fotowoltaicznej"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BIK_WORKING_CAPITAL",
+      "BANKING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "kredyt obrotowy",
+    "faq": [
+      {
+        "question": "Czy kredytem obrotowym można kupić maszynę?",
+        "answer": "Technicznie warunki produktu mogą na to pozwalać lub nie, ale ekonomicznie finansowanie wieloletniego aktywa krótkim limitem tworzy ryzyko nieodnowienia."
+      },
+      {
+        "question": "Czy kredyt inwestycyjny wymaga wkładu własnego?",
+        "answer": "Często tak. Poziom wkładu zależy od aktywa, banku, zabezpieczenia i ryzyka inwestycji."
+      },
+      {
+        "question": "Czy można połączyć oba rodzaje kredytu?",
+        "answer": "Tak. Inwestycja może wymagać finansowania aktywa oraz osobnego kapitału obrotowego na zapasy lub dłuższy cykl należności."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-007",
+    "slug": "dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy",
+    "title": "Dlaczego bank odrzucił wniosek o kredyt firmowy? Najczęstsze przyczyny",
+    "excerpt": "Odmowa nie zawsze oznacza, że firma nie ma żadnych możliwości. Najpierw trzeba ustalić, czy problemem są liczby, BIK, dokumenty, branża czy konstrukcja wniosku.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "odmowa kredytu",
+      "kredyt firmowy",
+      "analiza kredytowa"
+    ],
+    "publishedAt": "2026-01-23",
+    "updatedAt": "2026-06-18",
+    "readingTime": 4,
+    "seoTitle": "Dlaczego bank odrzucił kredyt firmowy? 10 przyczyn",
+    "seoDescription": "Poznaj najczęstsze przyczyny odmowy kredytu firmowego i sprawdź, co zrobić po decyzji negatywnej bez składania chaotycznych wniosków.",
+    "canonicalUrl": "https://dealshare.pl/blog/dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy",
+    "heroImage": "/blog/covers/dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy.png",
+    "ogImage": "/blog/og/dlaczego-bank-odrzucil-wniosek-o-kredyt-firmowy.png",
+    "imageAlt": "Odrzucony wniosek kredytowy obok listy przyczyn",
+    "relatedSlugs": [
+      "jak-przygotowac-firme-do-kredytu",
+      "dokumenty-do-kredytu-firmowego",
+      "jak-zwiekszyc-zdolnosc-kredytowa-firmy"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "BIK_REFUSAL",
+      "BIK_COMPANY_REPORT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "odmowa kredytu",
+    "faq": [
+      {
+        "question": "Czy po odmowie można od razu złożyć wniosek w innym banku?",
+        "answer": "Można, ale rozsądniej najpierw ustalić przyczynę. Identyczny problem z dochodem lub BIK może powtórzyć się w kolejnej instytucji."
+      },
+      {
+        "question": "Czy bank musi podać przyczynę odmowy przedsiębiorcy?",
+        "answer": "Prawo bankowe przewiduje możliwość wystąpienia o pisemne wyjaśnienie oceny zdolności kredytowej. Zakres i warunki należy sprawdzić dla konkretnego przypadku."
+      },
+      {
+        "question": "Czy odmowa oznacza brak zdolności wszędzie?",
+        "answer": "Nie. Polityki banków i modele liczenia różnią się, ale negatywnej decyzji nie należy ignorować bez diagnozy."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-008",
+    "slug": "finansowanie-firmy-z-krotka-historia",
+    "title": "Finansowanie firmy z krótką historią – jakie są dostępne możliwości?",
+    "excerpt": "Młoda firma ma mniej danych historycznych, dlatego finansujący mocniej ocenia właściciela, kontrakty, wkład własny i zabezpieczenia.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "młoda firma",
+      "startup",
+      "finansowanie firmy"
+    ],
+    "publishedAt": "2026-06-17",
+    "updatedAt": "2026-06-18",
+    "readingTime": 4,
+    "seoTitle": "Finansowanie firmy z krótką historią – możliwości",
+    "seoDescription": "Sprawdź, jakie finansowanie może być dostępne dla młodej firmy i jak przygotować kontrakty, prognozy, wkład własny, BIK i zabezpieczenia.",
+    "canonicalUrl": "https://dealshare.pl/blog/finansowanie-firmy-z-krotka-historia",
+    "heroImage": "/blog/covers/finansowanie-firmy-z-krotka-historia.png",
+    "ogImage": "/blog/og/finansowanie-firmy-z-krotka-historia.png",
+    "imageAlt": "Młoda roślina wyrastająca z wykresu finansowego",
+    "relatedSlugs": [
+      "kredyt-firmowy-bez-zabezpieczenia",
+      "jak-przygotowac-firme-do-kredytu",
+      "jak-czytac-oferte-kredytu-firmowego"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "BIK_PERSONAL_REPORT",
+      "BIK_COMPANY_REPORT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "młoda firma",
+    "faq": [
+      {
+        "question": "Czy nowa firma może dostać kredyt bankowy?",
+        "answer": "Może, lecz dostępne kwoty i produkty są zwykle ograniczone. Znaczenie mają obroty, doświadczenie właściciela, kontrakty, zabezpieczenie i wkład własny."
+      },
+      {
+        "question": "Co może zastąpić historię finansową?",
+        "answer": "Nie zastąpi jej w pełni, ale pomagają podpisane umowy, doświadczenie branżowe, realny model cash flow i kapitał właścicielski."
+      },
+      {
+        "question": "Czy leasing jest łatwiejszy dla młodej firmy?",
+        "answer": "Bywa łatwiej dostępny przy standardowym aktywie, ponieważ przedmiot finansowania ogranicza ryzyko, lecz nadal obowiązuje ocena klienta i wkład własny."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-009",
+    "slug": "jak-czytac-oferte-kredytu-firmowego",
+    "title": "Jak czytać ofertę kredytu firmowego i nie przepłacić?",
+    "excerpt": "Oprocentowanie to tylko jeden element. Porównanie powinno obejmować prowizje, produkty dodatkowe, zabezpieczenia, wcześniejszą spłatę i ryzyko zmiany raty.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "koszt kredytu",
+      "oferta bankowa",
+      "kredyt firmowy"
+    ],
+    "publishedAt": "2026-04-09",
+    "updatedAt": "2026-06-18",
+    "readingTime": 4,
+    "seoTitle": "Jak czytać ofertę kredytu firmowego i nie przepłacić",
+    "seoDescription": "Dowiedz się, jak porównywać oferty kredytu firmowego: oprocentowanie, prowizje, ubezpieczenia, rachunek, zabezpieczenia i koszt całkowity.",
+    "canonicalUrl": "https://dealshare.pl/blog/jak-czytac-oferte-kredytu-firmowego",
+    "heroImage": "/blog/covers/jak-czytac-oferte-kredytu-firmowego.png",
+    "ogImage": "/blog/og/jak-czytac-oferte-kredytu-firmowego.png",
+    "imageAlt": "Lupa nad warunkami oferty kredytu firmowego",
+    "relatedSlugs": [
+      "kredyt-obrotowy-czy-inwestycyjny",
+      "kredyt-firmowy-bez-zabezpieczenia",
+      "jak-przygotowac-firme-do-kredytu"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "koszt kredytu",
+    "faq": [
+      {
+        "question": "Czy RRSO występuje w każdym kredycie firmowym?",
+        "answer": "Standardy prezentacji kosztów dla przedsiębiorców różnią się od kredytu konsumenckiego. Dlatego warto samodzielnie policzyć pełny koszt w złotych."
+      },
+      {
+        "question": "Co jest ważniejsze: prowizja czy oprocentowanie?",
+        "answer": "Zależy od kwoty i okresu. Przy krótkim finansowaniu wysoka prowizja może mieć większe znaczenie niż niewielka różnica marży."
+      },
+      {
+        "question": "Czy niższa rata zawsze oznacza lepszą ofertę?",
+        "answer": "Nie. Może wynikać z dłuższego okresu, karencji lub raty balonowej i prowadzić do wyższego kosztu całkowitego."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-010",
+    "slug": "kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem",
+    "title": "Kredyt dla firmy z wysokimi obrotami, ale niskim dochodem – czy jest możliwy?",
+    "excerpt": "Wysoki przychód może pomóc, ale bank musi zobaczyć realne źródło spłaty. Kluczowe są marża, przepływy i sposób liczenia dochodu.",
+    "category": "Finansowanie firm",
+    "tags": [
+      "wysoki obrót",
+      "niski dochód",
+      "kredyt firmowy"
+    ],
+    "publishedAt": "2026-06-08",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Wysoki obrót, niski dochód – czy firma dostanie kredyt?",
+    "seoDescription": "Sprawdź, jak bank ocenia firmę z wysokim obrotem i niskim dochodem oraz kiedy pomagają przepływy, amortyzacja, zabezpieczenie lub inny produkt.",
+    "canonicalUrl": "https://dealshare.pl/blog/kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem",
+    "heroImage": "/blog/covers/kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem.png",
+    "ogImage": "/blog/og/kredyt-dla-firmy-z-wysokim-obrotem-i-niskim-dochodem.png",
+    "imageAlt": "Duży wykres obrotu i mały wykres dochodu firmy",
+    "relatedSlugs": [
+      "jak-zwiekszyc-zdolnosc-kredytowa-firmy",
+      "kredyt-obrotowy-czy-inwestycyjny",
+      "jak-czytac-oferte-kredytu-firmowego"
+    ],
+    "ctaVariant": "finansowanie",
+    "legalReviewRequired": false,
+    "reviewAfter": "2027-01-15",
+    "sources": [
+      "BANKING_LAW",
+      "KNF_CREDITWORTHINESS",
+      "BIK_WORKING_CAPITAL"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "wysoki obrót",
+    "faq": [
+      {
+        "question": "Czy bank może liczyć zdolność z obrotów?",
+        "answer": "Część produktów wykorzystuje wpływy lub przychód, ale bank nadal stosuje własne wskaźniki kosztów i ryzyka."
+      },
+      {
+        "question": "Czy wysoka amortyzacja zawsze pomaga w analizie?",
+        "answer": "Nie. Może być korektą niegotówkową, ale bank sprawdzi również potrzeby odtworzeniowe aktywów i realny cash flow."
+      },
+      {
+        "question": "Czy faktoring jest alternatywą?",
+        "answer": "Może być, jeżeli problemem jest długi termin płatności wiarygodnych odbiorców, a nie trwała nierentowność."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-011",
+    "slug": "restrukturyzacja-firmy-kiedy-warto",
+    "title": "Restrukturyzacja firmy – kiedy warto działać, zanim będzie za późno?",
+    "excerpt": "Restrukturyzacja ma największy sens wtedy, gdy biznes nadal ma ekonomiczne podstawy, ale bieżący harmonogram długów stał się nierealny.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "restrukturyzacja",
+      "płynność finansowa",
+      "wierzyciele"
+    ],
+    "publishedAt": "2026-07-14",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Restrukturyzacja firmy – kiedy warto zacząć działać?",
+    "seoDescription": "Poznaj sygnały ostrzegawcze, kiedy restrukturyzacja firmy może mieć sens i dlaczego nie warto czekać do całkowitej utraty płynności.",
+    "canonicalUrl": "https://dealshare.pl/blog/restrukturyzacja-firmy-kiedy-warto",
+    "heroImage": "/blog/covers/restrukturyzacja-firmy-kiedy-warto.png",
+    "ogImage": "/blog/og/restrukturyzacja-firmy-kiedy-warto.png",
+    "imageAlt": "Firma na rozdrożu między naprawą a kryzysem",
+    "relatedSlugs": [
+      "utrata-plynnosci-finansowej-pierwsze-kroki",
+      "restrukturyzacja-czy-upadlosc",
+      "postepowanie-restrukturyzacyjne-krok-po-kroku"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "PARP_RESTRUCTURING_GUIDE",
+      "PARP_RESTRUCTURING_TYPES",
+      "RESTRUCTURING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "restrukturyzacja",
+    "faq": [
+      {
+        "question": "Czy restrukturyzacja jest tylko dla niewypłacalnych firm?",
+        "answer": "Może dotyczyć również przedsiębiorcy zagrożonego niewypłacalnością. Wczesna analiza zwykle daje więcej możliwości."
+      },
+      {
+        "question": "Czy restrukturyzacja umarza wszystkie długi?",
+        "answer": "Nie. Warunki wynikają z zatwierdzonego układu, rodzaju wierzytelności i zgody wymaganych większości."
+      },
+      {
+        "question": "Czy firma musi być rentowna?",
+        "answer": "Powinna mieć realną możliwość osiągnięcia dodatnich przepływów po wdrożeniu zmian. Samo rozłożenie rat nie naprawi trwałej straty."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-012",
+    "slug": "zaleglosci-zus-i-urzad-skarbowy-co-robic",
+    "title": "Firma ma zaległości wobec ZUS i urzędu skarbowego – co można zrobić?",
+    "excerpt": "Najważniejsze jest szybkie ustalenie salda, bieżących płatności i realnej propozycji spłaty. Raty lub odroczenie nie działają automatycznie.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "ZUS",
+      "urząd skarbowy",
+      "zaległości firmy"
+    ],
+    "publishedAt": "2026-06-07",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Zaległości ZUS i urząd skarbowy – co może zrobić firma?",
+    "seoDescription": "Sprawdź, jak podejść do zaległości wobec ZUS i urzędu skarbowego: saldo, raty, odroczenie, dokumenty, bieżące składki i ryzyka egzekucji.",
+    "canonicalUrl": "https://dealshare.pl/blog/zaleglosci-zus-i-urzad-skarbowy-co-robic",
+    "heroImage": "/blog/covers/zaleglosci-zus-i-urzad-skarbowy-co-robic.png",
+    "ogImage": "/blog/og/zaleglosci-zus-i-urzad-skarbowy-co-robic.png",
+    "imageAlt": "Dokumenty ZUS i podatkowe z planem ratalnym",
+    "relatedSlugs": [
+      "utrata-plynnosci-finansowej-pierwsze-kroki",
+      "restrukturyzacja-firmy-kiedy-warto",
+      "uklad-z-wierzycielami-obnizenie-rat"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "ZUS_INSTALLMENTS",
+      "ZUS_INSTALLMENTS_HOWTO",
+      "TAX_INSTALLMENTS",
+      "TAX_INTEREST"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "ZUS",
+    "faq": [
+      {
+        "question": "Czy z ZUS można zawrzeć układ ratalny?",
+        "answer": "Tak, po złożeniu i pozytywnym rozpatrzeniu wniosku oraz uzgodnieniu warunków. Trzeba także regulować bieżące należności."
+      },
+      {
+        "question": "Czy urząd skarbowy musi zgodzić się na raty?",
+        "answer": "Nie. Organ podejmuje indywidualną decyzję po analizie przesłanek, sytuacji i zasad pomocy publicznej."
+      },
+      {
+        "question": "Czy samo złożenie wniosku zatrzymuje egzekucję?",
+        "answer": "Nie należy tego zakładać. Skutek zależy od rodzaju wniosku, etapu egzekucji i decyzji organu."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-013",
+    "slug": "restrukturyzacja-czy-upadlosc",
+    "title": "Restrukturyzacja a upadłość – czym się różnią i co wybrać?",
+    "excerpt": "Restrukturyzacja służy uratowaniu rentownego biznesu, a upadłość uporządkowanemu zakończeniu niewypłacalnej działalności i zaspokojeniu wierzycieli.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "restrukturyzacja",
+      "upadłość",
+      "niewypłacalność"
+    ],
+    "publishedAt": "2026-01-20",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Restrukturyzacja czy upadłość firmy – różnice",
+    "seoDescription": "Porównaj restrukturyzację i upadłość przedsiębiorcy: cel, zarządzanie firmą, wierzyciele, majątek, koszty i moment podjęcia decyzji.",
+    "canonicalUrl": "https://dealshare.pl/blog/restrukturyzacja-czy-upadlosc",
+    "heroImage": "/blog/covers/restrukturyzacja-czy-upadlosc.png",
+    "ogImage": "/blog/og/restrukturyzacja-czy-upadlosc.png",
+    "imageAlt": "Dwie drogi: restrukturyzacja firmy i upadłość",
+    "relatedSlugs": [
+      "restrukturyzacja-firmy-kiedy-warto",
+      "postepowanie-restrukturyzacyjne-krok-po-kroku",
+      "restrukturyzacja-jdg"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "PARP_RESTRUCTURING_VS_BANKRUPTCY",
+      "PARP_RESTRUCTURING_GUIDE",
+      "RESTRUCTURING_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "restrukturyzacja",
+    "faq": [
+      {
+        "question": "Co jest głównym kryterium wyboru?",
+        "answer": "Czy przedsiębiorstwo po zmianach jest zdolne finansować bieżącą działalność i wykonać układ. Jeśli nie, trzeba poważnie analizować upadłość."
+      },
+      {
+        "question": "Czy upadłość oznacza natychmiastowe zamknięcie firmy?",
+        "answer": "Nie zawsze, ale podstawowym celem nie jest zachowanie działalności za wszelką cenę, lecz zaspokojenie wierzycieli zgodnie z prawem."
+      },
+      {
+        "question": "Czy można złożyć wniosek restrukturyzacyjny i upadłościowy?",
+        "answer": "Procedury przewidują zasady zbiegu wniosków. Strategię i terminy trzeba pilnie skonsultować prawnie."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-014",
+    "slug": "czy-restrukturyzacja-chroni-przed-komornikiem",
+    "title": "Czy restrukturyzacja chroni firmę przed komornikiem?",
+    "excerpt": "Ochrona przed egzekucją nie działa identycznie w każdym trybie i nie obejmuje wszystkiego. Kluczowe są rodzaj postępowania, data i rodzaj wierzytelności.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "komornik",
+      "egzekucja",
+      "restrukturyzacja"
+    ],
+    "publishedAt": "2026-06-18",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Czy restrukturyzacja chroni przed komornikiem?",
+    "seoDescription": "Wyjaśniamy, kiedy restrukturyzacja może wstrzymać egzekucję, czego ochrona nie obejmuje i dlaczego samo rozpoczęcie rozmów nie zatrzymuje komornika.",
+    "canonicalUrl": "https://dealshare.pl/blog/czy-restrukturyzacja-chroni-przed-komornikiem",
+    "heroImage": "/blog/covers/czy-restrukturyzacja-chroni-przed-komornikiem.png",
+    "ogImage": "/blog/og/czy-restrukturyzacja-chroni-przed-komornikiem.png",
+    "imageAlt": "Tarcza chroniąca firmę przed młotkiem egzekucyjnym",
+    "relatedSlugs": [
+      "postepowanie-restrukturyzacyjne-krok-po-kroku",
+      "restrukturyzacja-firmy-kiedy-warto",
+      "uklad-z-wierzycielami-obnizenie-rat"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "RESTRUCTURING_LAW",
+      "PARP_RESTRUCTURING_TYPES",
+      "PARP_ARRANGEMENT_CASE"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "komornik",
+    "faq": [
+      {
+        "question": "Czy pierwsza konsultacja zatrzymuje komornika?",
+        "answer": "Nie. Ochrona jest związana z formalnym zdarzeniem przewidzianym w ustawie, nie z rozpoczęciem rozmów."
+      },
+      {
+        "question": "Czy ochrona obejmuje wszystkie długi?",
+        "answer": "Nie zawsze. Znaczenie ma rodzaj wierzytelności, zabezpieczenie i wybrany tryb postępowania."
+      },
+      {
+        "question": "Czy środki już przekazane wierzycielowi wracają automatycznie?",
+        "answer": "Nie należy tego zakładać. Trzeba sprawdzić daty, etap egzekucji i podstawę prawną konkretnych czynności."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-015",
+    "slug": "postepowanie-restrukturyzacyjne-krok-po-kroku",
+    "title": "Jak wygląda postępowanie restrukturyzacyjne krok po kroku?",
+    "excerpt": "Od diagnozy i wyboru trybu przez spis wierzytelności, propozycje układowe i głosowanie aż po wykonanie układu.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "postępowanie restrukturyzacyjne",
+      "układ",
+      "doradca restrukturyzacyjny"
+    ],
+    "publishedAt": "2026-07-01",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Postępowanie restrukturyzacyjne krok po kroku",
+    "seoDescription": "Zobacz etapy restrukturyzacji firmy: analiza, wybór trybu, nadzorca, wierzyciele, propozycje układowe, głosowanie i wykonanie układu.",
+    "canonicalUrl": "https://dealshare.pl/blog/postepowanie-restrukturyzacyjne-krok-po-kroku",
+    "heroImage": "/blog/covers/postepowanie-restrukturyzacyjne-krok-po-kroku.png",
+    "ogImage": "/blog/og/postepowanie-restrukturyzacyjne-krok-po-kroku.png",
+    "imageAlt": "Kolejne etapy postępowania restrukturyzacyjnego na osi czasu",
+    "relatedSlugs": [
+      "restrukturyzacja-firmy-kiedy-warto",
+      "czy-restrukturyzacja-chroni-przed-komornikiem",
+      "uklad-z-wierzycielami-obnizenie-rat"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "PARP_RESTRUCTURING_TYPES",
+      "PARP_ARRANGEMENT_CASE",
+      "RESTRUCTURING_LAW",
+      "KRZ"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "postępowanie restrukturyzacyjne",
+    "faq": [
+      {
+        "question": "Który tryb restrukturyzacji jest najszybszy?",
+        "answer": "Postępowanie o zatwierdzenie układu bywa sprawniejsze, ale wybór zależy od sporów, egzekucji, zabezpieczeń i potrzeb firmy."
+      },
+      {
+        "question": "Czy każdy wierzyciel musi zagłosować za układem?",
+        "answer": "Nie. Układ przyjmuje się wymaganymi większościami określonymi w prawie, z uwzględnieniem grup i sum wierzytelności."
+      },
+      {
+        "question": "Czy zatwierdzenie kończy restrukturyzację?",
+        "answer": "Nie. Firma musi wykonać układ przez cały okres spłat i realizować działania naprawcze."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-016",
+    "slug": "utrata-plynnosci-finansowej-pierwsze-kroki",
+    "title": "Firma traci płynność finansową – pierwsze działania, które warto podjąć",
+    "excerpt": "W kryzysie najpierw trzeba odzyskać kontrolę nad gotówką: dzienny cash flow, priorytety płatności, należności, koszty i komunikacja z wierzycielami.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "płynność finansowa",
+      "cash flow",
+      "kryzys firmy"
+    ],
+    "publishedAt": "2026-05-17",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Firma traci płynność – pierwsze kroki i plan działania",
+    "seoDescription": "Praktyczny plan na utratę płynności firmy: 13-tygodniowy cash flow, należności, koszty, wierzyciele, finansowanie i restrukturyzacja.",
+    "canonicalUrl": "https://dealshare.pl/blog/utrata-plynnosci-finansowej-pierwsze-kroki",
+    "heroImage": "/blog/covers/utrata-plynnosci-finansowej-pierwsze-kroki.png",
+    "ogImage": "/blog/og/utrata-plynnosci-finansowej-pierwsze-kroki.png",
+    "imageAlt": "Pusty przepływ gotówki firmy i plan naprawczy",
+    "relatedSlugs": [
+      "restrukturyzacja-firmy-kiedy-warto",
+      "zaleglosci-zus-i-urzad-skarbowy-co-robic",
+      "bledy-przedsiebiorcow-w-kryzysie-finansowym"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "PARP_RESTRUCTURING_GUIDE",
+      "PARP_RESTRUCTURING_VS_BANKRUPTCY"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "płynność finansowa",
+    "faq": [
+      {
+        "question": "Czym różni się płynność od rentowności?",
+        "answer": "Rentowność pokazuje wynik ekonomiczny, a płynność zdolność do terminowego płacenia. Firma może być rentowna i jednocześnie nie mieć gotówki."
+      },
+      {
+        "question": "Dlaczego prognoza na 13 tygodni?",
+        "answer": "To wystarczająco krótki okres do zarządzania konkretnymi płatnościami i wystarczająco długi, by zobaczyć nadchodzącą lukę."
+      },
+      {
+        "question": "Czy kredyt rozwiązuje utratę płynności?",
+        "answer": "Tylko gdy finansuje określoną lukę i istnieje źródło spłaty. Dług nie naprawia trwałej nierentowności."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-017",
+    "slug": "uklad-z-wierzycielami-obnizenie-rat",
+    "title": "Układ z wierzycielami – jak można obniżyć raty i wydłużyć spłatę?",
+    "excerpt": "Układ może zmienić terminy i wysokość płatności, ale musi być legalny, wykonalny i atrakcyjniejszy dla wierzycieli niż alternatywa.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "układ z wierzycielami",
+      "raty",
+      "propozycje układowe"
+    ],
+    "publishedAt": "2026-03-23",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Układ z wierzycielami – raty, odroczenie i redukcja długu",
+    "seoDescription": "Sprawdź, jakie propozycje może zawierać układ z wierzycielami i jak przygotować harmonogram, który ma szansę na głosy oraz wykonanie.",
+    "canonicalUrl": "https://dealshare.pl/blog/uklad-z-wierzycielami-obnizenie-rat",
+    "heroImage": "/blog/covers/uklad-z-wierzycielami-obnizenie-rat.png",
+    "ogImage": "/blog/og/uklad-z-wierzycielami-obnizenie-rat.png",
+    "imageAlt": "Uzgodniony harmonogram spłat między firmą i wierzycielami",
+    "relatedSlugs": [
+      "postepowanie-restrukturyzacyjne-krok-po-kroku",
+      "czy-restrukturyzacja-chroni-przed-komornikiem",
+      "prowadzenie-firmy-w-restrukturyzacji"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "RESTRUCTURING_LAW",
+      "PARP_ARRANGEMENT_CASE",
+      "PARP_RESTRUCTURING_GUIDE"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "układ z wierzycielami",
+    "faq": [
+      {
+        "question": "Czy wierzyciel musi zgodzić się na obniżenie długu?",
+        "answer": "Układ wymaga przyjęcia odpowiednimi większościami i zatwierdzenia. Pozycja konkretnego wierzyciela zależy również od grupy i zabezpieczenia."
+      },
+      {
+        "question": "Czy można zaproponować różne warunki różnym wierzycielom?",
+        "answer": "Tak, jeśli grupowanie i różnicowanie ma uzasadnienie prawne i ekonomiczne, a nie służy arbitralnemu faworyzowaniu."
+      },
+      {
+        "question": "Co, jeśli firma nie wykonuje układu?",
+        "answer": "Może dojść do uchylenia układu i powrotu możliwości dochodzenia wierzytelności według zasad prawa."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-018",
+    "slug": "prowadzenie-firmy-w-restrukturyzacji",
+    "title": "Czy podczas restrukturyzacji można dalej prowadzić firmę?",
+    "excerpt": "Tak – celem restrukturyzacji jest kontynuacja działalności. Zakres swobody zarządu i zasady płatności zależą jednak od trybu postępowania.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "prowadzenie firmy",
+      "restrukturyzacja",
+      "zarząd"
+    ],
+    "publishedAt": "2026-03-08",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Czy można prowadzić firmę podczas restrukturyzacji?",
+    "seoDescription": "Sprawdź, jak działa firma w restrukturyzacji: zarząd, bieżące płatności, umowy, dostawcy, pracownicy, finansowanie i komunikacja.",
+    "canonicalUrl": "https://dealshare.pl/blog/prowadzenie-firmy-w-restrukturyzacji",
+    "heroImage": "/blog/covers/prowadzenie-firmy-w-restrukturyzacji.png",
+    "ogImage": "/blog/og/prowadzenie-firmy-w-restrukturyzacji.png",
+    "imageAlt": "Działająca firma wewnątrz procesu restrukturyzacji",
+    "relatedSlugs": [
+      "postepowanie-restrukturyzacyjne-krok-po-kroku",
+      "uklad-z-wierzycielami-obnizenie-rat",
+      "restrukturyzacja-jdg"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "RESTRUCTURING_LAW",
+      "PARP_RESTRUCTURING_TYPES",
+      "PARP_RESTRUCTURING_GUIDE"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "prowadzenie firmy",
+    "faq": [
+      {
+        "question": "Czy firma może podpisywać nowe umowy?",
+        "answer": "Tak, ale zakres samodzielności i wymaganych zgód zależy od trybu oraz tego, czy czynność przekracza zwykły zarząd."
+      },
+      {
+        "question": "Czy trzeba płacić nowe faktury?",
+        "answer": "Tak. Tworzenie nowych zaległości podważa wykonalność procesu i może zagrozić postępowaniu."
+      },
+      {
+        "question": "Czy restrukturyzacja jest publiczna?",
+        "answer": "Informacje o formalnych postępowaniach i obwieszczeniach są dostępne w odpowiednich rejestrach."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-019",
+    "slug": "restrukturyzacja-jdg",
+    "title": "Restrukturyzacja jednoosobowej działalności gospodarczej – najważniejsze zasady",
+    "excerpt": "W JDG firma i właściciel nie są odrębnymi osobami prawnymi, dlatego restrukturyzacja wpływa na majątek, zobowiązania i sytuację prywatną przedsiębiorcy.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "JDG",
+      "restrukturyzacja przedsiębiorcy",
+      "długi firmy"
+    ],
+    "publishedAt": "2026-04-07",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Restrukturyzacja JDG – najważniejsze zasady",
+    "seoDescription": "Jak wygląda restrukturyzacja jednoosobowej działalności? Sprawdź odpowiedzialność właściciela, majątek, wierzycieli, małżeństwo i wykonanie układu.",
+    "canonicalUrl": "https://dealshare.pl/blog/restrukturyzacja-jdg",
+    "heroImage": "/blog/covers/restrukturyzacja-jdg.png",
+    "ogImage": "/blog/og/restrukturyzacja-jdg.png",
+    "imageAlt": "Jednoosobowa działalność i właściciel objęci jednym planem restrukturyzacji",
+    "relatedSlugs": [
+      "restrukturyzacja-czy-upadlosc",
+      "prowadzenie-firmy-w-restrukturyzacji",
+      "restrukturyzacja-firmy-kiedy-warto"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "RESTRUCTURING_LAW",
+      "PARP_RESTRUCTURING_GUIDE",
+      "PARP_RESTRUCTURING_TYPES"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "JDG",
+    "faq": [
+      {
+        "question": "Czy długi JDG są prywatnymi długami właściciela?",
+        "answer": "Przedsiębiorca prowadzący JDG jest dłużnikiem we własnym imieniu, więc odpowiedzialność nie jest oddzielona jak w spółce kapitałowej."
+      },
+      {
+        "question": "Czy majątek wspólny małżonków ma znaczenie?",
+        "answer": "Może mieć. Zakres zależy od ustroju majątkowego, zgód, dat powstania zobowiązań i zabezpieczeń."
+      },
+      {
+        "question": "Czy zamknięcie JDG usuwa zobowiązania?",
+        "answer": "Nie. Wykreślenie działalności nie powoduje automatycznego wygaśnięcia długów przedsiębiorcy."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-020",
+    "slug": "bledy-przedsiebiorcow-w-kryzysie-finansowym",
+    "title": "Najczęstsze błędy przedsiębiorców w kryzysie finansowym",
+    "excerpt": "Kryzys pogłębiają nie tylko złe wyniki, lecz także spóźnione decyzje, brak cash flow, chaotyczne pożyczki i obietnice bez pokrycia.",
+    "category": "Restrukturyzacja firm",
+    "tags": [
+      "kryzys finansowy",
+      "błędy przedsiębiorcy",
+      "płynność"
+    ],
+    "publishedAt": "2026-03-10",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "10 błędów przedsiębiorców w kryzysie finansowym",
+    "seoDescription": "Poznaj błędy, które pogłębiają kryzys firmy: brak cash flow, rolowanie długu, ukrywanie problemu, złe cięcia i spóźniona restrukturyzacja.",
+    "canonicalUrl": "https://dealshare.pl/blog/bledy-przedsiebiorcow-w-kryzysie-finansowym",
+    "heroImage": "/blog/covers/bledy-przedsiebiorcow-w-kryzysie-finansowym.png",
+    "ogImage": "/blog/og/bledy-przedsiebiorcow-w-kryzysie-finansowym.png",
+    "imageAlt": "Lista błędów prowadzących firmę do pogłębienia kryzysu",
+    "relatedSlugs": [
+      "utrata-plynnosci-finansowej-pierwsze-kroki",
+      "restrukturyzacja-firmy-kiedy-warto",
+      "restrukturyzacja-czy-upadlosc"
+    ],
+    "ctaVariant": "restrukturyzacja",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-15",
+    "sources": [
+      "PARP_RESTRUCTURING_GUIDE",
+      "PARP_RESTRUCTURING_VS_BANKRUPTCY"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "kryzys finansowy",
+    "faq": [
+      {
+        "question": "Jaki jest najgroźniejszy błąd?",
+        "answer": "Zwykle spóźnienie: brak aktualnych danych i odkładanie decyzji do momentu zajęć, wypowiedzeń i utraty kluczowych aktywów."
+      },
+      {
+        "question": "Czy należy płacić najgłośniejszemu wierzycielowi?",
+        "answer": "Nie według samej presji. Kolejność płatności trzeba ustalać na podstawie prawa, ciągłości działalności i skutków utraty umów."
+      },
+      {
+        "question": "Kiedy przestać dokładać prywatne środki?",
+        "answer": "Trzeba ustalić limit i warunki dalszego finansowania. Dopłaty bez planu mogą przenieść kryzys firmy na majątek osobisty."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-021",
+    "slug": "sankcja-kredytu-darmowego",
+    "title": "Sankcja kredytu darmowego – na czym polega i kto może z niej skorzystać?",
+    "excerpt": "SKD może pozbawić kredytodawcę odsetek i kosztów, ale tylko po spełnieniu ustawowych warunków i przy rzeczywistym naruszeniu umowy kredytu konsumenckiego.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "sankcja kredytu darmowego",
+      "kredyt konsumencki",
+      "SKD"
+    ],
+    "publishedAt": "2026-02-19",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Sankcja kredytu darmowego – zasady i warunki SKD",
+    "seoDescription": "Wyjaśniamy, czym jest sankcja kredytu darmowego, jakich umów dotyczy, jakie błędy mogą mieć znaczenie i dlaczego potrzebna jest analiza dokumentów.",
+    "canonicalUrl": "https://dealshare.pl/blog/sankcja-kredytu-darmowego",
+    "heroImage": "/blog/covers/sankcja-kredytu-darmowego.png",
+    "ogImage": "/blog/og/sankcja-kredytu-darmowego.png",
+    "imageAlt": "Umowa kredytowa z przekreślonymi odsetkami i kosztami",
+    "relatedSlugs": [
+      "bledy-w-umowie-kredytowej",
+      "odzyskanie-odsetek-i-prowizji-z-kredytu",
+      "dokumenty-do-analizy-umowy-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-01",
+    "sources": [
+      "CONSUMER_CREDIT_ACT",
+      "UOKIK_SKD_POSITION",
+      "UOKIK_CONSUMER_CREDIT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "sankcja kredytu darmowego",
+    "faq": [
+      {
+        "question": "Czy SKD działa automatycznie po znalezieniu błędu?",
+        "answer": "Nie. Wymaga spełnienia przesłanek ustawowych i złożenia odpowiedniego oświadczenia, a kredytodawca może zakwestionować jego skuteczność."
+      },
+      {
+        "question": "Czy SKD dotyczy kredytu firmowego?",
+        "answer": "Co do zasady dotyczy kredytu konsumenckiego. Cel i status stron trzeba ocenić na podstawie umowy."
+      },
+      {
+        "question": "Czy można przestać płacić raty po wysłaniu oświadczenia?",
+        "answer": "Nie należy robić tego bez indywidualnej strategii prawnej. Błędne wstrzymanie spłat może wywołać zaległości i wypowiedzenie."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-022",
+    "slug": "bledy-w-umowie-kredytowej",
+    "title": "Jak sprawdzić, czy umowa kredytowa zawiera błędy?",
+    "excerpt": "Analiza umowy wymaga porównania jej treści z przepisami, formularzem informacyjnym, harmonogramem i rzeczywistym sposobem rozliczenia.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "umowa kredytowa",
+      "błędy w umowie",
+      "klauzule niedozwolone"
+    ],
+    "publishedAt": "2026-03-28",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Błędy w umowie kredytowej – jak je sprawdzić?",
+    "seoDescription": "Praktyczna checklista analizy umowy kredytowej: kwota, RRSO, prowizje, oprocentowanie, wcześniejsza spłata, klauzule i historia płatności.",
+    "canonicalUrl": "https://dealshare.pl/blog/bledy-w-umowie-kredytowej",
+    "heroImage": "/blog/covers/bledy-w-umowie-kredytowej.png",
+    "ogImage": "/blog/og/bledy-w-umowie-kredytowej.png",
+    "imageAlt": "Lupa analizująca zapisy umowy kredytowej",
+    "relatedSlugs": [
+      "sankcja-kredytu-darmowego",
+      "odzyskanie-odsetek-i-prowizji-z-kredytu",
+      "dokumenty-do-analizy-umowy-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-01",
+    "sources": [
+      "CONSUMER_CREDIT_ACT",
+      "UOKIK_ABUSIVE_CLAUSES",
+      "UOKIK_CONSUMER_CREDIT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "umowa kredytowa",
+    "faq": [
+      {
+        "question": "Czy każda literówka daje roszczenie?",
+        "answer": "Nie. Znaczenie ma naruszenie konkretnego obowiązku i jego skutek prawny."
+      },
+      {
+        "question": "Czy kalkulator RRSO wystarczy?",
+        "answer": "Nie. Trzeba odtworzyć przepływy, daty, obowiązkowe koszty i ustawowe założenia."
+      },
+      {
+        "question": "Czy zapis podobny do klauzuli niedozwolonej zawsze jest nieważny?",
+        "answer": "Ocena zależy od pełnej treści umowy, sposobu uzgodnienia, skutku dla konsumenta i aktualnego orzecznictwa."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-023",
+    "slug": "odzyskanie-odsetek-i-prowizji-z-kredytu",
+    "title": "Czy można odzyskać od banku odsetki i prowizje z kredytu konsumenckiego?",
+    "excerpt": "Zwrot kosztów może wynikać m.in. z wcześniejszej spłaty, skutecznej SKD, niedozwolonych postanowień lub błędnego rozliczenia.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "zwrot prowizji",
+      "odsetki",
+      "kredyt konsumencki"
+    ],
+    "publishedAt": "2026-06-24",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Zwrot odsetek i prowizji z kredytu – kiedy jest możliwy?",
+    "seoDescription": "Sprawdź podstawy zwrotu kosztów kredytu konsumenckiego: wcześniejsza spłata, sankcja kredytu darmowego, błędne opłaty i klauzule.",
+    "canonicalUrl": "https://dealshare.pl/blog/odzyskanie-odsetek-i-prowizji-z-kredytu",
+    "heroImage": "/blog/covers/odzyskanie-odsetek-i-prowizji-z-kredytu.png",
+    "ogImage": "/blog/og/odzyskanie-odsetek-i-prowizji-z-kredytu.png",
+    "imageAlt": "Monety wracające z umowy kredytowej do konsumenta",
+    "relatedSlugs": [
+      "sankcja-kredytu-darmowego",
+      "bledy-w-umowie-kredytowej",
+      "dokumenty-do-analizy-umowy-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-01",
+    "sources": [
+      "CONSUMER_CREDIT_ACT",
+      "UOKIK_CONSUMER_CREDIT",
+      "UOKIK_ABUSIVE_CLAUSES"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "zwrot prowizji",
+    "faq": [
+      {
+        "question": "Czy po wcześniejszej spłacie należy się zwrot prowizji?",
+        "answer": "Przy kredycie konsumenckim całkowity koszt podlega proporcjonalnemu obniżeniu według prawa i orzecznictwa. Konkretna kwota wymaga kalkulacji."
+      },
+      {
+        "question": "Czy bank zwraca koszty automatycznie?",
+        "answer": "Powinien rozliczyć spłatę, ale warto sprawdzić metodę i kwotę. W razie rozbieżności można złożyć reklamację."
+      },
+      {
+        "question": "Czy sprzedaż roszczenia jest opłacalna?",
+        "answer": "Daje szybszą płatność, ale zwykle niższą niż potencjalna wartość. Trzeba porównać cenę, ryzyko i warunki cesji."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-024",
+    "slug": "kredyt-frankowy-mozliwosci-kredytobiorcy",
+    "title": "Kredyt frankowy – jakie możliwości ma dziś kredytobiorca?",
+    "excerpt": "Kredytobiorca może analizować m.in. roszczenie o nieważność umowy, rozliczenia, zarzuty wobec klauzul albo ugodę. Wybór zależy od umowy i sytuacji.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "kredyt frankowy",
+      "CHF",
+      "unieważnienie umowy"
+    ],
+    "publishedAt": "2026-07-06",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Kredyt frankowy w 2026 – możliwości kredytobiorcy",
+    "seoDescription": "Sprawdź możliwe działania przy kredycie CHF: analiza umowy, nieważność, rozliczenia, ugoda, zabezpieczenie roszczenia i dokumenty.",
+    "canonicalUrl": "https://dealshare.pl/blog/kredyt-frankowy-mozliwosci-kredytobiorcy",
+    "heroImage": "/blog/covers/kredyt-frankowy-mozliwosci-kredytobiorcy.png",
+    "ogImage": "/blog/og/kredyt-frankowy-mozliwosci-kredytobiorcy.png",
+    "imageAlt": "Umowa kredytu CHF z symbolem franka i polskiego złotego",
+    "relatedSlugs": [
+      "ugoda-czy-uniewaznienie-kredytu-walutowego",
+      "dokumenty-do-analizy-umowy-kredytowej",
+      "bledy-w-umowie-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "CURIA_C396_24",
+      "UOKIK_FRANC_CASES",
+      "CURIA_SEARCH"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "kredyt frankowy",
+    "faq": [
+      {
+        "question": "Czy spłacony kredyt CHF można analizować?",
+        "answer": "Tak, spłata nie zawsze zamyka roszczenia, ale trzeba sprawdzić terminy, dokumenty i wcześniejsze oświadczenia lub ugody."
+      },
+      {
+        "question": "Czy można samodzielnie zawiesić raty?",
+        "answer": "Nie. Zabezpieczenie jest decyzją sądu, a samowolne wstrzymanie płatności może powodować zaległości."
+      },
+      {
+        "question": "Czy każdy kredyt frankowy jest nieważny?",
+        "answer": "Nie należy tak zakładać. Decyduje treść umowy, status konsumenta, informacje o ryzyku i aktualne prawo."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-025",
+    "slug": "ugoda-czy-uniewaznienie-kredytu-walutowego",
+    "title": "Unieważnienie kredytu walutowego czy ugoda z bankiem – co bardziej się opłaca?",
+    "excerpt": "Ugoda daje szybszą pewność, proces może przynieść większy efekt, ale wiąże się z czasem i ryzykiem. Porównanie musi być policzone na tej samej dacie.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "ugoda frankowa",
+      "unieważnienie kredytu",
+      "CHF"
+    ],
+    "publishedAt": "2026-06-05",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Ugoda czy unieważnienie kredytu CHF – porównanie",
+    "seoDescription": "Porównaj ugodę z bankiem i pozew o nieważność kredytu walutowego: saldo, rozliczenia, odsetki, czas, podatki, koszty i ryzyko.",
+    "canonicalUrl": "https://dealshare.pl/blog/ugoda-czy-uniewaznienie-kredytu-walutowego",
+    "heroImage": "/blog/covers/ugoda-czy-uniewaznienie-kredytu-walutowego.png",
+    "ogImage": "/blog/og/ugoda-czy-uniewaznienie-kredytu-walutowego.png",
+    "imageAlt": "Waga porównująca ugodę bankową i unieważnienie umowy",
+    "relatedSlugs": [
+      "kredyt-frankowy-mozliwosci-kredytobiorcy",
+      "dokumenty-do-analizy-umowy-kredytowej",
+      "bledy-w-umowie-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "CURIA_C396_24",
+      "UOKIK_FRANC_CASES",
+      "CURIA_SEARCH"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "ugoda frankowa",
+    "faq": [
+      {
+        "question": "Czy ugoda zawsze oznacza niższy wynik niż proces?",
+        "answer": "Nie zawsze. Dobra oferta może być racjonalna po uwzględnieniu czasu, kosztów i ryzyka."
+      },
+      {
+        "question": "Co trzeba policzyć przed ugodą?",
+        "answer": "Nowe saldo, ratę, oprocentowanie, wszystkie dotychczasowe wpłaty, zrzeczenie roszczeń, koszty i aktualne skutki podatkowe."
+      },
+      {
+        "question": "Czy propozycję banku można negocjować?",
+        "answer": "Czasem tak, zależnie od banku i etapu sprawy. Warto mieć własną kalkulację zamiast negocjować wyłącznie procent umorzenia."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-026",
+    "slug": "dokumenty-do-analizy-umowy-kredytowej",
+    "title": "Jak przygotować dokumenty do analizy umowy kredytowej?",
+    "excerpt": "Pełna analiza wymaga nie tylko umowy, ale też regulaminów, aneksów, historii wypłat i spłat, harmonogramów oraz korespondencji.",
+    "category": "Analiza umów kredytowych",
+    "tags": [
+      "dokumenty kredytowe",
+      "analiza umowy",
+      "SKD",
+      "CHF"
+    ],
+    "publishedAt": "2026-03-07",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Dokumenty do analizy umowy kredytowej – checklista",
+    "seoDescription": "Sprawdź, jakie dokumenty przekazać do analizy kredytu konsumenckiego, frankowego lub innej umowy: umowa, aneksy, spłaty, zaświadczenia i korespondencja.",
+    "canonicalUrl": "https://dealshare.pl/blog/dokumenty-do-analizy-umowy-kredytowej",
+    "heroImage": "/blog/covers/dokumenty-do-analizy-umowy-kredytowej.png",
+    "ogImage": "/blog/og/dokumenty-do-analizy-umowy-kredytowej.png",
+    "imageAlt": "Komplet uporządkowanych dokumentów do analizy umowy kredytowej",
+    "relatedSlugs": [
+      "sankcja-kredytu-darmowego",
+      "kredyt-frankowy-mozliwosci-kredytobiorcy",
+      "bledy-w-umowie-kredytowej"
+    ],
+    "ctaVariant": "analiza-umowy",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-10-01",
+    "sources": [
+      "CONSUMER_CREDIT_ACT",
+      "UOKIK_ABUSIVE_CLAUSES",
+      "CURIA_SEARCH"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "dokumenty kredytowe",
+    "faq": [
+      {
+        "question": "Czy sama umowa wystarczy?",
+        "answer": "Zwykle nie. Potrzebne są regulaminy, aneksy, harmonogramy, historia spłat i faktyczne rozliczenia."
+      },
+      {
+        "question": "Jak zamówić zaświadczenie z banku?",
+        "answer": "Najpierw ustal zakres danych potrzebnych do analizy, aby dokument obejmował wypłaty, spłaty, kursy, prowizje i zmiany oprocentowania."
+      },
+      {
+        "question": "Czy można wysłać dokumenty zwykłym linkiem?",
+        "answer": "Nie jest to zalecane. Pakiet zawiera dane finansowe i osobowe, dlatego powinien trafić bezpiecznym, kontrolowanym kanałem."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-027",
+    "slug": "magazyn-energii-dla-firmy-oplacalnosc",
+    "title": "Magazyn energii dla firmy – kiedy inwestycja zaczyna się opłacać?",
+    "excerpt": "Opłacalność magazynu zależy od profilu zużycia, taryfy, mocy przyłączeniowej, PV, cen w czasie i możliwych usług – nie od samej pojemności baterii.",
+    "category": "Energia i inwestycje",
+    "tags": [
+      "magazyn energii",
+      "opłacalność",
+      "energia dla firm"
+    ],
+    "publishedAt": "2026-04-14",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Magazyn energii dla firmy – kiedy się opłaca?",
+    "seoDescription": "Sprawdź, jak policzyć opłacalność magazynu energii w firmie: profil 15-minutowy, autokonsumpcja PV, peak shaving, taryfy, degradacja i finansowanie.",
+    "canonicalUrl": "https://dealshare.pl/blog/magazyn-energii-dla-firmy-oplacalnosc",
+    "heroImage": "/blog/covers/magazyn-energii-dla-firmy-oplacalnosc.png",
+    "ogImage": "/blog/og/magazyn-energii-dla-firmy-oplacalnosc.png",
+    "imageAlt": "Przemysłowy magazyn energii połączony z firmą i instalacją PV",
+    "relatedSlugs": [
+      "finansowanie-farmy-fotowoltaicznej",
+      "projekt-energetyczny-dla-inwestora",
+      "bledy-przy-finansowaniu-farm-i-magazynow-energii"
+    ],
+    "ctaVariant": "energia",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "NFO_LARGE_STORAGE",
+      "EU_FUNDS_STORAGE_BUSINESS",
+      "URE",
+      "ENERGY_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "magazyn energii",
+    "faq": [
+      {
+        "question": "Czy magazyn zawsze zwiększa opłacalność fotowoltaiki?",
+        "answer": "Nie. Jeżeli firma zużywa produkcję na bieżąco, dodatkowa bateria może przynieść niewielką korzyść."
+      },
+      {
+        "question": "Jakie dane są najważniejsze?",
+        "answer": "Profil zużycia i produkcji w krótkich interwałach, faktury, taryfa, moc, warunki przyłączenia i koszt przerw."
+      },
+      {
+        "question": "Czy prosty okres zwrotu wystarczy?",
+        "answer": "Nie. Trzeba uwzględnić degradację, koszt kapitału, serwis, straty i scenariusze cenowe."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-028",
+    "slug": "finansowanie-farmy-fotowoltaicznej",
+    "title": "Finansowanie farmy fotowoltaicznej – kredyt, leasing czy inwestor?",
+    "excerpt": "Źródło kapitału zależy od etapu projektu, pozwoleń, przyłączenia, modelu sprzedaży energii, wkładu własnego i ryzyk budowy.",
+    "category": "Energia i inwestycje",
+    "tags": [
+      "farma fotowoltaiczna",
+      "finansowanie OZE",
+      "inwestor"
+    ],
+    "publishedAt": "2026-02-25",
+    "updatedAt": "2026-06-18",
+    "readingTime": 4,
+    "seoTitle": "Finansowanie farmy fotowoltaicznej – kredyt czy inwestor?",
+    "seoDescription": "Porównaj kredyt inwestycyjny, project finance, leasing, pożyczkę i inwestora dla farmy PV. Sprawdź wymagania bankowalności projektu.",
+    "canonicalUrl": "https://dealshare.pl/blog/finansowanie-farmy-fotowoltaicznej",
+    "heroImage": "/blog/covers/finansowanie-farmy-fotowoltaicznej.png",
+    "ogImage": "/blog/og/finansowanie-farmy-fotowoltaicznej.png",
+    "imageAlt": "Farma fotowoltaiczna finansowana przez bank i inwestora",
+    "relatedSlugs": [
+      "projekt-energetyczny-dla-inwestora",
+      "bledy-przy-finansowaniu-farm-i-magazynow-energii",
+      "magazyn-energii-dla-firmy-oplacalnosc"
+    ],
+    "ctaVariant": "energia",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "URE",
+      "PSE_CONNECTION",
+      "RES_ACT",
+      "ENERGY_LAW"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "farma fotowoltaiczna",
+    "faq": [
+      {
+        "question": "Czy bank sfinansuje projekt bez warunków przyłączenia?",
+        "answer": "Wczesny development rzadko jest finansowany klasycznym project finance. Zwykle wymaga kapitału sponsora lub inwestora."
+      },
+      {
+        "question": "Co najbardziej zwiększa bankowalność?",
+        "answer": "Zamknięte prawa do gruntu, przyłączenie, pozwolenia, wiarygodny EPC, model przychodów i odpowiedni wkład własny."
+      },
+      {
+        "question": "Czy inwestor jest droższy od kredytu?",
+        "answer": "Kapitał oczekuje wyższej stopy zwrotu, ale przejmuje ryzyko, którego bank często nie finansuje."
+      }
+    ],
+    "showUpdatedAt": true
+  },
+  {
+    "id": "ds-blog-029",
+    "slug": "projekt-energetyczny-dla-inwestora",
+    "title": "Jak przygotować projekt energetyczny do rozmowy z inwestorem?",
+    "excerpt": "Inwestor potrzebuje nie tylko prezentacji, lecz dowodów: praw do projektu, przyłączenia, pozwoleń, modelu, budżetu, zespołu i realistycznej wyceny.",
+    "category": "Energia i inwestycje",
+    "tags": [
+      "inwestor OZE",
+      "data room",
+      "projekt energetyczny"
+    ],
+    "publishedAt": "2026-06-24",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Jak przygotować projekt energetyczny dla inwestora?",
+    "seoDescription": "Zobacz, co powinien zawierać teaser, model finansowy i data room farmy PV lub magazynu energii przed rozmową z inwestorem.",
+    "canonicalUrl": "https://dealshare.pl/blog/projekt-energetyczny-dla-inwestora",
+    "heroImage": "/blog/covers/projekt-energetyczny-dla-inwestora.png",
+    "ogImage": "/blog/og/projekt-energetyczny-dla-inwestora.png",
+    "imageAlt": "Data room projektu energetycznego prezentowany inwestorowi",
+    "relatedSlugs": [
+      "finansowanie-farmy-fotowoltaicznej",
+      "bledy-przy-finansowaniu-farm-i-magazynow-energii",
+      "magazyn-energii-dla-firmy-oplacalnosc"
+    ],
+    "ctaVariant": "energia",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "URE",
+      "PSE_CONNECTION",
+      "NFO_LARGE_STORAGE",
+      "RES_ACT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "inwestor OZE",
+    "faq": [
+      {
+        "question": "Co powinno znaleźć się w teaserze?",
+        "answer": "Moc, lokalizacja, etap, grunt, przyłączenie, pozwolenia, CAPEX, model przychodów, struktura transakcji i główne ryzyka."
+      },
+      {
+        "question": "Czy można pokazać projekt bez pełnego data roomu?",
+        "answer": "Teaser może rozpocząć rozmowę, ale inwestor nie przejdzie do wiążącej decyzji bez dokumentów."
+      },
+      {
+        "question": "Jak wycenić projekt?",
+        "answer": "Według etapu, praw, zamkniętych ryzyk i przyszłych przepływów, nie wyłącznie sumy poniesionych kosztów."
+      }
+    ],
+    "showUpdatedAt": false
+  },
+  {
+    "id": "ds-blog-030",
+    "slug": "bledy-przy-finansowaniu-farm-i-magazynow-energii",
+    "title": "Najczęstsze błędy przy finansowaniu farm i magazynów energii",
+    "excerpt": "Najdroższe pomyłki to przecenianie przychodów, niedoszacowanie przyłącza i CAPEX, brak praw do projektu oraz model bez degradacji i wrażliwości.",
+    "category": "Energia i inwestycje",
+    "tags": [
+      "finansowanie OZE",
+      "błędy projektu",
+      "magazyn energii"
+    ],
+    "publishedAt": "2026-06-23",
+    "updatedAt": "2026-07-15",
+    "readingTime": 4,
+    "seoTitle": "Błędy przy finansowaniu farm PV i magazynów energii",
+    "seoDescription": "Poznaj błędy, które blokują finansowanie farm fotowoltaicznych i magazynów: przyłączenie, CAPEX, ceny, degradacja, pozwolenia, kontrakty i data room.",
+    "canonicalUrl": "https://dealshare.pl/blog/bledy-przy-finansowaniu-farm-i-magazynow-energii",
+    "heroImage": "/blog/covers/bledy-przy-finansowaniu-farm-i-magazynow-energii.png",
+    "ogImage": "/blog/og/bledy-przy-finansowaniu-farm-i-magazynow-energii.png",
+    "imageAlt": "Znaki ostrzegawcze przy projekcie farmy PV i magazynu energii",
+    "relatedSlugs": [
+      "finansowanie-farmy-fotowoltaicznej",
+      "projekt-energetyczny-dla-inwestora",
+      "magazyn-energii-dla-firmy-oplacalnosc"
+    ],
+    "ctaVariant": "energia",
+    "legalReviewRequired": true,
+    "reviewAfter": "2026-09-15",
+    "sources": [
+      "URE",
+      "PSE_CONNECTION",
+      "NFO_LARGE_STORAGE",
+      "ENERGY_LAW",
+      "RES_ACT"
+    ],
+    "status": "published",
+    "schemaType": "Article",
+    "searchIntent": "informational-commercial",
+    "primaryKeyword": "finansowanie OZE",
+    "faq": [
+      {
+        "question": "Jaki błąd najczęściej blokuje finansowanie?",
+        "answer": "Brak wiarygodnego przyłączenia lub niezgodność statusu projektu z deklarowanym etapem."
+      },
+      {
+        "question": "Dlaczego średnia cena energii jest złym założeniem dla PV?",
+        "answer": "Profil produkcji jest skoncentrowany w godzinach dużej podaży, więc cena uzyskana przez farmę może różnić się od średniej."
+      },
+      {
+        "question": "Czy dotacja zastępuje wkład własny?",
+        "answer": "Zależy od programu i struktury finansowania. Dotacja może być refundacyjna i wymagać wcześniejszego poniesienia kosztów."
+      }
+    ],
+    "showUpdatedAt": false
+  }
+]

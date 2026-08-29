@@ -1,0 +1,442 @@
+.home {
+  --home-black: #020711;
+  --home-panel: #07101d;
+  --home-line: rgba(0, 209, 209, 0.22);
+  background: #f4f8fb;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 209, 209, 0.28);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 209, 209, 0.18), transparent 35%),
+    linear-gradient(135deg, #001f4d 0%, #002b5c 100%);
+  color: white;
+}
+
+.hero::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 4%, #00d1d1 24%, rgba(217, 70, 239, 0.75) 52%, transparent 86%);
+  background-size: 180% 100%;
+  box-shadow: 0 0 18px rgba(0, 209, 209, 0.58);
+  animation: home-neon-sweep 8s linear infinite;
+  content: "";
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 680px;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 5rem;
+}
+
+.heroCopy {
+  position: relative;
+  padding-left: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.heroCopy::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #00d1d1 20%, rgba(217, 70, 239, 0.72) 78%, transparent);
+  box-shadow: 0 0 14px rgba(0, 209, 209, 0.42);
+  content: "";
+}
+
+.heroEyebrow,
+.sectionEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.heroEyebrow::before,
+.sectionEyebrow::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 auto;
+  background: #00d1d1;
+  box-shadow: 0 0 12px rgba(0, 209, 209, 0.78);
+  content: "";
+}
+
+.heroTitleAccent {
+  color: #00e5e5;
+  text-shadow: 0 0 28px rgba(0, 209, 209, 0.35);
+}
+
+.heroBlog {
+  position: relative;
+}
+
+.heroBlog::before {
+  position: absolute;
+  inset: -0.75rem auto -0.75rem -0.75rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(0, 209, 209, 0.75), rgba(217, 70, 239, 0.62), transparent);
+  box-shadow: 0 0 14px rgba(0, 209, 209, 0.45);
+  content: "";
+}
+
+.benefitSection {
+  position: relative;
+  border-bottom: 1px solid #dbe5ed;
+  background: #f4f8fb;
+}
+
+.benefitCard {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  border: 1px solid #d7e1e9;
+  border-top: 2px solid #00b8b8;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 1.5rem;
+  box-shadow: 0 16px 45px rgba(0, 31, 77, 0.055);
+}
+
+.benefitCard:nth-child(2n) {
+  border-top-color: #005bff;
+}
+
+.benefitCard:nth-child(3n) {
+  border-top-color: #d946ef;
+}
+
+.benefitCard::after {
+  position: absolute;
+  right: -2.5rem;
+  bottom: -3.5rem;
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid rgba(0, 209, 209, 0.11);
+  transform: rotate(45deg);
+  content: "";
+}
+
+.benefitIndex {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(0, 31, 77, 0.22);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.benefitIcon {
+  display: grid;
+  width: 4.25rem;
+  height: 4.25rem;
+  place-items: center;
+  border: 1px solid rgba(0, 166, 166, 0.18);
+  background: rgba(0, 166, 166, 0.045);
+  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+
+.benefitCard:hover .benefitIcon,
+.benefitCard:focus-within .benefitIcon {
+  border-color: rgba(0, 209, 209, 0.42);
+  background: rgba(0, 209, 209, 0.08);
+  transform: translateY(-3px);
+}
+
+.graphSection {
+  position: relative;
+  background: #020711;
+}
+
+.graphSection::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 209, 209, 0.55), transparent);
+  content: "";
+}
+
+.graphIntro {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.graphFootnote {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(0, 209, 209, 0.48);
+}
+
+.searchSection {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #dbe5ed;
+  background: #fff;
+}
+
+.searchSection::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: min(32vw, 28rem);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d946ef);
+  box-shadow: 0 0 14px rgba(217, 70, 239, 0.32);
+  content: "";
+}
+
+.searchSteps {
+  display: grid;
+  gap: 1px;
+  border: 1px solid #d8e2ea;
+  background: #d8e2ea;
+}
+
+.searchStep {
+  position: relative;
+  min-height: 9.5rem;
+  background: #f8fbfd;
+  padding: 1.4rem;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.searchStep:hover {
+  background: #07101d;
+  color: white;
+}
+
+.searchStep:hover h3 {
+  color: white;
+}
+
+.searchStep::after {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 2.25rem;
+  height: 1px;
+  background: #00d1d1;
+  box-shadow: 0 0 8px rgba(0, 209, 209, 0.7);
+  transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  content: "";
+}
+
+.searchStep:hover::after,
+.searchStep:focus-within::after {
+  width: 48%;
+}
+
+.scenarioSection {
+  position: relative;
+  overflow: hidden;
+  background: #050a13;
+  color: white;
+}
+
+.scenarioSection::before {
+  position: absolute;
+  inset: 0 auto 0 8%;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(0, 209, 209, 0.25), transparent);
+  content: "";
+}
+
+.scenarioGrid {
+  display: grid;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.scenarioCard {
+  position: relative;
+  min-height: 15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(7, 16, 29, 0.86);
+  padding: 1.5rem;
+  transition: background 220ms ease, border-color 220ms ease;
+}
+
+.scenarioCard:last-child {
+  border-bottom: 0;
+}
+
+.scenarioCard:hover {
+  background: rgba(9, 25, 41, 0.96);
+}
+
+.scenarioCard::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(180deg, #00d1d1, transparent 72%);
+  transition: width 240ms ease, box-shadow 240ms ease;
+  content: "";
+}
+
+.scenarioCard:hover::before,
+.scenarioCard:focus-within::before {
+  width: 4px;
+  box-shadow: 0 0 16px rgba(0, 209, 209, 0.48);
+}
+
+.scenarioCard:nth-child(2n)::before {
+  background: linear-gradient(180deg, #d946ef, transparent 72%);
+}
+
+.scenarioIndex {
+  color: #00d1d1;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 12px rgba(0, 209, 209, 0.56);
+}
+
+.offersSection {
+  position: relative;
+  border-bottom: 1px solid #dbe5ed;
+  background: #f4f8fb;
+}
+
+.offersSection::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, #00d1d1, transparent 35%, transparent 65%, #d946ef);
+  opacity: 0.58;
+  content: "";
+}
+
+.offersGrid :global(.offer-card) {
+  border-color: #d3dee7;
+  border-top: 2px solid #00b8b8;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 31, 77, 0.07);
+}
+
+.offersGrid :global(.offer-card:nth-child(2)) {
+  border-top-color: #005bff;
+}
+
+.offersGrid :global(.offer-card:nth-child(3)) {
+  border-top-color: #d946ef;
+}
+
+.partnerSection {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #d8e2ea;
+  background: white;
+}
+
+.partnerSection::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: clamp(0.25rem, 0.7vw, 0.65rem);
+  background: linear-gradient(180deg, #00d1d1, #005bff 52%, #d946ef);
+  box-shadow: 0 0 22px rgba(0, 209, 209, 0.26);
+  content: "";
+}
+
+.partnerLayout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  border-block: 1px solid #d8e2ea;
+  padding-block: 2.5rem;
+}
+
+@keyframes home-neon-sweep {
+  from {
+    background-position: 160% 50%;
+  }
+
+  to {
+    background-position: -160% 50%;
+  }
+}
+
+@media (min-width: 640px) {
+  .searchSteps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .searchStep:not(:last-child) {
+    border-right: 1px solid #d8e2ea;
+  }
+}
+
+@media (min-width: 768px) {
+  .scenarioGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scenarioCard:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .scenarioCard:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .graphIntro {
+    grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 0.6fr);
+    align-items: end;
+  }
+
+  .scenarioGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .scenarioCard,
+  .scenarioCard:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0;
+  }
+
+  .scenarioCard:last-child {
+    border-right: 0;
+  }
+
+  .partnerLayout {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .heroCopy {
+    padding-left: 1rem;
+  }
+
+  .benefitCard {
+    min-height: 0;
+  }
+
+  .searchStep {
+    min-height: 7.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after {
+    animation: none;
+  }
+
+  .benefitIcon,
+  .searchStep,
+  .searchStep::after,
+  .scenarioCard,
+  .scenarioCard::before {
+    transition: none;
+  }
+}

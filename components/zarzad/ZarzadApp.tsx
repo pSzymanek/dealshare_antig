@@ -494,7 +494,7 @@ export function ZarzadApp() {
               <button
                 type="button"
                 onClick={logout}
-                className="min-h-11 rounded-md border border-white/14 bg-white px-4 text-sm font-black text-navy transition hover:bg-white/90"
+                className="inline-flex h-11 items-center justify-center rounded-md border border-white/14 bg-white px-3.5 text-xs font-black text-navy transition hover:bg-white/90"
               >
                 Wyloguj
               </button>
@@ -1881,6 +1881,8 @@ function Info({ label, value }: { label: string; value: string }) {
 function InstallPwa() {
   const [promptEvent, setPromptEvent] = useState<any>(null);
   const [installed, setInstalled] = useState(false);
+  const [isIos, setIsIos] = useState(false);
+  const [showIosGuide, setShowIosGuide] = useState(false);
 
   useEffect(() => {
     function beforeInstall(e: Event) {
@@ -1896,9 +1898,14 @@ function InstallPwa() {
     window.addEventListener("beforeinstallprompt", beforeInstall);
     window.addEventListener("appinstalled", appInstalled);
 
-    if (window.matchMedia("(display-mode: standalone)").matches) {
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || Boolean((window.navigator as any).standalone);
+    if (isStandalone) {
       setInstalled(true);
     }
+
+    const ua = window.navigator.userAgent;
+    const isIosDevice = /iphone|ipad|ipod/i.test(ua);
+    setIsIos(isIosDevice);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", beforeInstall);
@@ -1906,22 +1913,56 @@ function InstallPwa() {
     };
   }, []);
 
-  if (installed || !promptEvent) return null;
+  if (installed) return null;
 
-  return (
-    <button
-      type="button"
-      onClick={async () => {
-        promptEvent.prompt();
-        const { outcome } = await promptEvent.userChoice;
-        if (outcome === "accepted") {
-          setInstalled(true);
-        }
-        setPromptEvent(null);
-      }}
-      className="min-h-11 rounded-md border border-cyan/40 bg-cyan/15 px-3 text-xs font-bold text-cyan transition hover:bg-cyan/25"
-    >
-      + Zainstaluj aplikację
-    </button>
-  );
+  if (promptEvent) {
+    return (
+      <button
+        type="button"
+        onClick={async () => {
+          promptEvent.prompt();
+          const { outcome } = await promptEvent.userChoice;
+          if (outcome === "accepted") {
+            setInstalled(true);
+          }
+          setPromptEvent(null);
+        }}
+        className="inline-flex h-11 items-center justify-center rounded-md border border-cyan/40 bg-cyan/15 px-3.5 text-xs font-black text-cyan transition hover:bg-cyan/25 whitespace-nowrap"
+      >
+        + Zainstaluj aplikację
+      </button>
+    );
+  }
+
+  if (isIos && !installed) {
+    return (
+      <div className="relative inline-flex items-center">
+        <button
+          type="button"
+          onClick={() => setShowIosGuide((prev) => !prev)}
+          className="inline-flex h-11 items-center justify-center rounded-md border border-cyan/40 bg-cyan/15 px-3.5 text-xs font-black text-cyan transition hover:bg-cyan/25 whitespace-nowrap"
+        >
+          📱 Zainstaluj (iPhone)
+        </button>
+        {showIosGuide ? (
+          <div className="absolute right-0 top-full mt-2 w-64 rounded-lg border border-white/16 bg-[#041738]/98 p-3 shadow-2xl backdrop-blur-xl z-50 text-left text-xs text-white">
+            <p className="font-bold text-cyan">Instalacja na iPhone:</p>
+            <p className="mt-1 text-slate-300">
+              1. Kliknij ikonę udostępnij na dole Safari (kwadrat ze strzałką ⎋).<br />
+              2. Wybierz <strong>„Do ekranu początkowego”</strong>.
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowIosGuide(false)}
+              className="mt-2 w-full rounded bg-white/10 py-1 text-[11px] font-bold text-white hover:bg-white/20"
+            >
+              Rozumiem
+            </button>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+
+  return null;
 }

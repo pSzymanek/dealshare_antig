@@ -1,4 +1,4 @@
-const CACHE_NAME = "dealshare-board-v6";
+const CACHE_NAME = "dealshare-board-v7";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -21,8 +21,8 @@ self.addEventListener("push", (event) => {
     const title = data.title || "Zarząd DS";
     const options = {
       body: data.body || "Nowe powiadomienie z panelu Zarządu",
-      icon: "/zarzad-icon-192.png",
-      badge: "/zarzad-icon-192.png",
+      icon: "/dealshare-sygnet-transparent.png",
+      badge: "/sygnet-white.png",
       vibrate: [200, 100, 200, 100, 200],
       tag: data.tag || "dealshare-push",
       renotify: true,

@@ -212,7 +212,7 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal-on-scroll {
+.has-scroll-animations .reveal-on-scroll {
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -243,7 +243,7 @@ body {
   transform: translateX(0);
 }
 
-.reveal-on-scroll.is-visible {
+.has-scroll-animations .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }

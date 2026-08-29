@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";
@@ -9,7 +9,11 @@ const edgePath = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
 
 await mkdir(path.join(projectRoot, ".local"), { recursive: true });
 
-// HTML template with white background and sygnet safely scaled down (58% size) so Android/iOS will never crop it
+// Read the uploaded perfect sygnet as base64
+const sygnetBuffer = await readFile(path.join(projectRoot, "public", "dealshare-sygnet-transparent.png"));
+const sygnetBase64 = `data:image/png;base64,${sygnetBuffer.toString("base64")}`;
+
+// HTML template with white background and the exact image scaled to a safe zone (58%)
 const html512 = `<!DOCTYPE html>
 <html>
 <head>
@@ -32,25 +36,17 @@ const html512 = `<!DOCTYPE html>
       align-items: center;
       justify-content: center;
     }
-    svg {
+    img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
       filter: drop-shadow(0 6px 16px rgba(0, 91, 255, 0.20));
     }
   </style>
 </head>
 <body>
   <div class="icon-wrapper">
-    <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M33 40L80 13L127 40V94L80 121L33 94V40Z" fill="url(#g)"/>
-      <path d="M57 55L90 36L107 51L73 70L105 70V89L72 108L55 93L88 74H57V55Z" fill="white"/>
-      <defs>
-        <linearGradient id="g" x1="37" y1="32" x2="125" y2="114" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#005BFF"/>
-          <stop offset="1" stop-color="#00D1D1"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <img src="${sygnetBase64}" alt="Sygnet" />
   </div>
 </body>
 </html>`;
@@ -77,25 +73,17 @@ const html192 = `<!DOCTYPE html>
       align-items: center;
       justify-content: center;
     }
-    svg {
+    img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
       filter: drop-shadow(0 3px 8px rgba(0, 91, 255, 0.20));
     }
   </style>
 </head>
 <body>
   <div class="icon-wrapper">
-    <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M33 40L80 13L127 40V94L80 121L33 94V40Z" fill="url(#g)"/>
-      <path d="M57 55L90 36L107 51L73 70L105 70V89L72 108L55 93L88 74H57V55Z" fill="white"/>
-      <defs>
-        <linearGradient id="g" x1="37" y1="32" x2="125" y2="114" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#005BFF"/>
-          <stop offset="1" stop-color="#00D1D1"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <img src="${sygnetBase64}" alt="Sygnet" />
   </div>
 </body>
 </html>`;
@@ -110,10 +98,10 @@ const out512 = path.join(projectRoot, "public", "zarzad-icon-512.png");
 const out192 = path.join(projectRoot, "public", "zarzad-icon-192.png");
 const outMaskable = path.join(projectRoot, "public", "zarzad-icon-maskable-512.png");
 
-console.log("Generowanie ikon PWA ze strefą bezpieczeństwa (safe-zone)...");
+console.log("Generowanie ikon PWA (Zarząd DS) ze strefą bezpieczeństwa...");
 
 await execAsync(`"${edgePath}" --headless --disable-gpu --window-size=512,512 --screenshot="${out512}" "${html512Path}"`);
 await execAsync(`"${edgePath}" --headless --disable-gpu --window-size=192,192 --screenshot="${out192}" "${html192Path}"`);
 await execAsync(`"${edgePath}" --headless --disable-gpu --window-size=512,512 --screenshot="${outMaskable}" "${html512Path}"`);
 
-console.log("Ikony wygenerowane pomyślnie!");
+console.log("Nowe ikony oparte na oryginalnym PNG zostały wygenerowane pomyślnie!");

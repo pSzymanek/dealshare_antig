@@ -5,8 +5,8 @@
   "start_url": "/zarzad",
   "scope": "/zarzad",
   "display": "standalone",
-  "background_color": "#041738",
-  "theme_color": "#041738",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/zarzad-icon-192.png",

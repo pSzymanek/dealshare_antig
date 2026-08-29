@@ -19,7 +19,7 @@ const htmlContent = `<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>DEALSHARE Board — Instrukcja Aktywacji</title>
+  <title>Zarząd dealshare — Instrukcja Aktywacji</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
@@ -50,7 +50,7 @@ const htmlContent = `<!DOCTYPE html>
     .header-hero {
       background: linear-gradient(135deg, #020711 0%, #041738 50%, #062b66 100%);
       color: #ffffff;
-      padding: 36px 40px 32px 40px;
+      padding: 34px 40px 30px 40px;
       position: relative;
       overflow: hidden;
       border-bottom: 3px solid #00f0ff;
@@ -71,7 +71,7 @@ const htmlContent = `<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .logo-img {
@@ -108,19 +108,19 @@ const htmlContent = `<!DOCTYPE html>
       font-weight: 500;
       color: rgba(255, 255, 255, 0.78);
       margin-top: 8px;
-      max-width: 600px;
+      max-width: 620px;
       line-height: 1.6;
     }
 
     .content-body {
-      padding: 28px 40px 32px 40px;
+      padding: 26px 40px 30px 40px;
     }
 
     .steps-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .step-card {
@@ -260,12 +260,12 @@ const htmlContent = `<!DOCTYPE html>
     <div class="brand-row">
       <img src="${logoBase64}" alt="dealshare" class="logo-img">
       <div class="badge-board">
-        <span>●</span> Wewnętrzny Panel Zarządu
+        <span>●</span> Aplikacja: Zarząd dealshare
       </div>
     </div>
-    <h1 class="header-title">Instrukcja Aktywacji DEALSHARE Board</h1>
+    <h1 class="header-title">Instrukcja Aktywacji Aplikacji Zarządu</h1>
     <p class="header-subtitle">
-      Prosty przewodnik konfiguracji panelu na smartfonie, instalacji aplikacji mobilnej oraz włączenia natywnych powiadomień Push w tle.
+      Konfiguracja panelu na smartfonie, instalacja aplikacji mobilnej oraz włączenie natywnych powiadomień Push w tle (działających również przy zamkniętej aplikacji).
     </p>
   </header>
 
@@ -279,7 +279,7 @@ const htmlContent = `<!DOCTYPE html>
           <h2 class="step-title">Wejście do Panelu</h2>
         </div>
         <p class="step-desc">
-          Otwórz przeglądarkę w telefonie (Chrome lub Safari) i wejdź pod adres panelu:
+          Otwórz przeglądarkę w telefonie (Chrome lub Safari) i wejdź pod oficjalny adres:
         </p>
         <div class="highlight-box">
           👉 <strong>https://dealshare.pl/zarzad</strong>
@@ -332,7 +332,7 @@ const htmlContent = `<!DOCTYPE html>
           </p>
         </div>
         <p class="step-desc" style="margin-top: 8px; font-weight: 700; color: #041738;">
-          Ikonka Dealshare Board pojawi się na Twoim pulpicie.
+          Ikonka <strong>„Zarząd dealshare”</strong> pojawi się na Twoim pulpicie.
         </p>
       </div>
 
@@ -343,13 +343,13 @@ const htmlContent = `<!DOCTYPE html>
           <h2 class="step-title">Włączenie Powiadomień Push</h2>
         </div>
         <p class="step-desc">
-          1. W górnym pasku kliknij: <strong>🔔 Włącz powiadomienia na telefonie</strong>.
+          1. W górnym pasku kliknij: <strong>🔔 Włącz powiadomienia</strong> &rarr; <strong>„Zezwalaj”</strong>.
         </p>
-        <p class="step-desc" style="margin-top: 4px;">
-          2. Gdy telefon wyświetli okno dialogowe, kliknij <strong>„Zezwalaj”</strong>.
+        <p class="step-desc" style="margin-top: 5px;">
+          2. Po włączeniu pojawi się element <strong>🟢 Powiadomienia aktywne ▾</strong>.
         </p>
-        <p class="step-desc" style="margin-top: 4px;">
-          3. Kliknij <strong>„🔔 Wyślij test”</strong> i zablokuj telefon, aby sprawdzić wibrację i komunikat na ekranie blokady!
+        <p class="step-desc" style="margin-top: 5px;">
+          3. Kliknij w ten status, wybierz <strong>🔔 Wyślij test na telefon</strong> i zablokuj telefon, aby sprawdzić wibrację i komunikat!
         </p>
       </div>
 
@@ -383,10 +383,16 @@ const tempHtmlPath = path.join(projectRoot, ".local", "instrukcja_zarzadu.html")
 await writeFile(tempHtmlPath, htmlContent, "utf8");
 
 const outputPdfExport = path.join(projectRoot, "export", "DEALSHARE_Board_Instrukcja.pdf");
+const artifactDir = "C:\\Users\\poczt\\.gemini\\antigravity\\brain\\a8e31ec7-50ef-45d8-a2fd-e5fe390a129e";
+const outputPdfArtifact = path.join(artifactDir, "DEALSHARE_Board_Instrukcja.pdf");
 
-console.log("Generowanie lokalnego PDF do folderu export/...");
+console.log("Generowanie zaktualizowanego PDF do folderu export/...");
 
 const command = `"${edgePath}" --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf="${outputPdfExport}" --no-pdf-header-footer "${tempHtmlPath}"`;
 
 await execAsync(command);
+
+const pdfBuffer = await readFile(outputPdfExport);
+await writeFile(outputPdfArtifact, pdfBuffer).catch(() => {});
+
 console.log("Wygenerowano wyłącznie lokalnie w:", outputPdfExport);

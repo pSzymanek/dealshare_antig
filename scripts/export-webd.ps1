@@ -85,6 +85,11 @@ try {
             Copy-Item -LiteralPath (Join-Path $projectRoot $_) -Destination $exportDir
         }
 
+        $localEnv = Join-Path $projectRoot ".env.local"
+        if (Test-Path -LiteralPath $localEnv) {
+            Copy-Item -LiteralPath $localEnv -Destination (Join-Path $exportDir ".env")
+        }
+
         @'
 omit=dev
 audit=false
@@ -93,25 +98,11 @@ loglevel=notice
 '@ | Set-Content -LiteralPath (Join-Path $exportDir ".npmrc") -Encoding ASCII
 
         @'
-Ten folder zawiera aktualna paczke do wgrania na hosting Node/Next.
+Ten folder zawiera gotowa paczke produkcyjna DEALSHARE.
 
-Wgraj plik `dealshare-webd.zip` na serwer i rozpakuj go w katalogu aplikacji.
-Archiwum zawiera:
-- `.next`
-- `content`
-- `private`
-- `public`
-- `package.json`
-- `package-lock.json`
-- `next.config.mjs`
-- `server.js`
-- `.npmrc`, ktory ogranicza instalacje na serwerze do zaleznosci produkcyjnych
-- `.env.example` jako wzor wymaganych zmiennych
-
-Prawdziwe zmienne srodowiskowe pozostaja skonfigurowane osobno w aplikacji Node na hostingu.
-Do panelu zarzadu wymagane sa takze zmienne Supabase z `.env.example`.
-Po rozpakowaniu kliknij `npm install` tylko raz i poczekaj na zakonczenie instalacji.
-Nastepnie uruchom lub zrestartuj aplikacje w panelu hostingu.
+Plik `.env` jest juz dolaczony i wstepnie skonfigurowany pod Wasz projekt Supabase.
+Wystarczy wrzucic plik `dealshare-webd.zip` na hosting, rozpakowac go,
+kliknac `npm install` w panelu Node i uruchomic aplikacje.
 '@ | Set-Content -LiteralPath (Join-Path $exportDir "README.md") -Encoding UTF8
     }
 

@@ -22,17 +22,25 @@ export function OfferCard({ offer, className = "" }: OfferCardProps) {
   const isClosed = isOfferClosed(offer);
 
   return (
-    <article className={`card-glass offer-card soft-lift group flex min-h-full flex-col rounded-lg border bg-white p-6 shadow-sm hover:shadow-card ${isClosed ? "border-slate-300/80 opacity-90 hover:border-slate-400" : "border-slate-200 hover:border-electric/30"} ${className}`}>
+    <article
+      className={`card-glass offer-card soft-lift group relative flex h-full flex-col rounded-lg border bg-white p-6 shadow-sm hover:shadow-card ${
+        isClosed ? "border-slate-300/80 opacity-90 hover:border-slate-400" : "border-slate-200 hover:border-electric/30"
+      } ${className}`}
+    >
       <div className="pointer-events-none !absolute right-4 top-4 !z-0 h-20 w-20 bg-[url('/sygnet.png')] bg-contain bg-center bg-no-repeat opacity-[0.035] transition group-hover:opacity-[0.08]" />
       {icon ? (
-        <Image
-          src={icon}
-          alt=""
-          width={offer.slug === "yamura-pro" ? 260 : 72}
-          height={72}
-          className={`offer-card-icon relative object-contain ${offer.slug === "yamura-pro" ? "h-auto w-40" : "h-16 w-16"}`}
-        />
-      ) : null}
+        <div className="relative flex h-16 items-center">
+          <Image
+            src={icon}
+            alt=""
+            width={offer.slug === "yamura-pro" ? 260 : 72}
+            height={72}
+            className={`offer-card-icon object-contain ${offer.slug === "yamura-pro" ? "h-auto max-h-11 w-36 sm:w-40" : "h-16 w-16"}`}
+          />
+        </div>
+      ) : (
+        <div className="h-16" />
+      )}
 
       <div className="relative mt-4 flex items-start justify-between gap-4">
         <div className="flex flex-wrap gap-2">
@@ -56,7 +64,7 @@ export function OfferCard({ offer, className = "" }: OfferCardProps) {
         )}
       </div>
 
-      <div className="relative flex flex-col">
+      <div className="relative flex flex-1 flex-col">
         <h3 className="mt-5 text-xl font-black tracking-tight text-navy">{offer.title}</h3>
         <p className="mt-2 text-base font-black leading-7 text-ink">{offer.headline}</p>
         <p className="mt-3 text-sm leading-7 text-slate-600">{offer.description}</p>
@@ -71,7 +79,7 @@ export function OfferCard({ offer, className = "" }: OfferCardProps) {
         </ul>
       </div>
 
-      <div className="relative mt-auto flex flex-col pt-6">
+      <div className="relative mt-auto pt-6">
         <Link href={`/oferty/${offer.slug}`} className="arrow-link inline-flex text-sm font-bold text-electric transition hover:text-teal">
           {isClosed ? "Zobacz archiwalną ofertę" : "Sprawdź szczegóły"}
           <span aria-hidden="true" className="arrow-mark ml-2">

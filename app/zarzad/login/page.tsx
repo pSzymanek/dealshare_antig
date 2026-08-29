@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ZarzadLogin } from "@/components/zarzad/ZarzadLogin";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Logowanie do panelu zarządu",
   robots: {

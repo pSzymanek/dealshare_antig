@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ZarzadApp } from "@/components/zarzad/ZarzadApp";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Panel zarządu",
   description: "Wewnętrzna aplikacja zarządcza dealshare.",

@@ -7,17 +7,17 @@ declare global {
   }
 }
 
+export function isZarzadSupabaseConfigured(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
 export function createZarzadSupabaseClient(): SupabaseClient {
   if (typeof window !== "undefined" && window.__dealshareBoardSupabase) {
     return window.__dealshareBoardSupabase;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error("Brakuje konfiguracji Supabase dla panelu zarządu.");
-  }
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder-dealshare.supabase.co";
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.placeholder";
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     auth: {

@@ -85,6 +85,16 @@ export function MobileMenu() {
               </div>
 
               <nav className="relative z-10 mt-6 grid gap-2.5 sm:mt-8 sm:gap-3" aria-label="Nawigacja mobilna">
+                <Link
+                  href="/"
+                  onClick={handleNavClick("/")}
+                  className="group flex items-center justify-between rounded-lg border border-white/15 bg-white/[0.06] px-4 py-3 text-base font-bold text-white transition duration-200 hover:border-cyan/50 hover:bg-cyan/10 hover:text-cyan active:scale-[0.99]"
+                >
+                  <span>Strona główna</span>
+                  <span aria-hidden="true" className="text-cyan transition group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
                 {siteConfig.nav.map((item) => (
                   <Link
                     key={item.href}

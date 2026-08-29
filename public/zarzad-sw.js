@@ -1,5 +1,5 @@
-const CACHE_NAME = "dealshare-board-v2";
-const APP_SHELL = ["/zarzad-manifest.webmanifest", "/sygnet.png", "/sygnet-white.png"];
+const CACHE_NAME = "dealshare-board-v3";
+const APP_SHELL = ["/zarzad-manifest.webmanifest", "/sygnet.png", "/sygnet-white.png", "/logo-dark.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -44,5 +44,49 @@ self.addEventListener("fetch", (event) => {
         throw new Error("Offline asset not available.");
       })
     )
+  );
+});
+
+// Push notification received in background / closed browser
+self.addEventListener("push", (event) => {
+  if (!event.data) return;
+
+  try {
+    const data = event.data.json();
+    const title = data.title || "DEALSHARE Board";
+    const options = {
+      body: data.body || "Nowe powiadomienie z panelu Zarządu",
+      icon: "/sygnet-white.png",
+      badge: "/sygnet-white.png",
+      vibrate: [200, 100, 200, 100, 200],
+      tag: data.tag || "dealshare-push",
+      renotify: true,
+      data: {
+        url: data.url || "/zarzad"
+      }
+    };
+
+    event.waitUntil(self.registration.showNotification(title, options));
+  } catch (error) {
+    console.error("Błąd parsowania powiadomienia push:", error);
+  }
+});
+
+// User clicks notification on lock screen or notification tray
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const targetUrl = event.notification.data?.url || "/zarzad";
+
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((windowClients) => {
+      for (const client of windowClients) {
+        if (client.url.includes("/zarzad") && "focus" in client) {
+          return client.focus();
+        }
+      }
+      if (self.clients.openWindow) {
+        return self.clients.openWindow(targetUrl);
+      }
+    })
   );
 });

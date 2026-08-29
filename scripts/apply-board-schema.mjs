@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { Client } from "pg";
 
@@ -33,9 +33,10 @@ if (!projectRef || !dbPassword) {
   throw new Error("Brakuje SUPABASE_PROJECT_REF albo SUPABASE_DB_PASSWORD w .env.local.");
 }
 
-const migrationPath = path.join(projectRoot, "supabase", "migrations", "20260828143000_create_board_panel.sql");
-const sql = await readFile(migrationPath, "utf8");
-const connectionString = `postgresql://postgres:${encodeURIComponent(dbPassword)}@db.${projectRef}.supabase.co:5432/postgres`;
+const migrationsDir = path.join(projectRoot, "supabase", "migrations");
+const migrationFiles = (await readdir(migrationsDir)).filter((file) => file.endsWith(".sql")).sort();
+
+const connectionString = `postgresql://postgres.${projectRef}:${encodeURIComponent(dbPassword)}@aws-0-eu-central-1.pooler.supabase.com:6543/postgres`;
 
 const client = new Client({
   connectionString,
@@ -47,8 +48,13 @@ const client = new Client({
 await client.connect();
 
 try {
-  await client.query(sql);
-  console.log("Board schema applied.");
+  for (const file of migrationFiles) {
+    const filePath = path.join(migrationsDir, file);
+    const sql = await readFile(filePath, "utf8");
+    console.log(`Stosowanie migracji: ${file}...`);
+    await client.query(sql);
+  }
+  console.log("Wszystkie schematy bazy danych zostały pomyślnie wdrożone w Supabase!");
 } finally {
   await client.end();
 }

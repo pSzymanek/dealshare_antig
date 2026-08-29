@@ -5,6 +5,7 @@ import type { FormEvent, ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { ZarzadLogin } from "@/components/zarzad/ZarzadLogin";
+import { ZarzadPushManager } from "@/components/zarzad/ZarzadPushManager";
 import { createZarzadSupabaseClient } from "@/lib/zarzad-supabase";
 
 type TabId = "dashboard" | "calendar" | "tasks" | "notes" | "announcements" | "mail" | "chat";
@@ -414,6 +415,27 @@ export function ZarzadApp() {
   const pinnedNotes = notes.filter((note) => note.is_pinned).slice(0, 4);
   const pinnedAnnouncements = announcements.filter((announcement) => announcement.is_pinned).slice(0, 4);
 
+  const broadcastPush = useCallback(
+    async (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => {
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData.session?.access_token;
+        if (!token) return;
+        fetch("/api/zarzad/push/broadcast", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({ type, ...data })
+        }).catch((e) => console.error("Push broadcast error:", e));
+      } catch (err) {
+        console.error("Push broadcast error:", err);
+      }
+    },
+    [supabase]
+  );
+
   const commonProps = {
     supabase,
     currentUserId,
@@ -422,7 +444,8 @@ export function ZarzadApp() {
     reload: loadBoard,
     onError: setNotice,
     targetItemId,
-    clearTarget: () => setTargetItemId(null)
+    clearTarget: () => setTargetItemId(null),
+    broadcastPush
   };
 
   const activeView =
@@ -465,7 +488,8 @@ export function ZarzadApp() {
                 <p className="mt-1 text-sm font-semibold text-white/68">{session.user.email}</p>
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <ZarzadPushManager supabase={supabase} />
               <InstallPwa />
               <button
                 type="button"
@@ -850,7 +874,8 @@ function TasksView({
   reload,
   onError,
   tasks,
-  targetItemId
+  targetItemId,
+  broadcastPush
 }: {
   supabase: ReturnType<typeof createZarzadSupabaseClient>;
   currentUserId: string;
@@ -860,6 +885,7 @@ function TasksView({
   onError: (message: string) => void;
   tasks: BoardTask[];
   targetItemId?: string | null;
+  broadcastPush?: (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => Promise<void>;
 }) {
   const [draft, setDraft] = useState({ title: "", description: "", priority: "medium" as TaskPriority, due_at: "", assigned_to: "" });
   const [filterStatus, setFilterStatus] = useState<"all" | TaskStatus>("all");
@@ -890,6 +916,9 @@ function TasksView({
     if (error) {
       onError(error.message);
       return;
+    }
+    if (draft.assigned_to) {
+      broadcastPush?.("task_assigned", { title: draft.title, targetUserId: draft.assigned_to });
     }
     setDraft({ title: "", description: "", priority: "medium", due_at: "", assigned_to: "" });
     await reload();
@@ -1524,7 +1553,8 @@ function AnnouncementsView({
   reload,
   onError,
   announcements,
-  targetItemId
+  targetItemId,
+  broadcastPush
 }: {
   supabase: ReturnType<typeof createZarzadSupabaseClient>;
   currentUserId: string;
@@ -1533,6 +1563,7 @@ function AnnouncementsView({
   onError: (message: string) => void;
   announcements: BoardAnnouncement[];
   targetItemId?: string | null;
+  broadcastPush?: (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => Promise<void>;
 }) {
   const [draft, setDraft] = useState({ title: "", body: "", priority: "important" as AnnouncementPriority, is_pinned: true });
 
@@ -1550,6 +1581,9 @@ function AnnouncementsView({
     if (error) {
       onError(error.message);
       return;
+    }
+    if (draft.priority === "critical" || draft.priority === "important") {
+      broadcastPush?.("announcement", { title: draft.title, body: draft.body });
     }
     setDraft({ title: "", body: "", priority: "important", is_pinned: true });
     await reload();
@@ -1647,7 +1681,8 @@ function ChatView({
   profileName,
   reload,
   onError,
-  messages
+  messages,
+  broadcastPush
 }: {
   supabase: ReturnType<typeof createZarzadSupabaseClient>;
   currentUserId: string;
@@ -1655,6 +1690,7 @@ function ChatView({
   reload: () => Promise<void>;
   onError: (message: string) => void;
   messages: ChatMessage[];
+  broadcastPush?: (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => Promise<void>;
 }) {
   const [body, setBody] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -1673,6 +1709,7 @@ function ChatView({
       onError(error.message);
       return;
     }
+    broadcastPush?.("chat", { body: cleanBody });
     await reload();
   }
 

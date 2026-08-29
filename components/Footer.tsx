@@ -11,7 +11,7 @@ export function Footer() {
         <div className="relative">
           <Image src="/logo-dark.png" alt="dealshare" width={480} height={179} className="h-14 w-auto sm:h-16" />
           <p className="mt-5 max-w-md text-sm leading-7 text-white/68">
-            Platforma B2B pomagająca firmom przejść od realnej potrzeby do właściwego rozwiązania, partnera albo kolejnego kroku.
+            Przychodzisz z potrzebą, wychodzisz z rozwiązaniem.
           </p>
         </div>
         <div className="relative">

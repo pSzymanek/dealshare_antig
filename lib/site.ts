@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "dealshare",
   url: "https://dealshare.pl",
-  description: "Platforma B2B pomagająca firmom przejść od potrzeby do właściwego rozwiązania, partnera albo kolejnego kroku.",
+  description: "Przychodzisz z potrzebą, wychodzisz z rozwiązaniem.",
   nav: [
     { label: "Dla Ciebie", href: "/oferty" },
     { label: "Jak działamy", href: "/#jak-dziala" },

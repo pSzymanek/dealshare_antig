@@ -2,6 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $exportDir = Join-Path $projectRoot "export"
+$stagingDir = Join-Path $projectRoot ".local\staging-export"
 $zipPath = Join-Path $exportDir "dealshare-webd.zip"
 $temporaryZip = Join-Path $projectRoot "dealshare-webd.tmp.zip"
 
@@ -55,11 +56,16 @@ try {
             Remove-Item -LiteralPath $exportDir -Recurse -Force
         }
 
+        if (Test-Path -LiteralPath $stagingDir) {
+            Remove-Item -LiteralPath $stagingDir -Recurse -Force
+        }
+
         if (Test-Path -LiteralPath $temporaryZip) {
             Remove-Item -LiteralPath $temporaryZip -Force
         }
 
         New-Item -ItemType Directory -Path $exportDir | Out-Null
+        New-Item -ItemType Directory -Path $stagingDir | Out-Null
     }
 
     Run-Step "Budowanie aplikacji Next.js" {
@@ -70,10 +76,10 @@ try {
     }
 
     Run-Step "Kopiowanie plikow aplikacji" {
-        Copy-Item -LiteralPath (Join-Path $projectRoot ".next") -Destination $exportDir -Recurse
-        Copy-Item -LiteralPath (Join-Path $projectRoot "content") -Destination $exportDir -Recurse
-        Copy-Item -LiteralPath (Join-Path $projectRoot "private") -Destination $exportDir -Recurse
-        Copy-Item -LiteralPath (Join-Path $projectRoot "public") -Destination $exportDir -Recurse
+        Copy-Item -LiteralPath (Join-Path $projectRoot ".next") -Destination $stagingDir -Recurse
+        Copy-Item -LiteralPath (Join-Path $projectRoot "content") -Destination $stagingDir -Recurse
+        Copy-Item -LiteralPath (Join-Path $projectRoot "private") -Destination $stagingDir -Recurse
+        Copy-Item -LiteralPath (Join-Path $projectRoot "public") -Destination $stagingDir -Recurse
 
         @(
             ".env.example"
@@ -82,11 +88,12 @@ try {
             "package.json"
             "server.js"
         ) | ForEach-Object {
-            Copy-Item -LiteralPath (Join-Path $projectRoot $_) -Destination $exportDir
+            Copy-Item -LiteralPath (Join-Path $projectRoot $_) -Destination $stagingDir
         }
 
         $localEnv = Join-Path $projectRoot ".env.local"
         if (Test-Path -LiteralPath $localEnv) {
+            Copy-Item -LiteralPath $localEnv -Destination (Join-Path $stagingDir ".env")
             Copy-Item -LiteralPath $localEnv -Destination (Join-Path $exportDir ".env")
         }
 
@@ -95,7 +102,7 @@ omit=dev
 audit=false
 fund=false
 loglevel=notice
-'@ | Set-Content -LiteralPath (Join-Path $exportDir ".npmrc") -Encoding ASCII
+'@ | Set-Content -LiteralPath (Join-Path $stagingDir ".npmrc") -Encoding ASCII
 
         @'
 Ten folder zawiera gotowa paczke produkcyjna DEALSHARE.
@@ -107,8 +114,13 @@ kliknac `npm install` w panelu Node i uruchomic aplikacje.
     }
 
     Run-Step "Tworzenie archiwum dealshare-webd.zip" {
-        New-ZipArchive -SourceDirectory $exportDir -DestinationPath $temporaryZip
+        New-ZipArchive -SourceDirectory $stagingDir -DestinationPath $temporaryZip
         Move-Item -LiteralPath $temporaryZip -Destination $zipPath
+        Remove-Item -LiteralPath $stagingDir -Recurse -Force
+    }
+
+    Run-Step "Generowanie lokalnej instrukcji PDF dla zarzadu" {
+        & node scripts/generate-board-pdf.mjs
     }
 
     $zipSizeMb = [math]::Round((Get-Item -LiteralPath $zipPath).Length / 1MB, 2)
@@ -116,10 +128,14 @@ kliknac `npm install` w panelu Node i uruchomic aplikacje.
     Write-Host "`nExport gotowy:" -ForegroundColor Green
     Write-Host "Folder: $exportDir"
     Write-Host "ZIP:    $zipPath ($zipSizeMb MB)"
+    Write-Host "PDF:    $exportDir\DEALSHARE_Board_Instrukcja.pdf (tylko lokalnie)"
 }
 catch {
     if (Test-Path -LiteralPath $temporaryZip) {
         Remove-Item -LiteralPath $temporaryZip -Force
+    }
+    if (Test-Path -LiteralPath $stagingDir) {
+        Remove-Item -LiteralPath $stagingDir -Recurse -Force
     }
 
     Write-Error $_

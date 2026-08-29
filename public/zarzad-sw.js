@@ -1,4 +1,4 @@
-const CACHE_NAME = "dealshare-board-v3";
+const CACHE_NAME = "dealshare-board-v4";
 const APP_SHELL = ["/zarzad-manifest.webmanifest", "/sygnet.png", "/sygnet-white.png", "/logo-dark.png"];
 
 self.addEventListener("install", (event) => {
@@ -15,11 +15,16 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+// Pass-through fetch with safe cache fallback for static shell assets
 self.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
 
+  if (event.request.method !== "GET" || requestUrl.origin !== self.location.origin) {
+    return;
+  }
+
+  // Never intercept navigation, dynamic Next.js bundles, or API calls
   if (
-    requestUrl.origin !== self.location.origin ||
     event.request.mode === "navigate" ||
     requestUrl.pathname.startsWith("/api/") ||
     requestUrl.pathname.startsWith("/_next/")
@@ -28,22 +33,15 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    fetch(event.request).then((response) => {
-      if (response.ok) {
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
-      }
-
-      return response;
-    }).catch(() =>
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
+    fetch(event.request)
+      .then((response) => {
+        if (response.ok) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
         }
-
-        throw new Error("Offline asset not available.");
+        return response;
       })
-    )
+      .catch(() => caches.match(event.request))
   );
 });
 

@@ -9,13 +9,11 @@ const projectRoot = process.cwd();
 const edgePath = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 
 await mkdir(path.join(projectRoot, ".local"), { recursive: true });
+await mkdir(path.join(projectRoot, "export"), { recursive: true });
 
 // Read logo as base64
 const logoBuffer = await readFile(path.join(projectRoot, "public", "logo-dark.png"));
 const logoBase64 = `data:image/png;base64,${logoBuffer.toString("base64")}`;
-
-const sygnetBuffer = await readFile(path.join(projectRoot, "public", "sygnet-white.png"));
-const sygnetBase64 = `data:image/png;base64,${sygnetBuffer.toString("base64")}`;
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="pl">
@@ -384,21 +382,11 @@ const htmlContent = `<!DOCTYPE html>
 const tempHtmlPath = path.join(projectRoot, ".local", "instrukcja_zarzadu.html");
 await writeFile(tempHtmlPath, htmlContent, "utf8");
 
-const outputPdfPublic = path.join(projectRoot, "public", "DEALSHARE_Board_Instrukcja.pdf");
 const outputPdfExport = path.join(projectRoot, "export", "DEALSHARE_Board_Instrukcja.pdf");
-const artifactDir = "C:\\Users\\poczt\\.gemini\\antigravity\\brain\\a8e31ec7-50ef-45d8-a2fd-e5fe390a129e";
-const outputPdfArtifact = path.join(artifactDir, "DEALSHARE_Board_Instrukcja.pdf");
 
-console.log("Generowanie PDF za pomocą Microsoft Edge...");
+console.log("Generowanie lokalnego PDF do folderu export/...");
 
-const command = `"${edgePath}" --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf="${outputPdfPublic}" --no-pdf-header-footer "${tempHtmlPath}"`;
+const command = `"${edgePath}" --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf="${outputPdfExport}" --no-pdf-header-footer "${tempHtmlPath}"`;
 
 await execAsync(command);
-console.log("Wygenerowano:", outputPdfPublic);
-
-// Copy to export and artifact
-const pdfBuffer = await readFile(outputPdfPublic);
-await writeFile(outputPdfExport, pdfBuffer).catch(() => {});
-await writeFile(outputPdfArtifact, pdfBuffer).catch(() => {});
-
-console.log("PDF pomyślnie skopiowany do export/ oraz katalogu artefaktów!");
+console.log("Wygenerowano wyłącznie lokalnie w:", outputPdfExport);

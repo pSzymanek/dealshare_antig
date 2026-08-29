@@ -382,6 +382,27 @@ export function ZarzadApp() {
     loadBoard();
   }, [session, loadBoard]);
 
+  const broadcastPush = useCallback(
+    async (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => {
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData.session?.access_token;
+        if (!token) return;
+        fetch("/api/zarzad/push/broadcast", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({ type, ...data })
+        }).catch((e) => console.error("Push broadcast error:", e));
+      } catch (err) {
+        console.error("Push broadcast error:", err);
+      }
+    },
+    [supabase]
+  );
+
   async function logout() {
     await supabase.auth.signOut();
     setSession(null);
@@ -414,27 +435,6 @@ export function ZarzadApp() {
   const upcomingEvents = events.filter((event) => new Date(event.starts_at).getTime() >= now - 1000 * 60 * 60);
   const pinnedNotes = notes.filter((note) => note.is_pinned).slice(0, 4);
   const pinnedAnnouncements = announcements.filter((announcement) => announcement.is_pinned).slice(0, 4);
-
-  const broadcastPush = useCallback(
-    async (type: string, data: { title?: string; body?: string; targetUserId?: string; url?: string }) => {
-      try {
-        const { data: sessionData } = await supabase.auth.getSession();
-        const token = sessionData.session?.access_token;
-        if (!token) return;
-        fetch("/api/zarzad/push/broadcast", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          body: JSON.stringify({ type, ...data })
-        }).catch((e) => console.error("Push broadcast error:", e));
-      } catch (err) {
-        console.error("Push broadcast error:", err);
-      }
-    },
-    [supabase]
-  );
 
   const commonProps = {
     supabase,

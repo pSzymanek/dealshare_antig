@@ -5,9 +5,10 @@ node_modules/
 .next/
 out/
 
-# production
+# production & export
 build/
 export/
+*.pdf
 
 # env files
 .env

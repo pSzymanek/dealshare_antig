@@ -1,24 +1,30 @@
 {
-  "name": "dealshare board",
-  "short_name": "dealshare",
-  "description": "Wewnetrzna aplikacja zarzadcza dealshare.",
+  "name": "Zarząd dealshare",
+  "short_name": "Zarząd dealshare",
+  "description": "Wewnętrzna aplikacja zarządcza dealshare.",
   "start_url": "/zarzad",
   "scope": "/zarzad",
   "display": "standalone",
-  "background_color": "#f7fbff",
-  "theme_color": "#001F4D",
+  "background_color": "#041738",
+  "theme_color": "#041738",
   "icons": [
     {
-      "src": "/sygnet.png",
+      "src": "/zarzad-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/sygnet.png",
+      "src": "/zarzad-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/zarzad-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

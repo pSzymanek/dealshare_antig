@@ -1,5 +1,5 @@
-const CACHE_NAME = "dealshare-board-v4";
-const APP_SHELL = ["/zarzad-manifest.webmanifest", "/sygnet.png", "/sygnet-white.png", "/logo-dark.png"];
+const CACHE_NAME = "dealshare-board-v5";
+const APP_SHELL = ["/zarzad-manifest.webmanifest", "/zarzad-icon-192.png", "/zarzad-icon-512.png", "/zarzad-icon-maskable-512.png", "/sygnet-white.png", "/logo-dark.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

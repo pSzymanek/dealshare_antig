@@ -32,30 +32,56 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
 
   const syncSubscriptionToServer = useCallback(
     async (subscription: PushSubscription) => {
-      const token = await getAuthToken();
-      if (!token) return false;
-
       const subJson = subscription.toJSON();
       if (!subJson.endpoint || !subJson.keys?.p256dh || !subJson.keys?.auth) {
         return false;
       }
 
-      const response = await fetch("/api/zarzad/push/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          endpoint: subJson.endpoint,
-          keys: subJson.keys,
-          userAgent: typeof navigator !== "undefined" ? navigator.userAgent : ""
-        })
-      });
+      // 1. Save directly via Supabase Auth client (instant & reliable)
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const userId = sessionData.session?.user.id;
+        if (userId) {
+          await supabase.from("board_push_subscriptions").upsert(
+            {
+              user_id: userId,
+              endpoint: subJson.endpoint,
+              p256dh: subJson.keys.p256dh,
+              auth: subJson.keys.auth,
+              user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
+              updated_at: new Date().toISOString()
+            },
+            { onConflict: "endpoint" }
+          );
+        }
+      } catch (e) {
+        console.error("Direct Supabase push subscription save error:", e);
+      }
 
-      return response.ok;
+      // 2. Also send via API endpoint with token
+      const token = await getAuthToken();
+      if (token) {
+        try {
+          await fetch("/api/zarzad/push/subscribe", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+              endpoint: subJson.endpoint,
+              keys: subJson.keys,
+              userAgent: typeof navigator !== "undefined" ? navigator.userAgent : ""
+            })
+          });
+        } catch (e) {
+          console.error("API push subscribe error:", e);
+        }
+      }
+
+      return true;
     },
-    [getAuthToken]
+    [supabase, getAuthToken]
   );
 
   const checkStatus = useCallback(async () => {
@@ -63,17 +89,22 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
       setIsSupported(true);
       setPermissionState(Notification.permission);
 
-      try {
-        const reg = await navigator.serviceWorker.ready;
-        const sub = await reg.pushManager.getSubscription();
-        if (sub && Notification.permission === "granted") {
-          setIsSubscribed(true);
-          await syncSubscriptionToServer(sub);
-        } else {
-          setIsSubscribed(false);
+      if (Notification.permission === "granted") {
+        try {
+          const reg = await navigator.serviceWorker.getRegistration("/zarzad");
+          const activeReg = reg || (await navigator.serviceWorker.register("/zarzad-sw.js"));
+          const sub = await activeReg.pushManager.getSubscription();
+          if (sub) {
+            setIsSubscribed(true);
+            syncSubscriptionToServer(sub).catch(() => {});
+          } else {
+            setIsSubscribed(false);
+          }
+        } catch (err) {
+          console.error("Błąd sprawdzania subskrypcji:", err);
         }
-      } catch (err) {
-        console.error("Błąd sprawdzania subskrypcji:", err);
+      } else {
+        setIsSubscribed(false);
       }
     }
   }, [syncSubscriptionToServer]);
@@ -99,7 +130,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
 
   async function enableNotifications() {
     setLoading(true);
-    setStatusMessage(null);
+    setStatusMessage("Włączanie powiadomień...");
 
     try {
       const permission = await Notification.requestPermission();
@@ -107,14 +138,12 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
 
       if (permission !== "granted") {
         setIsOpen(true);
-        setStatusMessage("Powiadomienia są zablokowane w ustawieniach przeglądarki. Zobacz instrukcję poniżej.");
+        setStatusMessage("Powiadomienia są zablokowane w ustawieniach przeglądarki.");
         setLoading(false);
         return;
       }
 
       const registration = await navigator.serviceWorker.register("/zarzad-sw.js");
-      await navigator.serviceWorker.ready;
-
       let subscription = await registration.pushManager.getSubscription();
 
       if (!subscription) {
@@ -124,15 +153,11 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
         });
       }
 
-      const synced = await syncSubscriptionToServer(subscription);
-
-      if (!synced) {
-        throw new Error("Nie udało się zapisać powiadomień na serwerze.");
-      }
+      await syncSubscriptionToServer(subscription);
 
       setIsSubscribed(true);
       setIsOpen(true);
-      setStatusMessage("Powiadomienia włączone! Kliknij 'Wyślij test' poniżej.");
+      setStatusMessage("Powiadomienia aktywne! Kliknij 'Wyślij test na telefon'.");
     } catch (err: any) {
       setStatusMessage(err.message || "Błąd włączania powiadomień.");
     } finally {
@@ -145,20 +170,23 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
     setStatusMessage(null);
 
     try {
-      const registration = await navigator.serviceWorker.ready;
-      const subscription = await registration.pushManager.getSubscription();
-
-      if (subscription) {
-        const token = await getAuthToken();
-        await fetch("/api/zarzad/push/subscribe", {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          body: JSON.stringify({ endpoint: subscription.endpoint })
-        });
-        await subscription.unsubscribe();
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (registration) {
+        const subscription = await registration.pushManager.getSubscription();
+        if (subscription) {
+          const token = await getAuthToken();
+          if (token) {
+            await fetch("/api/zarzad/push/subscribe", {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+              },
+              body: JSON.stringify({ endpoint: subscription.endpoint })
+            });
+          }
+          await subscription.unsubscribe();
+        }
       }
 
       setIsSubscribed(false);
@@ -173,10 +201,10 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
 
   async function sendTestNotification() {
     setLoading(true);
-    setStatusMessage(null);
+    setStatusMessage("Wysyłam powiadomienie testowe...");
 
     try {
-      const registration = await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.register("/zarzad-sw.js");
       let subscription = await registration.pushManager.getSubscription();
 
       if (!subscription) {
@@ -196,7 +224,11 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
-        }
+        },
+        body: JSON.stringify({
+          subscription: subscription ? subscription.toJSON() : null,
+          userAgent: typeof navigator !== "undefined" ? navigator.userAgent : ""
+        })
       });
 
       const data = (await response.json()) as { ok?: boolean; message?: string; error?: string };
@@ -239,7 +271,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
         </button>
 
         {isOpen ? (
-          <div className="absolute right-0 top-full mt-2 w-72 sm:w-80 rounded-lg border border-white/16 bg-[#041738]/98 p-4 shadow-2xl backdrop-blur-xl z-50 animate-fade-in text-left text-white">
+          <div className="absolute left-0 sm:left-auto sm:right-0 top-full mt-2 w-[min(320px,calc(100vw-2rem))] rounded-lg border border-amber-400/30 bg-[#020711]/98 p-4 shadow-2xl backdrop-blur-xl z-50 animate-fade-in text-left text-white">
             <div className="flex items-center justify-between border-b border-white/10 pb-2">
               <p className="text-xs font-black uppercase tracking-wider text-amber-300">Jak odblokować powiadomienia?</p>
               <button type="button" onClick={() => setIsOpen(false)} className="text-xs text-white/50 hover:text-white">✕</button>
@@ -301,7 +333,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
         </button>
 
         {isOpen ? (
-          <div className="absolute right-0 top-full mt-2 w-64 rounded-lg border border-white/16 bg-[#041738]/98 p-3.5 shadow-2xl backdrop-blur-xl z-50 animate-fade-in text-left">
+          <div className="absolute left-0 sm:left-auto sm:right-0 top-full mt-2 w-[min(300px,calc(100vw-2rem))] rounded-lg border border-cyan/30 bg-[#020711]/98 p-4 shadow-2xl backdrop-blur-xl z-50 animate-fade-in text-left text-white">
             <div className="flex items-center justify-between border-b border-white/10 pb-2">
               <p className="text-[11px] font-black uppercase tracking-wider text-cyan">Opcje powiadomień</p>
               <button
@@ -318,7 +350,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
                 type="button"
                 onClick={sendTestNotification}
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-cyan/20 border border-cyan/40 px-3 py-2 text-xs font-black text-cyan transition hover:bg-cyan/30 disabled:opacity-50"
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-cyan px-3 py-2.5 text-xs font-black text-navy transition hover:bg-cyan/90 disabled:opacity-50"
               >
                 {loading ? "Wysyłam test..." : "🔔 Wyślij test na telefon"}
               </button>

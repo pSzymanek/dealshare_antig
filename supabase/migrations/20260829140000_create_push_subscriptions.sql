@@ -36,6 +36,9 @@ create policy "board_push_subscriptions_delete_own"
   to authenticated
   using (user_id = auth.uid());
 
+grant select, insert, update, delete on public.board_push_subscriptions to authenticated;
+grant all on public.board_push_subscriptions to service_role;
+
 drop trigger if exists board_push_subscriptions_updated_at on public.board_push_subscriptions;
 create trigger board_push_subscriptions_updated_at
   before update on public.board_push_subscriptions

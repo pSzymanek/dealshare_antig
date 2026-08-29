@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { verifyBoardRequest } from "@/lib/zarzad-supabase-admin";
+import { getZarzadSupabaseAdmin, verifyBoardRequest } from "@/lib/zarzad-supabase-admin";
 import { sendPushToUsers } from "@/lib/zarzad-push";
 
 export const dynamic = "force-dynamic";
@@ -12,6 +12,28 @@ export async function POST(request: Request) {
   }
 
   try {
+    let bodyData: any = {};
+    try {
+      bodyData = await request.json();
+    } catch {}
+
+    const supabase = getZarzadSupabaseAdmin();
+
+    // If client provided subscription directly, upsert it immediately
+    if (bodyData?.subscription?.endpoint && bodyData?.subscription?.keys) {
+      await supabase.from("board_push_subscriptions").upsert(
+        {
+          user_id: profile.id,
+          endpoint: bodyData.subscription.endpoint,
+          p256dh: bodyData.subscription.keys.p256dh,
+          auth: bodyData.subscription.keys.auth,
+          user_agent: bodyData.userAgent || null,
+          updated_at: new Date().toISOString()
+        },
+        { onConflict: "endpoint" }
+      );
+    }
+
     const result = await sendPushToUsers({
       userIds: [profile.id],
       payload: {
@@ -25,13 +47,13 @@ export async function POST(request: Request) {
     if (result.sent === 0) {
       return NextResponse.json({
         ok: false,
-        message: "Nie znaleziono aktywnej subskrypcji na tym telefonie. Upewnij się, że kliknięto 'Włącz powiadomienia'."
+        message: "Nie znaleziono aktywnej subskrypcji na tym telefonie. Spróbuj kliknąć 'Włącz powiadomienia'."
       });
     }
 
     return NextResponse.json({
       ok: true,
-      message: `Powiadomienie testowe wysłane na Twoje urządzenia (${result.sent}).`
+      message: `Powiadomienie testowe wysłane! Zablokuj telefon.`
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message || "Błąd wysyłki testowego powiadomienia." }, { status: 500 });

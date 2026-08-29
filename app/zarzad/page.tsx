@@ -4,13 +4,13 @@ import { ZarzadApp } from "@/components/zarzad/ZarzadApp";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Zarząd dealshare",
+  title: "Zarząd DS",
   description: "Wewnętrzna aplikacja zarządcza dealshare.",
   manifest: "/zarzad-manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Zarząd dealshare"
+    title: "Zarząd DS"
   },
   icons: {
     icon: "/zarzad-icon-192.png",

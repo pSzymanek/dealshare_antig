@@ -1,6 +1,6 @@
 {
-  "name": "Zarząd dealshare",
-  "short_name": "Zarząd dealshare",
+  "name": "Zarząd DS",
+  "short_name": "Zarząd DS",
   "description": "Wewnętrzna aplikacja zarządcza dealshare.",
   "start_url": "/zarzad",
   "scope": "/zarzad",

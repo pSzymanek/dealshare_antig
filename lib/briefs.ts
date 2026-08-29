@@ -31,7 +31,7 @@ export const briefConfigs: Record<string, BriefConfig> = {
         stepTitle: "Typ oferty",
         question: "Jakiego typu ofertę chcesz dodać?",
         type: "multi",
-        options: ["Finansowanie dla firm", "Obsługa prawna", "Restrukturyzacje / zadłużenie", "Inwestycje", "Energia / prąd / OZE", "Floty / leasing / pojazdy", "Technologie / AI / digital", "Usługi B2B", "Inne"]
+        options: ["Finansowanie dla firm", "Obsługa prawna", "Restrukturyzacje / zadłużenie", "Inwestycje", "Energia / prąd / OZE", "Usługi wykonawcze i produkcyjne", "Technologie / AI / digital", "Usługi B2B", "Inne"]
       },
       {
         stepTitle: "Odbiorcy",
@@ -108,21 +108,6 @@ export const briefConfigs: Record<string, BriefConfig> = {
       { stepTitle: "Wartość majątku", question: "Jaka jest orientacyjna łączna wartość majątku?", type: "single", options: [...amountOptions, "Trudno mi to oszacować"] }
     ]
   },
-  "infrastruktura-gpu": {
-    offerId: "infrastruktura-gpu",
-    offerTitle: "Infrastruktura GPU",
-    heading: "Wejdź w inwestycję w infrastrukturę GPU z obsługą operatora",
-    description: "Zaznacz preferowany wariant, a my przygotujemy dla Ciebie najlepszą ścieżkę wejścia w model inwestycyjny.",
-    microcopy: "Wybierz poziom inwestycji, a my pokażemy Ci najlepszy model wejścia, finansowania i współpracy z operatorem.",
-    cta: "Sprawdź mój wariant inwestycji GPU",
-    steps: [
-      { stepTitle: "Poziom inwestycji", question: "Jaki poziom inwestycji rozważasz?", type: "single", options: ["125 000-250 000 zł", "250 000-500 000 zł", "500 000-1 mln zł", "Powyżej 1 mln zł", "Chcę poznać dostępne pakiety"] },
-      { stepTitle: "Finansowanie", question: "Jak chcesz sfinansować pakiet?", type: "multi", options: ["Środki własne", "Kredyt firmowy", "Finansowanie zewnętrzne", "Model mieszany", "Chcę sprawdzić zdolność", "Jeszcze nie wiem"] },
-      { stepTitle: "Priorytety", question: "Co jest dla Ciebie najważniejsze?", type: "multi", options: ["Miesięczny cashflow", "Obsługa po stronie operatora", "Minimum zaangażowania", "Bezpieczeństwo umowy", "Jasne warunki wynajmu", "Najlepszy wariant zwrotu"] },
-      { stepTitle: "Etap", question: "Na jakim jesteś etapie?", type: "multi", options: ["Dopiero sprawdzam temat", "Chcę dostać symulację", "Mam środki / zdolność", "Chcę omówić warunki", "Chcę wejść możliwie szybko"] },
-      { stepTitle: "Typ klienta", question: "Kim jesteś jako klient?", type: "multi", options: ["JDG", "Spółka", "Inwestor", "Firma IT / digital", "Firma z wolną zdolnością", "Inna działalność"] }
-    ]
-  },
   "farma-pv-bess": {
     offerId: "farma-pv-bess",
     offerTitle: "Farmy energii",
@@ -136,20 +121,6 @@ export const briefConfigs: Record<string, BriefConfig> = {
       { stepTitle: "Priorytety", question: "Co jest dla Ciebie najważniejsze?", type: "multi", options: ["Miesięczny przychód", "Obsługa po stronie operatora", "Minimum obowiązków", "Bezpieczeństwo projektu", "Stabilny model współpracy", "Najlepszy zwrot z inwestycji"] },
       { stepTitle: "Etap", question: "Na jakim jesteś etapie?", type: "multi", options: ["Dopiero się rozglądam", "Chcę zobaczyć symulację", "Mam środki / zdolność", "Chcę omówić konkretne warunki", "Szukam inwestycji dla firmy", "Chcę wejść możliwie szybko"] },
       { stepTitle: "Typ klienta", question: "Jakim typem klienta jesteś?", type: "multi", options: ["JDG", "Spółka", "Inwestor prywatny", "Firma szukająca dywersyfikacji", "Firma z wolną zdolnością", "Inny"] }
-    ]
-  },
-  "kontrakty-flotowe": {
-    offerId: "kontrakty-flotowe",
-    offerTitle: "Kontrakty flotowe",
-    heading: "Floty obsługiwane przez najlepszych operatorów",
-    description: "Zaznacz preferowany wariant, a my sprawdzimy dla Ciebie najlepszy model wejścia w inwestycję flotową. Nabywasz pakiet pojazdów lub udział w kontrakcie, wynajmujesz go operatorowi, a zarządzanie, obsługa i wykorzystanie floty są po stronie partnera.",
-    microcopy: "Wybierz poziom inwestycji, a my pokażemy Ci najlepszy model wejścia, finansowania i współpracy z operatorem.",
-    cta: "Sprawdź mój model kontraktu flotowego",
-    steps: [
-      { stepTitle: "Poziom inwestycji", question: "Jaki poziom inwestycji rozważasz?", type: "single", options: ["Do 100 000 zł", "100 000-250 000 zł", "250 000-500 000 zł", "500 000-1 mln zł", "Powyżej 1 mln zł", "Chcę poznać dostępne warianty"] },
-      { stepTitle: "Priorytety", question: "Co jest dla Ciebie najważniejsze?", type: "multi", options: ["Stały miesięczny przychód", "Operator zarządza całością", "Minimum zaangażowania", "Zabezpieczenie pojazdami", "Jasne warunki kontraktu", "Najlepsza symulacja wejścia"] },
-      { stepTitle: "Etap", question: "Na jakim jesteś etapie?", type: "multi", options: ["Dopiero sprawdzam temat", "Chcę poznać model", "Chcę dostać symulację", "Mam środki / zdolność", "Chcę omówić warunki", "Chcę wejść możliwie szybko"] },
-      { stepTitle: "Typ klienta", question: "Kim jesteś jako klient?", type: "multi", options: ["JDG", "Spółka", "Inwestor", "Firma z wolną zdolnością", "Firma szukająca dywersyfikacji", "Inny"] }
     ]
   },
   "sankcja-kredytu-darmowego": {

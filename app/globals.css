@@ -1106,3 +1106,29 @@ body {
     animation: none;
   }
 }
+
+/* Site-wide Dark Hero and High-Tech Modern utilities */
+.hero-dark-base {
+  position: relative;
+  overflow: hidden;
+  background-color: #020711;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(0, 209, 209, 0.16), transparent 38%),
+    radial-gradient(circle at 85% 75%, rgba(0, 91, 255, 0.18), transparent 42%),
+    linear-gradient(135deg, #020711 0%, #001f4d 100%);
+  border-bottom: 1px solid rgba(0, 209, 209, 0.16);
+}
+
+.hero-dark-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+

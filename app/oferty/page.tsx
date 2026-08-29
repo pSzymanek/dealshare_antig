@@ -19,22 +19,23 @@ export default function OffersPage() {
 
   return (
     <main>
-      <section className="bg-white py-20">
+      <section className="hero-dark-base py-20 text-white">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-end">
             <div className="max-w-4xl">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan">Rozwiązania</p>
-              <h1 className="heading-title-enter mt-4 text-4xl font-black tracking-tight text-navy sm:text-6xl">Przykładowe obszary, które obsługujemy</h1>
-              <p className="heading-copy-enter mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+              <p className="heading-copy-enter text-sm font-black uppercase tracking-[0.18em] text-cyan">Rozwiązania</p>
+              <h1 className="heading-title-enter mt-4 text-4xl font-black tracking-tight sm:text-6xl">Przykładowe obszary, które obsługujemy</h1>
+              <p className="heading-copy-enter mt-6 max-w-3xl text-lg leading-8 text-white/76">
                 Te pozycje pokazują kierunki, w których mamy już gotowe ścieżki rozmów. Jeśli Twoja potrzeba nie mieści się w tej liście, opisz sytuację. Dealshare może uruchomić aktywne poszukiwanie właściwego partnera.
               </p>
             </div>
-            <div className="relative self-end border-l-2 border-cyan bg-[#eef6f8] p-6 text-navy shadow-[0_18px_55px_rgba(0,31,77,0.08)] lg:max-w-md lg:justify-self-end">
-              <h2 className="text-xl font-black text-navy">Nie widzisz swojej potrzeby?</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">Opisz krótko sytuację. Sprawdzimy, czy mamy gotowe rozwiązanie, czy trzeba poszukać go na rynku.</p>
-              <div className="mt-5">
-                <Button href="/kontakt#formularz" variant="primary" className="border border-cyan/25 hover:text-white">
-                  Opisz sytuację
+            <div className="reveal-on-scroll relative self-end rounded-lg border border-cyan/35 bg-white/[0.04] p-6 text-white shadow-glow backdrop-blur-md lg:max-w-md lg:justify-self-end">
+              <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan/15 blur-2xl" />
+              <h2 className="relative z-10 text-xl font-black text-white">Nie widzisz swojej potrzeby?</h2>
+              <p className="relative z-10 mt-3 text-sm leading-7 text-white/70">Opisz krótko sytuację. Sprawdzimy, czy mamy gotowe rozwiązanie, czy trzeba poszukać go na rynku.</p>
+              <div className="relative z-10 mt-5">
+                <Button href="/kontakt#formularz" variant="cyan" className="w-full sm:w-auto">
+                  Opisz sytuację →
                 </Button>
               </div>
             </div>
@@ -42,7 +43,7 @@ export default function OffersPage() {
         </Container>
       </section>
 
-      <section className="bg-mist py-16">
+      <section className="bg-[#f8fafc] py-20">
         <Container>
           <SectionHeading
             eyebrow="Obsługiwane obszary"
@@ -50,10 +51,10 @@ export default function OffersPage() {
             description="Każda karta prowadzi do uporządkowanej podstrony: potrzeba, zakres, proces, dokumenty, punkty kontrolne i kolejny krok."
           />
           <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {sortedOffers.map((offer) => (
-              <OfferCard key={offer.slug} offer={offer} />
+            {sortedOffers.map((offer, index) => (
+              <OfferCard key={offer.slug} offer={offer} className={`reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 5)}` : ""}`} />
             ))}
-            <PartnerOfferCard />
+            <PartnerOfferCard className={`reveal-on-scroll ${sortedOffers.length > 0 ? `reveal-delay-${Math.min(sortedOffers.length, 5)}` : ""}`} />
           </div>
         </Container>
       </section>

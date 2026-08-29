@@ -5,7 +5,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { BriefConfig } from "@/lib/briefs";
 
-type ButtonVariant = "primary" | "ghost" | "secondary";
+type ButtonVariant = "primary" | "ghost" | "secondary" | "cyan";
 
 type BriefModalProps = {
   config: BriefConfig;
@@ -98,7 +98,8 @@ export function BriefModal({ config, buttonLabel, buttonVariant = "primary", but
   const buttonClasses: Record<ButtonVariant, string> = {
     primary: "button-glass bg-deal-gradient text-white shadow-glow hover:-translate-y-0.5 hover:shadow-card",
     ghost: "border border-ink/10 bg-white text-ink shadow-sm hover:border-electric/30 hover:text-electric",
-    secondary: "border border-white/20 bg-white/10 text-white backdrop-blur hover:bg-white/15"
+    secondary: "border border-white/20 bg-white/10 text-white backdrop-blur hover:bg-white/15",
+    cyan: "button-glass border border-cyan/25 bg-cyan text-navy font-bold shadow-sm hover:-translate-y-0.5 hover:bg-teal hover:text-white"
   };
 
   const submittedAnswers = useMemo(

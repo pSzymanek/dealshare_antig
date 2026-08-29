@@ -14,6 +14,7 @@ const config: Config = {
         electric: "#005BFF",
         teal: "#00B8B8",
         cyan: "#00D1D1",
+        magenta: "#D946EF",
         mist: "#F3F8FC"
       },
       boxShadow: {

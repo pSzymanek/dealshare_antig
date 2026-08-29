@@ -8,13 +8,17 @@ const partnerBullets = [
   "Ty dostajesz kontakt z kontekstem sprawy"
 ];
 
-export function PartnerOfferCard() {
+type PartnerOfferCardProps = {
+  className?: string;
+};
+
+export function PartnerOfferCard({ className = "" }: PartnerOfferCardProps) {
   const config = getBriefConfig("dodaj-oferte");
 
   if (!config) return null;
 
   return (
-    <article className="group relative isolate flex min-h-full flex-col overflow-hidden rounded-lg border border-cyan/35 bg-navy-gradient p-6 text-white shadow-glow transition duration-300 hover:-translate-y-1 hover:shadow-card">
+    <article className={`group relative isolate flex min-h-full flex-col overflow-hidden rounded-lg border border-cyan/35 bg-navy-gradient p-6 text-white shadow-glow transition duration-300 hover:-translate-y-1 hover:shadow-card ${className}`}>
       <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan/25 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-20 left-8 h-48 w-48 rounded-full bg-electric/25 blur-3xl" />
       <Image

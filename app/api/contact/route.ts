@@ -316,12 +316,12 @@ export async function POST(request: Request) {
   const company = clean(contactPayload.company);
   const message = clean(contactPayload.message);
 
-  if (!needCategory || !name || !isValidEmail(email) || message.length < 10) {
-    return NextResponse.json({ message: "Wybierz obszar potrzeby, uzupełnij imię, poprawny e-mail i wiadomość minimum 10 znaków." }, { status: 400 });
+  if (!name || !isValidEmail(email) || message.length < 10) {
+    return NextResponse.json({ message: "Uzupełnij imię i nazwisko, poprawny e-mail oraz wiadomość (minimum 10 znaków)." }, { status: 400 });
   }
 
   const text = [
-    `Obszar potrzeby: ${needCategory}`,
+    ...(needCategory ? [`Obszar potrzeby: ${needCategory}`] : []),
     `Imię i nazwisko: ${name}`,
     `E-mail: ${email}`,
     `Telefon: ${phone || "Nie podano"}`,
@@ -331,12 +331,16 @@ export async function POST(request: Request) {
     message
   ].join("\n");
 
+  const emailSubject = needCategory
+    ? `Nowa potrzeba z Dealshare: ${needCategory} - ${name}`
+    : `Nowa wiadomość z formularza kontaktowego Dealshare - ${name}`;
+
   try {
     await mailer.transporter.sendMail({
       from: mailer.smtpFrom,
       to: contactEmail,
       replyTo: email,
-      subject: `Nowa potrzeba z Dealshare: ${needCategory} - ${name}`,
+      subject: emailSubject,
       text
     });
 

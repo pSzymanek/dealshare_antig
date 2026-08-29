@@ -54,7 +54,7 @@ const scenarios = [
   }
 ];
 
-const featuredOfferSlugs = ["kredyty-dla-firm", "restrukturyzacje", "yamura-pro"];
+const featuredOfferSlugs = ["yamura-pro", "kredyty-dla-firm", "restrukturyzacje"];
 const featuredOffers = featuredOfferSlugs.map((slug) => {
   const offer = offers.find((candidate) => candidate.slug === slug);
 
@@ -175,7 +175,6 @@ export default function HomePage() {
               eyebrow="Nie mamy gotowego partnera?"
               title="To go szukamy."
               description="Nie zamykamy rozmowy tylko dlatego, że temat nie pasuje do obecnej listy ofert. Jeśli potrzeba ma sens biznesowy, sprawdzamy rynek i szukamy właściwej strony."
-              align="right"
             />
             <div className={styles.searchSteps}>
               {["Opis sprawy", "Szybka kwalifikacja", "Poszukiwanie partnera"].map((item, index) => (
@@ -191,7 +190,7 @@ export default function HomePage() {
 
       <section className={`${styles.scenarioSection} py-20`}>
         <Container>
-          <SectionHeading eyebrow="Od potrzeby do rozwiązania" title="Z czym możesz przyjść do Dealshare?" theme="dark" />
+          <SectionHeading eyebrow="Od potrzeby do rozwiązania" title="Z czym możesz przyjść do Dealshare?" theme="dark" align="right" />
           <div className={`${styles.scenarioGrid} mt-10`}>
             {scenarios.map((scenario, index) => (
               <div key={scenario.title} className={`${styles.scenarioCard} reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 3)}` : ""}`}>
@@ -234,7 +233,7 @@ export default function HomePage() {
                 Opisz kategorię, profil klienta i model współpracy. Sprawdzimy, czy możemy włączyć Twoje rozwiązanie do procesów Dealshare.
               </p>
             </div>
-            <Button href="/kontakt#formularz" className="w-full sm:w-auto">
+            <Button href="/dla-partnerow" className="w-full sm:w-auto">
               Zostań partnerem
             </Button>
           </div>

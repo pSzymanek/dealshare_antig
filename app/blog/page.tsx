@@ -35,34 +35,34 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <main>
-      <section className="bg-navy-gradient py-20 text-white">
+      <section className="hero-dark-base py-20 text-white">
         <Container>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan">Blog</p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">Konkretna wiedza dla decyzji firmowych.</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/74">
+          <p className="heading-copy-enter text-sm font-black uppercase tracking-[0.18em] text-cyan">Baza wiedzy</p>
+          <h1 className="heading-title-enter mt-4 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">Konkretna wiedza dla decyzji firmowych.</h1>
+          <p className="heading-copy-enter mt-6 max-w-2xl text-lg leading-8 text-white/76">
             Finansowanie, restrukturyzacja, analiza umów i energia opisane prostym językiem, z myślą o przedsiębiorcy, który chce przejść od problemu do działania.
           </p>
         </Container>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-14">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-black tracking-tight text-navy sm:text-4xl">Kategorie</h2>
-            <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">Wybierz obszar, który najlepiej pasuje do aktualnej sytuacji firmy.</p>
+            <h2 className="heading-title-enter text-2xl font-black tracking-tight text-navy sm:text-3xl">Wybierz kategorię</h2>
+            <p className="heading-copy-enter mt-2 text-sm leading-7 text-slate-600 sm:text-base">Zawęź listę artykułów do obszaru, który najbardziej dotyczy Twojej firmy.</p>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="reveal-on-scroll reveal-delay-1 mt-6 flex flex-wrap gap-2.5">
             <Link
               href="/blog"
-              className={`soft-lift rounded-md border px-4 py-2 text-sm font-bold transition ${!category ? "border-electric bg-electric text-white" : "border-slate-200 bg-white text-navy hover:border-electric hover:bg-electric/5"}`}
+              className={`soft-lift rounded-lg border px-4 py-2 text-sm font-bold transition duration-200 ${!category ? "border-cyan/40 bg-cyan text-navy shadow-sm" : "border-slate-200/90 bg-white text-slate-700 hover:border-cyan/50 hover:bg-cyan/5 hover:text-navy"}`}
             >
-              Wszystkie
+              Wszystkie wpisy
             </Link>
             {categories.map((item) => (
               <Link
                 key={item}
                 href={`/blog?category=${encodeURIComponent(item)}`}
-                className={`soft-lift rounded-md border px-4 py-2 text-sm font-bold transition ${category === item ? "border-electric bg-electric text-white" : "border-slate-200 bg-white text-navy hover:border-electric hover:bg-electric/5"}`}
+                className={`soft-lift rounded-lg border px-4 py-2 text-sm font-bold transition duration-200 ${category === item ? "border-cyan/40 bg-cyan text-navy shadow-sm" : "border-slate-200/90 bg-white text-slate-700 hover:border-cyan/50 hover:bg-cyan/5 hover:text-navy"}`}
               >
                 {item}
               </Link>
@@ -71,11 +71,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="bg-[#f8fafc] py-16">
         <Container>
           <div className="max-w-3xl">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal">{category ?? "Wszystkie wpisy"}</p>
-            <h2 className="text-3xl font-black tracking-tight text-navy sm:text-4xl">Artykuły</h2>
+            <p className="heading-copy-enter mb-2 text-xs font-black uppercase tracking-[0.2em] text-cyan">{category ?? "Wszystkie artykuły"}</p>
+            <h2 className="heading-title-enter text-3xl font-black tracking-tight text-navy sm:text-4xl">Aktualne publikacje</h2>
           </div>
           <div className="mt-8">
             <WordPressPostGrid posts={posts} />

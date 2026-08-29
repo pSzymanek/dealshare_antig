@@ -18,8 +18,8 @@ export function CTASection({ title, description, buttonLabel, buttonHref }: CTAS
             <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{title}</h2>
             {description ? <p className="mt-4 text-base leading-8 text-white/72">{description}</p> : null}
             <div className="mt-8">
-              <Button href={buttonHref} variant="secondary">
-                {buttonLabel}
+              <Button href={buttonHref} variant="cyan">
+                {buttonLabel} →
               </Button>
             </div>
           </div>

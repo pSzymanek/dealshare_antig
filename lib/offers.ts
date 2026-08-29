@@ -91,13 +91,129 @@ const categories = {
 } satisfies Record<string, OfferCategoryTag>;
 
 export const closedOfferStatus: OfferStatus = "Przyjmowanie zgłoszeń zakończone";
-export const closedOfferSlugs = ["infrastruktura-gpu", "kontrakty-flotowe"] as const;
+export const closedOfferSlugs = [] as const;
 
 export function isOfferClosed(offer: Pick<Offer, "slug" | "status">) {
-  return offer.status === closedOfferStatus || closedOfferSlugs.includes(offer.slug as (typeof closedOfferSlugs)[number]);
+  return offer.status === closedOfferStatus || (closedOfferSlugs as readonly string[]).includes(offer.slug);
 }
 
 export const offers: Offer[] = [
+  {
+    slug: "yamura-pro",
+    title: "YAMURA PRO",
+    category: categories.contracts.name,
+    categorySlug: categories.contracts.slug,
+    categories: [categories.contracts],
+    status: "Dostępne",
+    headline: "Partner wykonawczy dla biur architektonicznych i projektantów wnętrz.",
+    description:
+      "Weryfikacja techniczna, wycena, produkcja i montaż mebli na wymiar z poszanowaniem autorstwa projektu i relacji pracowni z klientem.",
+    lead:
+      "Przejmujemy odpowiedzialność za produkcję, logistykę i montaż mebli na wymiar. Pracownia zachowuje pełne autorstwo projektu i relację ze swoim klientem.",
+    highlights: [
+      "Współpraca projektowa lub stałe zaplecze wykonawcze",
+      "Jednoznaczny podział ról i kontrola budżetu",
+      "Realizacje mieszkaniowe, biurowe i komercyjne"
+    ],
+    heroBenefits: ["Weryfikacja dokumentacji", "Precyzyjna wycena i harmonogram", "Produkcja, montaż i opieka"],
+    ctaPrimary: "Zgłoś projekt do YAMURA PRO",
+    ctaSecondary: "Zobacz model współpracy",
+    sidePanel: {
+      title: "Start współpracy",
+      items: ["Krótki brief projektowy", "Ustalenie zasad kontaktu", "Weryfikacja dokumentacji", "Wycena i harmonogram"],
+      note:
+        "Zasady współpracy ustalamy indywidualnie, aby pracownia miała pełny komfort i kontrolę nad relacją ze swoim klientem.",
+      cta: "Wypełnij brief"
+    },
+    problemTitle: "Problemy, które rozwiązujemy",
+    problemText: [
+      "Napięcia przy realizacji wnętrz najczęściej wynikają ze zmian bez kontroli, braków w dokumentacji i braku jednego odpowiedzialnego wykonawcy."
+    ],
+    problemCards: [
+      { title: "Rozproszona odpowiedzialność", text: "Kilku podwykonawców i brak jednej osoby koordynującej cały zakres meblowy." },
+      { title: "Zmiany bez kontroli", text: "Korekty na etapie montażu generują nieprzewidziane koszty i opóźnienia." },
+      { title: "Strata czasu pracowni", text: "Projektant zamiast projektować, gasi pożary i koordynuje stolarnię." }
+    ],
+    solutionTitle: "Jak pomaga YAMURA PRO",
+    solutionText: [
+      "Weryfikujemy dokumentację, ustalamy precyzyjny kosztorys i bierzemy pełną odpowiedzialność za wykonanie mebli."
+    ],
+    solutionCards: [
+      { title: "Weryfikacja dokumentacji", text: "Sprawdzamy rysunki, materiały i wykonalność przed rozpoczęciem prac." },
+      { title: "Precyzyjna wycena", text: "Kosztorys i harmonogram bez ukrytych dopłat w trakcie realizacji." },
+      { title: "Kontrola produkcji", text: "Nadzór nad standardem wykonania, okuciami i terminowością." },
+      { title: "Sprawny montaż", text: "Dostawa, czysty montaż na obiekcie i odbiór końcowy." }
+    ],
+    forWhomTitle: "Dla kogo",
+    forWhom: [
+      "Biura architektoniczne i projektanci wnętrz",
+      "Pracownie szukające stałego partnera stolarskiego",
+      "Architekci prowadzący inwestycje prywatne premium",
+      "Zespoły realizujące wnętrza biurowe i komercyjne"
+    ],
+    scopeTitle: "Zakres współpracy",
+    scope: [
+      { title: "Konsultacja techniczna", text: "Wychwycenie ryzyk montażowych przed zamknięciem projektu." },
+      { title: "Kosztorys i plan", text: "Wycena oparta na dokumentacji i ustalonym standardzie." },
+      { title: "Produkcja mebli", text: "Precyzyjne wykonanie mebli i zabudów na wymiar." },
+      { title: "Montaż i odbiór", text: "Instalacja na obiekcie oraz wsparcie posprzedażowe." }
+    ],
+    valueTitle: "Co zyskuje Twoja pracownia",
+    valueText: [
+      "Odciążamy Cię w technicznym przygotowaniu i wykonaniu, dbając o Twój czas i spokój inwestora."
+    ],
+    valueCards: [
+      { title: "Zachowane autorstwo", text: "Koncepcja i estetyka pozostają w 100% po stronie pracowni." },
+      { title: "Spokój i oszczędność czasu", text: "Jeden sprawdzony partner odpowiada za cały zakres mebli." },
+      { title: "Przewidywalność", text: "Jasny budżet i harmonogram bez niespodzianek." }
+    ],
+    processTitle: "Jak wygląda proces",
+    process: [
+      { step: "1", title: "Krótki brief", text: "Przesyłasz założenia projektu i dostępną dokumentację." },
+      { step: "2", title: "Weryfikacja i wycena", text: "Sprawdzamy wykonalność i przygotowujemy kosztorys." },
+      { step: "3", title: "Produkcja", text: "Wykonujemy meble zgodnie z zaakceptowanym standardem." },
+      { step: "4", title: "Montaż i odbiór", text: "Montujemy meble na obiekcie i zamykamy protokół." }
+    ],
+    documentsTitle: "Co warto przygotować",
+    documents: [
+      "Rzuty i przekroje pomieszczeń",
+      "Rysunki mebli lub wizualizacje",
+      "Zestawienie materiałów i okuć",
+      "Przybliżony termin i lokalizację"
+    ],
+    checkpointTitle: "Zasady współpracy",
+    checkpointText: [
+      "Przed startem ustalamy kanały komunikacji, model kontaktu z inwestorem oraz zasady akceptacji ewentualnych zmian."
+    ],
+    checkpoints: [
+      "Zakres zabudów i standard wykończenia.",
+      "Zasady komunikacji (pracownia / inwestor).",
+      "Harmonogram i warunki montażu na obiekcie."
+    ],
+    risksTitle: "Bezpieczeństwo realizacji",
+    risks: [
+      { title: "Jedno źródło decyzji", text: "Jasno ustalone osoby do zatwierdzania zmian i kosztów." },
+      { title: "Decyzje przed produkcją", text: "Eliminujemy kosztowne poprawki na budowie." }
+    ],
+    faq: [
+      { question: "Czy YAMURA kontaktuje się bezpośrednio z inwestorem?", answer: "Model kontaktu ustalamy z pracownią. Możemy występować jako Twoje bezpośrednie zaplecze lub kontaktować się wyłącznie w sprawach technicznych i montażu." },
+      { question: "Czy można zgłosić projekt w fazie koncepcyjnej?", answer: "Tak. Wczesna konsultacja pozwala dobrać optymalne materiały i uniknąć kolizji przed finalnym rysunkiem." },
+      { question: "Czy realizujecie także wnętrza komercyjne?", answer: "Tak, wykonujemy zabudowy mieszkaniowe, biurowe oraz dla lokali usługowych." }
+    ],
+    finalCta: {
+      title: "Zacznijmy od projektu Twojej pracowni",
+      text: "Wypełnij krótki brief. Ustalimy właściwy model współpracy i przejmiemy techniczne wyzwania wykonawcze.",
+      buttonLabel: "Zgłoś projekt do YAMURA PRO"
+    },
+    seo: {
+      title: "YAMURA PRO - wykonawstwo mebli dla architektów i projektantów | Dealshare",
+      description:
+        "Współpraca B2B dla biur architektonicznych i projektantów wnętrz: weryfikacja dokumentacji, wycena, produkcja i montaż mebli na wymiar."
+    },
+    intro: "YAMURA PRO to zaplecze wykonawcze dla pracowni, które chcą zachować kontrolę nad projektem i zyskać odpowiedzialnego partnera do realizacji mebli na wymiar.",
+    audience: ["Biura architektoniczne", "Projektanci wnętrz", "Pracownie projektowe"],
+    benefits: ["Weryfikacja techniczna", "Przejrzysty proces", "Produkcja i montaż"]
+  },
   {
     slug: "kredyty-dla-firm",
     title: "Kredyty dla firm",
@@ -118,15 +234,15 @@ export const offers: Offer[] = [
       note: "Dobrze przygotowany wniosek, jasny cel i właściwy bank zwiększają szansę na sensowną decyzję finansową.",
       cta: "Wyślij zapytanie"
     },
-    problemTitle: "Problem, który rozwiązujemy",
+    problemTitle: "Problemy, które rozwiązujemy",
     problemText: [
       "Wielu przedsiębiorców zaczyna od jednego banku. Składają wniosek, czekają, dostają odmowę albo przeciętną ofertę i uznają, że widocznie się nie da.",
       "Często problem nie leży w firmie. Problem leży w sposobie przygotowania sprawy, wyborze niewłaściwego produktu albo rozmowie z instytucją, która od początku nie była najlepszym kierunkiem."
     ],
     problemCards: [
-      { title: "Strata czasu", text: "Wiele wniosków, spotkań i telefonów bez efektu.", icon: "⌚" },
-      { title: "Brak jasnej decyzji", text: "Częste odmowy bez dobrego uzasadnienia.", icon: "×" },
-      { title: "Biurokracja", text: "Złożone dokumenty i długie procedury.", icon: "▣" }
+      { title: "Strata czasu", text: "Wiele wniosków, spotkań i telefonów bez efektu." },
+      { title: "Brak jasnej decyzji", text: "Częste odmowy bez dobrego uzasadnienia." },
+      { title: "Biurokracja", text: "Złożone dokumenty i długie procedury." }
     ],
     solutionTitle: "Jak pomagamy",
     solutionText: [
@@ -198,7 +314,7 @@ export const offers: Offer[] = [
     ctaPrimary: "Sprawdź możliwą ścieżkę",
     ctaSecondary: "Zobacz proces",
     sidePanel: { title: "Szybka diagnoza", items: ["Analiza zadłużenia", "Ocena wierzycieli i egzekucji", "Sprawdzenie możliwości układu", "Plan pierwszych działań"], note: "Szybka diagnoza pomaga wybrać właściwą ścieżkę, zanim presja wierzycieli ograniczy pole manewru.", cta: "Opisz sytuację" },
-    problemTitle: "Problem, który rozwiązujemy",
+    problemTitle: "Problemy, które rozwiązujemy",
     problemText: ["Problemy finansowe w firmie rzadko pojawiają się z dnia na dzień. Najpierw jest jedna opóźniona płatność, potem bank, leasing, ZUS, urząd skarbowy i coraz mniej miejsca na normalne prowadzenie działalności.", "Największym błędem przedsiębiorcy w kryzysie jest czekanie. Każdy kolejny miesiąc bez działania może oznaczać większą presję wierzycieli i mniejsze pole manewru."],
     problemCards: [{ title: "Presja wierzycieli", text: "Rosnące telefony i wezwania można uporządkować w jeden plan rozmów." }, { title: "Utrata płynności", text: "Firma pracuje, ale nie ma przestrzeni na bieżące regulowanie zobowiązań." }, { title: "Brak planu", text: "Gaszenie pożarów zastępuje decyzje strategiczne." }],
     solutionTitle: "Na czym polega rozwiązanie",
@@ -227,48 +343,6 @@ export const offers: Offer[] = [
     benefits: ["Szybsze dotarcie do specjalisty", "Porządek w pierwszych krokach", "Mniej przypadkowych konsultacji"]
   },
   {
-    slug: "infrastruktura-gpu",
-    title: "Infrastruktura GPU",
-    category: categories.investments.name,
-    categorySlug: categories.investments.slug,
-    categories: [categories.investments],
-    status: closedOfferStatus,
-    headline: "Wejdź w zaplecze obliczeniowe potrzebne dla AI, renderingu i zaawansowanych usług cyfrowych.",
-    description: "Inwestycja w zaplecze obliczeniowe dla rynku AI. Model oparty na realnej infrastrukturze, obsłudze technicznej po stronie partnera i warunkach kontraktowych.",
-    lead: "Model inwestycyjny opiera się na infrastrukturze GPU pracującej na potrzeby rynku AI i usług obliczeniowych. Inwestor finansuje aktywo, a obsługa techniczna i komercyjna znajduje się po stronie partnerów projektu.",
-    highlights: ["Ekspozycja na rynek AI i mocy obliczeniowej","Model oparty na realnej infrastrukturze","Obsługa techniczna po stronie partnera"],
-    heroBenefits: ["Ekspozycja na infrastrukturę AI", "Weryfikacja modelu operacyjnego", "Rozmowa z właściwym partnerem"],
-    ctaPrimary: "Poznaj projekt GPU",
-    ctaSecondary: "Zobacz proces",
-    sidePanel: { title: "Co sprawdzamy", items: ["Operator i doświadczenie", "Koszty energii i chłodzenia", "Sprzęt i cykl życia", "Umowy i potencjalni odbiorcy"], note: "Parametry projektu mają charakter informacyjny i wymagają weryfikacji dokumentów.", cta: "Zapytaj o projekt" },
-    problemTitle: "Okazja rynkowa",
-    problemText: ["Firmy potrzebują coraz większej mocy obliczeniowej, ale sam zakup sprzętu nie tworzy jeszcze biznesu.", "Znaczenie mają dostęp do energii, chłodzenie, serwis, oprogramowanie, sprzedaż mocy oraz jakość operatora."],
-    problemCards: [{ title: "CAPEX sprzętu", text: "GPU szybko się starzeją i wymagają dobrego planu amortyzacji." }, { title: "Energia i chłodzenie", text: "Koszty operacyjne mogą zdecydować o opłacalności." }, { title: "Komercjalizacja", text: "Bez odbiorców mocy infrastruktura pozostaje kosztem." }],
-    solutionTitle: "Jak porządkujemy temat",
-    solutionText: ["Pomagamy przejść od ogólnej prezentacji projektu do konkretnej listy pytań i danych do analizy.", "Weryfikujemy operatora, sprzęt, koszty, umowy i model przychodów, żeby inwestor widział konstrukcję projektu przed rozmową o kapitale."],
-    solutionCards: [{ title: "Analiza operatora", text: "Doświadczenie, partnerzy i model zarządzania." }, { title: "Model kosztów", text: "Energia, chłodzenie, serwis, hosting i obsługa." }, { title: "Model przychodów", text: "Najem mocy, kontrakty, usługi obliczeniowe." }],
-    forWhomTitle: "Dla kogo",
-    forWhom: ["Inwestorzy biznesowi", "Firmy technologiczne", "Partnerzy infrastrukturalni", "Podmioty szukające ekspozycji na AI", "Osoby szukające infrastruktury obsługiwanej przez partnera"],
-    scopeTitle: "Co obejmuje projekt",
-    scope: [{ title: "Opis infrastruktury", text: "Zakres sprzętu, zaplecza i operatora." }, { title: "Analiza kosztów", text: "Najważniejsze koszty operacyjne i techniczne." }, { title: "Weryfikacja modelu", text: "Pytania o odbiorców, umowy i utrzymanie." }, { title: "Wsparcie decyzji", text: "Uporządkowanie materiałów przed rozmową inwestycyjną." }],
-    valueTitle: "Modelowe pakiety inwestycyjne",
-    valueCards: [{ title: "Pakiet 125 000 zł", text: "Modelowy pakiet z miesięcznym przychodem 4 150 zł przez 60 miesięcy. Parametry zależą od wariantu i warunków umowy." }, { title: "Pakiet 250 000 zł", text: "Modelowy pakiet z miesięcznym przychodem 8 300 zł przez 60 miesięcy. Parametry zależą od wariantu i warunków umowy." }, { title: "Obsługa partnera", text: "Techniczne utrzymanie, środowisko IT i komercjalizacja są po stronie partnerów projektu." }],
-    processTitle: "Jak wygląda proces",
-    process: [{ step: "1", title: "Rozmowa o projekcie", text: "Ustalamy, jakiego wariantu dotyczy zainteresowanie." }, { step: "2", title: "Materiały", text: "Zbieramy informacje o sprzęcie, kosztach i operatorze." }, { step: "3", title: "Weryfikacja pytań", text: "Ustalamy, co wymaga wyjaśnienia przed decyzją." }, { step: "4", title: "Rozmowa z partnerem", text: "Przechodzimy do szczegółów projektu." }, { step: "5", title: "Decyzja", text: "Inwestor podejmuje decyzję po analizie dokumentów." }],
-    documentsTitle: "Co przygotować",
-    documents: ["Preferowana kwota inwestycji", "Horyzont inwestycyjny", "Pytania techniczne", "Informacje o źródle finansowania", "Oczekiwany poziom zaangażowania"],
-    checkpointTitle: "Punkty kontrolne przed decyzją",
-    checkpoints: ["Kto jest operatorem i jakie ma doświadczenie.", "Jak zabezpieczone są koszty energii i chłodzenia.", "Czy istnieją umowy lub realna ścieżka sprzedaży mocy.", "Jak wygląda serwis, awaryjność i cykl życia sprzętu.", "Czy model finansowy uwzględnia wymianę sprzętu."],
-    risksTitle: "Co zabezpiecza model inwestycyjny",
-    risks: [{"title":"Realna infrastruktura i kontrakt","text":"Model opiera się na realnej infrastrukturze GPU, warunkach kontraktowych i obsłudze technicznej po stronie partnerów projektu."}],
-    faq: [{"question":"Czy to inwestycja w AI?","answer":"To ekspozycja na infrastrukturę obliczeniową pracującą dla rynku AI, renderingu i usług wymagających wysokiej mocy GPU."},{"question":"Co zabezpiecza model inwestycyjny?","answer":"Model opiera się na realnej infrastrukturze GPU, warunkach kontraktowych i obsłudze technicznej po stronie partnerów projektu. Inwestor nie musi samodzielnie zarządzać serwerami, szukać klientów ani utrzymywać środowiska IT."},{"question":"Jakie są przykładowe warianty?","answer":"Modelowe pakiety to 125 000 zł z miesięcznym przychodem 4 150 zł przez 60 miesięcy oraz 250 000 zł z miesięcznym przychodem 8 300 zł przez 60 miesięcy. Szczegóły zależą od wariantu i umowy."},{"question":"Czy trzeba znać technologię?","answer":"Nie. Techniczna obsługa jest po stronie partnera, a inwestor weryfikuje model, dokumenty i zakres odpowiedzialności stron."}],
-    finalCta: { title: "Sprawdź projekt GPU", text: "Zacznij od analizy operatora, kosztów, sprzętu i modelu sprzedaży mocy obliczeniowej.", buttonLabel: "Zapytaj o szczegóły" },
-    seo: { title: "Infrastruktura GPU - projekt inwestycyjny i zaplecze obliczeniowe | Dealshare", description: "Sprawdź projekt infrastruktury GPU, model kosztów, operatora, kontrakty i potencjalne źródła wartości." },
-    intro: "Oferta dla firm i partnerów, którzy chcą poznać kontekst inwestycji w infrastrukturę obliczeniową.",
-    audience: ["Inwestorzy biznesowi", "Firmy technologiczne", "Partnerzy infrastrukturalni"],
-    benefits: ["Dostęp do kontekstu", "Lepsza kwalifikacja rozmów", "Weryfikacja niszowego obszaru inwestycji"]
-  },
-  {
     slug: "farma-pv-bess",
     aliases: ["farmy-energii"],
     title: "Farmy i magazyny energii",
@@ -284,7 +358,7 @@ export const offers: Offer[] = [
     ctaPrimary: "Porozmawiaj o projekcie",
     ctaSecondary: "Zobacz proces",
     sidePanel: { title: "Parametry do analizy", items: ["CAPEX: 4,6 mln zł", "Prognozowana EBITDA: 1,0-1,2 mln zł rocznie", "Payback: 4-5 lat", "IRR: 18-25%+", "Asset: PV + BESS + trading"], note: "Parametry finansowe są modelowe i pokazują potencjał projektu po weryfikacji dokumentów, przyłącza oraz współpracy z agregatorem.", cta: "Wyślij zapytanie" },
-    problemTitle: "Dlaczego to ma znaczenie",
+    problemTitle: "Problemy, które rozwiązujemy",
     problemText: ["Klasyczna farma PV jest mocno zależna od produkcji i ceny sprzedaży energii w godzinach dziennych.", "Magazyn energii może zmienić charakter projektu, ale tylko wtedy, gdy model pracy BESS, agregator i koszty są realnie policzone."],
     problemCards: [{ title: "Ceny energii", text: "Przychody zależą od rynku i spreadów cenowych." }, { title: "Regulacje", text: "Usługi systemowe i zasady rynku mogą się zmieniać." }, { title: "Operacje", text: "SCADA, serwis, sprawność i dostępność mają wpływ na wynik." }],
     solutionTitle: "Model projektu",
@@ -313,49 +387,6 @@ export const offers: Offer[] = [
     benefits: ["Jasniejszy kontekst projektu", "Mniej rozproszonych rozmów", "Dostęp do wybranych możliwości"]
   },
   {
-    slug: "kontrakty-flotowe",
-    title: "Kontrakty flotowe",
-    category: categories.contracts.name,
-    categorySlug: categories.contracts.slug,
-    categories: [categories.contracts],
-    status: closedOfferStatus,
-    headline: "Zainwestuj w działający sektor mobilności, wynajmu i zarządzania flotą.",
-    description: "Model oparty na pojazdach pracujących w zarządzanej flocie. Operator odpowiada za obsługę, serwis i wykorzystanie pojazdów, a inwestor korzysta z warunków kontraktu.",
-    lead: "Zainwestuj w pojazdy pracujące w profesjonalnie zarządzanej flocie. Operator bierze na siebie obsługę, serwis, kierowców, rozliczenia i bieżące wykorzystanie pojazdów, a inwestor działa w oparciu o warunki zapisane w kontrakcie.",
-    highlights: ["Zarządzanie flotą po stronie operatora","Zabezpieczenie pojazdami","Przychód określony warunkami kontraktu"],
-    heroBenefits: ["Realny biznes operacyjny", "Powtarzalne przychody flotowe", "Ekspozycja na mobilność i logistykę"],
-    ctaPrimary: "Poznaj model flotowy",
-    ctaSecondary: "Zobacz proces",
-    sidePanel: { title: "Charakter projektu", items: ["Wynajem i podnajem floty", "Obsługa kierowców", "Logistyka kontraktowa", "Transport dedykowany"], note: "Parametry inwestycji zależą od operatora, umów, obłożenia floty, kosztów serwisu i struktury finansowania.", cta: "Zapytaj o szczegóły" },
-    problemTitle: "Rynek potrzebuje floty, ale nie samego pojazdu",
-    problemText: ["Firmy, kierowcy i platformy potrzebują pojazdów, obsługi serwisowej, rozliczeń i zaplecza operacyjnego.", "Sam zakup samochodu to za mało. Wartość powstaje dopiero wtedy, gdy flota jest zarządzana profesjonalnie."],
-    problemCards: [{ title: "Obłożenie", text: "Pojazd musi pracować, a nie tylko stać w aktywach." }, { title: "Serwis", text: "Koszty szkód i napraw wpływają na rentowność." }, { title: "Operator", text: "Jakość zarządzania decyduje o wyniku." }],
-    solutionTitle: "Model oparty na operatorze flotowym",
-    solutionText: ["Model inwestycyjny opiera się na finansowaniu rozwoju floty i infrastruktury operacyjnej.", "Pojazdy mogą być wykorzystywane w wynajmie, podnajmie, obsłudze kierowców, logistyce kontraktowej albo transporcie dedykowanym."],
-    solutionCards: [{ title: "Operator", text: "Zarządzanie flotą, kierowcami i serwisem." }, { title: "Kontrakty", text: "Umowy z klientami, platformami lub partnerami." }, { title: "Aktywa", text: "Pojazdy jako element realnego biznesu operacyjnego." }],
-    forWhomTitle: "Dla kogo",
-    forWhom: ["Inwestorzy szukający realnego biznesu operacyjnego", "Osoby zainteresowane powtarzalnymi przychodami", "Inwestorzy chcący ekspozycji na mobilność", "Osoby, które nie chcą samodzielnie zarządzać flotą"],
-    scopeTitle: "Co obejmuje projekt",
-    scope: [{ title: "Prezentacja modelu", text: "Opis operatora i sposobu pracy floty." }, { title: "Analiza skali", text: "Flota, obłożenie, koszty i zaplecze." }, { title: "Strumienie przychodów", text: "Wynajem, obsługa, logistyka lub transport." }, { title: "Dokumentacja", text: "Materiały potrzebne do decyzji inwestora." }],
-    valueTitle: "Co zabezpiecza inwestora",
-    valueText: ["Model flotowy opiera się na prostym założeniu: inwestor nie buduje samodzielnie firmy transportowej, tylko wchodzi w projekt obsługiwany przez operatora. To operator odpowiada za wykorzystanie pojazdów, kontakt z kierowcami, serwis, rotację, rozliczenia i bieżące zarządzanie flotą."],
-    valueCards: [{ title: "Pojazdy jako realne aktywo", text: "Za projektem stoi fizyczny składnik majątku, a nie wyłącznie obietnica przyszłych przychodów." }, { title: "Kontrakt", text: "Warunki współpracy, odpowiedzialność stron i model rozliczeń są określone w umowie." }, { title: "Operator", text: "Obsługa, kierowcy, serwis i bieżące problemy pozostają po stronie operatora." }],
-    processTitle: "Jak wygląda proces",
-    process: [{ step: "1", title: "Rozmowa o modelu", text: "Przedstawienie charakteru inwestycji." }, { step: "2", title: "Prezentacja operatora", text: "Omówienie skali, floty i zaplecza." }, { step: "3", title: "Wariant inwestycyjny", text: "Kwota, horyzont i struktura." }, { step: "4", title: "Analiza dokumentów", text: "Weryfikacja danych i założeń." }, { step: "5", title: "Finalizacja", text: "Operacyjne uruchomienie lub objęcie udziału." }],
-    documentsTitle: "Co przygotować",
-    documents: ["Preferowana kwota inwestycji", "Oczekiwany horyzont", "Informacja o źródle finansowania", "Pytania o operatora i umowy"],
-    checkpointTitle: "Punkty kontrolne przed decyzją",
-    checkpoints: ["Kto jest operatorem floty i jakie ma doświadczenie.", "Jak wygląda obłożenie pojazdów.", "Jakie są koszty serwisu, szkód i przestojów.", "Jakie są umowy z kierowcami, platformami albo klientami.", "Jak wygląda scenariusz wyjścia lub odsprzedaży aktywów."],
-    risksTitle: "Ryzyka operacyjne po stronie operatora",
-    risks: [{"title":"Bezobsługowy model dla inwestora","text":"Zarządzanie flotą, serwis, kierowcy, rozliczenia i wykorzystanie pojazdów są po stronie operatora. Inwestor korzysta z modelu określonego kontraktem."}],
-    faq: [{"question":"Czy sam zarządzam pojazdami?","answer":"Nie. Właśnie na tym polega przewaga tego modelu. Operacyjne zarządzanie flotą jest po stronie operatora: pojazdy, kierowcy, serwis, rozliczenia, wykorzystanie floty i bieżące problemy. Inwestor nie musi samodzielnie zajmować się flotą."},{"question":"Skąd pochodzą przychody?","answer":"Z modelu pracy pojazdów w zarządzanej flocie oraz warunków określonych w kontrakcie. Operator odpowiada za operacyjne wykorzystanie aktywów."},{"question":"Jak ograniczone są ryzyka operacyjne?","answer":"Ryzyka operacyjne są przeniesione na operatora i ograniczane przez profesjonalne zarządzanie flotą, umowy, serwis, kontrolę wykorzystania pojazdów oraz bieżącą obsługę kierowców."},{"question":"Czy inwestycja jest zabezpieczona pojazdami?","answer":"Tak. Model zakłada zabezpieczenie aktywem w postaci pojazdów. To ważna przewaga nad inwestycjami opartymi wyłącznie na obietnicy przyszłych przychodów."}],
-    finalCta: { title: "Sprawdź model flotowy", text: "Zanim wejdziesz w projekt, sprawdź operatora, flotę, koszty, umowy i zabezpieczenia.", buttonLabel: "Zapytaj o szczegóły" },
-    seo: { title: "Kontrakty flotowe - inwestycja w mobilność i zarządzanie flotą | Dealshare", description: "Projekt inwestycyjny związany z flotą, wynajmem pojazdów, logistyką i obsługą kierowców." },
-    intro: "Pomagamy uporządkować rozmowy wokół kontraktów flotowych i dopasować strony do konkretnego zapotrzebowania.",
-    audience: ["Inwestorzy", "Firmy flotowe", "Partnerzy operacyjni"],
-    benefits: ["Konkretniejsze rozmowy", "Lepsza jakość leadów", "Szybsza ocena potencjału"]
-  },
-  {
     slug: "sankcja-kredytu-darmowego",
     aliases: ["uniewaznienia-kredytow"],
     title: "Unieważnienia kredytów",
@@ -372,7 +403,7 @@ export const offers: Offer[] = [
     ctaPrimary: "Wyślij umowę do analizy",
     ctaSecondary: "Sprawdź, co możesz odzyskać",
     sidePanel: { title: "Co sprawdzamy", items: ["Kredyty gotówkowe i konsumenckie", "Kredyty frankowe CHF", "Kredyty eurowe i dolarowe", "Umowy indeksowane lub denominowane", "Ugody proponowane przez bank"], note: "Na start sprawdzamy dokumenty i pokazujemy potencjalną kwotę do odzyskania oraz dalszą ścieżkę działania.", cta: "Wyślij umowę" },
-    problemTitle: "Problem, którego wielu klientów nie zna",
+    problemTitle: "Problemy, które rozwiązujemy",
     problemText: ["Banki przez lata stosowały w umowach kredytowych zapisy, których wielu klientów nigdy nie rozumiało i nie było w stanie realnie negocjować. Dotyczy to zarówno kredytów gotówkowych i konsumenckich, jak i kredytów walutowych: szczególnie frankowych, eurowych i dolarowych.", "W kredytach konsumenckich problemem mogą być błędy informacyjne, źle opisane koszty, prowizje, odsetki albo naruszenia obowiązków ustawowych.", "W kredytach walutowych kluczowe znaczenie mają mechanizmy przeliczeniowe, kursy z tabel banku, spread walutowy i ryzyko kursowe. Jeśli masz kredyt gotówkowy albo walutowy, nie zakładaj, że bank wszystko policzył prawidłowo. To trzeba sprawdzić."],
     problemCards: [{ title: "SKD i koszty kredytu", text: "Sprawdzamy, czy bank naruszył obowiązki informacyjne i czy koszty poza kapitałem mogą wrócić do klienta." }, { title: "Kredyty walutowe", text: "Analizujemy franki, euro i dolary pod kątem klauzul niedozwolonych oraz mechanizmów przeliczeniowych." }, { title: "Ugody z bankiem", text: "Porównujemy propozycję ugody z potencjalnym scenariuszem roszczeń wobec banku." }],
     solutionTitle: "Dwie ścieżki analizy - jeden cel: odzyskać pieniądze klienta",
@@ -417,7 +448,7 @@ export const offers: Offer[] = [
     ctaPrimary: "Sprawdź rachunki",
     ctaSecondary: "Zobacz proces",
     sidePanel: { title: "Co analizujemy", items: ["Cena energii", "Opłaty handlowe", "Moc umowna", "Energia bierna", "PPE i warunki umowy"], note: "Analiza pokazuje, gdzie firma może odzyskać kontrolę nad opłatami, ceną energii i kosztami dodatkowymi.", cta: "Wyślij fakturę" },
-    problemTitle: "Firmy często nie wiedzą, za co dokładnie płacą",
+    problemTitle: "Problemy, które rozwiązujemy",
     problemText: ["Wielu przedsiębiorców nie zna realnej ceny za kWh, nie monitoruje opłat handlowych, przekroczeń mocy umownej ani energii biernej.", "Często firma przepłaca nie dlatego, że zużywa za dużo, ale dlatego, że nikt nie zarządza tematem energii."],
     problemCards: [{ title: "Opłaty handlowe", text: "Naliczenia potrafią ukrywać się w strukturze faktury." }, { title: "Moc umowna", text: "Przekroczenia mogą generować dodatkowe koszty." }, { title: "Energia bierna", text: "Często niezauważona, a kosztowna." }],
     solutionTitle: "Analiza kosztów i rekomendacja zmian",
@@ -444,143 +475,6 @@ export const offers: Offer[] = [
     intro: "Oferta pomaga firmom szybciej przejść od kosztów energii do rozmowy o możliwych rozwiązaniach.",
     audience: ["Firmy z rosnącymi kosztami energii", "Organizacje wielooddziałowe", "Przedsiębiorcy szukający porównania opcji"],
     benefits: ["Lepsza widoczność kosztów", "Priorytetyzacja działań", "Dostęp do właściwych specjalistów"]
-  },
-  {
-    slug: "yamura-pro",
-    title: "YAMURA PRO",
-    category: categories.contracts.name,
-    categorySlug: categories.contracts.slug,
-    categories: [categories.contracts],
-    status: "Dostępne",
-    headline: "Partner wykonawczy dla biur architektonicznych i projektantów wnętrz.",
-    description:
-      "Weryfikacja techniczna, wycena, produkcja i montaż mebli na wymiar z poszanowaniem autorstwa projektu i relacji pracowni z klientem.",
-    lead:
-      "YAMURA PRO łączy warsztat wykonawczy z procesem pracy projektanta. Przejmujemy odpowiedzialność za techniczne przygotowanie, produkcję, logistykę i montaż, a pracownia zachowuje prowadzenie projektu oraz relacji z klientem.",
-    highlights: [
-      "Współpraca przy pojedynczych projektach lub w modelu stałym",
-      "Czytelny podział odpowiedzialności i kontrola zmian",
-      "Realizacje mieszkaniowe, biurowe i komercyjne"
-    ],
-    heroBenefits: ["Weryfikacja dokumentacji", "Wycena i harmonogram", "Produkcja, montaż i opieka po realizacji"],
-    ctaPrimary: "Zgłoś projekt do YAMURA PRO",
-    ctaSecondary: "Zobacz model współpracy",
-    sidePanel: {
-      title: "Dobry start współpracy",
-      items: ["Krótki brief projektowy", "Ustalenie zasad komunikacji", "Weryfikacja dokumentacji", "Konkretny następny krok"],
-      note:
-        "Nie narzucamy jednego modelu kontaktu. Zasady współpracy ustalamy tak, aby pracownia zachowała kontrolę nad projektem i relacją ze swoim klientem.",
-      cta: "Wypełnij brief"
-    },
-    problemTitle: "Dobra koncepcja potrzebuje równie dobrego wykonania",
-    problemText: [
-      "Najwięcej napięć w realizacji wnętrza pojawia się na styku projektu i wykonawstwa. Braki w dokumentacji, niepotwierdzone materiały, zmiany bez kontroli i rozproszona komunikacja potrafią naruszyć budżet, termin oraz zaufanie klienta do pracowni.",
-      "Projektant nie powinien tracić czasu na koordynowanie każdego detalu produkcyjnego. Potrzebuje partnera, który rozumie intencję projektu, potrafi zgłosić ryzyko odpowiednio wcześnie i bierze odpowiedzialność za powierzony zakres."
-    ],
-    problemCards: [
-      { title: "Rozproszona odpowiedzialność", text: "Kilku wykonawców i brak jednej osoby odpowiedzialnej za cały zakres meblowy." },
-      { title: "Zmiany bez kontroli", text: "Korekty wprowadzane już podczas produkcji zwiększają koszt i ryzyko opóźnień." },
-      { title: "Utrata czasu pracowni", text: "Projektant zamiast prowadzić projekt zajmuje się bieżącą koordynacją wykonawczą." }
-    ],
-    solutionTitle: "YAMURA jako zaplecze wykonawcze Twojej pracowni",
-    solutionText: [
-      "Zaczynamy od zakresu, dokumentacji i zasad komunikacji. Sprawdzamy rozwiązania techniczne, wskazujemy miejsca wymagające decyzji i przygotowujemy wycenę opartą na uzgodnionym standardzie wykonania.",
-      "Po akceptacji przechodzimy przez przygotowanie produkcji, wykonanie, logistykę, montaż i odbiór. Pracownia otrzymuje czytelne informacje o postępie oraz zmianach wymagających zatwierdzenia."
-    ],
-    solutionCards: [
-      { title: "Czytamy dokumentację", text: "Pracujemy na rzutach, przekrojach, rysunkach mebli, wizualizacjach i zestawieniach materiałów." },
-      { title: "Weryfikujemy wykonalność", text: "Sprawdzamy konstrukcję, materiały, okucia, dostęp serwisowy i warunki montażowe." },
-      { title: "Porządkujemy decyzje", text: "Wskazujemy, co wymaga akceptacji przed produkcją i dokumentujemy ustalone zmiany." },
-      { title: "Dowozimy realizację", text: "Odpowiadamy za produkcję, logistykę, montaż i uzgodnione działania po odbiorze." }
-    ],
-    forWhomTitle: "Dla kogo",
-    forWhom: [
-      "Biura architektoniczne",
-      "Projektanci wnętrz",
-      "Pracownie projektowe",
-      "Architekci prowadzący inwestycje prywatne",
-      "Zespoły realizujące biura i lokale komercyjne",
-      "Pracownie szukające stałego partnera wykonawczego"
-    ],
-    scopeTitle: "Co obejmuje współpraca",
-    scope: [
-      { title: "Konsultacja techniczna", text: "Omówienie założeń, materiałów, detali i ograniczeń jeszcze przed zamknięciem projektu." },
-      { title: "Wycena zakresu", text: "Kosztorys oparty na dokumentacji, uzgodnionych materiałach i warunkach realizacji." },
-      { title: "Przygotowanie produkcji", text: "Doprecyzowanie rozwiązań wykonawczych i zebranie decyzji wymaganych przed startem." },
-      { title: "Produkcja i kontrola jakości", text: "Wykonanie mebli zgodnie z zaakceptowanym standardem oraz dokumentacją." },
-      { title: "Logistyka i montaż", text: "Koordynacja dostawy, montażu, odbioru i listy ewentualnych poprawek." },
-      { title: "Opieka po realizacji", text: "Obsługa uzgodnionych regulacji, uzupełnień i zgłoszeń po odbiorze." }
-    ],
-    valueTitle: "Co zyskuje pracownia",
-    valueText: [
-      "Celem YAMURA PRO nie jest zastępowanie projektanta w relacji z klientem. Celem jest odciążenie go w technicznym przygotowaniu i wykonaniu zakresu meblowego.",
-      "Model może obejmować jeden projekt, cykliczne wyceny albo stałe zaplecze wykonawcze. Szczegóły komunikacji, raportowania i kontaktu z inwestorem ustalamy przed rozpoczęciem prac."
-    ],
-    valueCards: [
-      { title: "Zachowane autorstwo", text: "Koncepcja i decyzje estetyczne pozostają po stronie pracowni." },
-      { title: "Mniej koordynacji", text: "Jeden zespół odpowiada za pełny uzgodniony zakres meblowy." },
-      { title: "Większa przewidywalność", text: "Zakres, decyzje, koszt i harmonogram są porządkowane przed produkcją." }
-    ],
-    processTitle: "Jak wygląda proces",
-    process: [
-      { step: "1", title: "Brief w Dealshare", text: "Pracownia opisuje projekt, etap dokumentacji i oczekiwany model współpracy." },
-      { step: "2", title: "Rozmowa kwalifikacyjna", text: "Ustalamy zakres, role, zasady komunikacji oraz materiały potrzebne do analizy." },
-      { step: "3", title: "Weryfikacja techniczna", text: "Sprawdzamy dokumentację i przygotowujemy listę pytań, ryzyk oraz decyzji." },
-      { step: "4", title: "Wycena i plan", text: "Przedstawiamy koszt, założenia oraz kolejność etapów realizacji." },
-      { step: "5", title: "Produkcja i montaż", text: "Realizujemy zaakceptowany zakres i raportujemy uzgodnione punkty kontrolne." },
-      { step: "6", title: "Odbiór i opieka", text: "Zamykamy listę odbiorową i pozostajemy dostępni w uzgodnionym zakresie." }
-    ],
-    documentsTitle: "Co warto przygotować",
-    documents: [
-      "Rzuty i przekroje",
-      "Rysunki mebli lub zabudów",
-      "Wizualizacje",
-      "Zestawienie materiałów i okuć",
-      "Wymiary z inwentaryzacji",
-      "Informacje o miejscu i warunkach montażu",
-      "Budżet lub oczekiwany standard realizacji",
-      "Planowany termin"
-    ],
-    checkpointTitle: "Co ustalamy przed pierwszą wyceną",
-    checkpointText: [
-      "Dobra współpraca zaczyna się od jasnych zasad. Przed analizą projektu ustalamy, kto podejmuje decyzje, jak komunikujemy zmiany i jaki zakres ma zostać objęty odpowiedzialnością YAMURA."
-    ],
-    checkpoints: [
-      "Zakres mebli i pomieszczeń.",
-      "Etap oraz kompletność dokumentacji.",
-      "Standard materiałów, okuć i wykończenia.",
-      "Sposób komunikacji z pracownią i inwestorem.",
-      "Budżet albo oczekiwany poziom realizacji.",
-      "Termin, kolejność prac i warunki montażu.",
-      "Zasady akceptowania zmian.",
-      "Zakres odbioru i opieki po realizacji."
-    ],
-    risksTitle: "Najważniejsze zasady bezpiecznej współpracy",
-    risks: [
-      { title: "Jedno źródło decyzji", text: "Ustalamy osoby uprawnione do zatwierdzania materiałów, kosztów i zmian projektowych." },
-      { title: "Zmiany przed produkcją", text: "Kluczowe decyzje zamykamy przed startem, aby ograniczyć kosztowne korekty w trakcie wykonania." },
-      { title: "Przejrzysta komunikacja", text: "Pracownia wie, na jakim etapie jest realizacja i które kwestie wymagają jej decyzji." }
-    ],
-    faq: [
-      { question: "Czy YAMURA kontaktuje się bezpośrednio z klientem pracowni?", answer: "Model kontaktu ustalamy wspólnie przed rozpoczęciem prac. Pracownia może pozostać głównym punktem komunikacji, a kontakt YAMURA z inwestorem może ograniczać się do uzgodnionych kwestii technicznych, pomiarów i montażu." },
-      { question: "Czy można zgłosić projekt jeszcze bez pełnej dokumentacji?", answer: "Tak. Wczesna konsultacja techniczna pomaga ocenić materiały, konstrukcję i potencjalne ryzyka przed zamknięciem dokumentacji. Do wiążącej wyceny potrzebny będzie jednak uzgodniony zakres i odpowiedni poziom szczegółowości." },
-      { question: "Czy współpraca dotyczy tylko projektów mieszkaniowych?", answer: "Nie. YAMURA realizuje zabudowy do domów i mieszkań, a także meble do biur, lokali usługowych oraz innych przestrzeni komercyjnych." },
-      { question: "Czy mogę zgłosić tylko jeden projekt?", answer: "Tak. Możemy zacząć od pojedynczej realizacji i po jej zakończeniu zdecydować, czy stały model współpracy ma sens dla obu stron." },
-      { question: "Czy na stronie znajduje się stały cennik?", answer: "Nie, ponieważ koszt zależy od dokumentacji, materiałów, okuć, wymiarów i warunków montażu. Po wstępnej kwalifikacji wskażemy materiały potrzebne do przygotowania wyceny." }
-    ],
-    finalCta: {
-      title: "Zacznijmy od projektu lub potrzeb Twojej pracowni",
-      text: "Wypełnij krótki brief. Ustalimy właściwy model współpracy i poprosimy tylko o materiały potrzebne do konkretnego następnego kroku.",
-      buttonLabel: "Zgłoś projekt do YAMURA PRO"
-    },
-    seo: {
-      title: "YAMURA PRO - wykonawstwo mebli dla architektów i projektantów | Dealshare",
-      description:
-        "Współpraca B2B dla biur architektonicznych i projektantów wnętrz: weryfikacja dokumentacji, wycena, produkcja i montaż mebli na wymiar."
-    },
-    intro: "YAMURA PRO to zaplecze wykonawcze dla pracowni, które chcą zachować kontrolę nad projektem i zyskać odpowiedzialnego partnera do realizacji mebli na wymiar.",
-    audience: ["Biura architektoniczne", "Projektanci wnętrz", "Pracownie projektowe"],
-    benefits: ["Weryfikacja techniczna", "Przejrzysty proces", "Produkcja i montaż"]
   }
 ];
 

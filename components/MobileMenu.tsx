@@ -42,6 +42,16 @@ export function MobileMenu() {
     setOpenedPathname(null);
   }
 
+  function handleNavClick(href: string) {
+    return (event: React.MouseEvent<HTMLAnchorElement>) => {
+      closeMenu();
+      if (pathname === href) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+  }
+
   return (
     <div className="shrink-0 xl:hidden">
       <button
@@ -77,48 +87,53 @@ export function MobileMenu() {
           >
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px]" />
 
-          <div className="relative z-10 flex items-center justify-between gap-4">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan">Menu</p>
-            </div>
-            <button
-              type="button"
-              aria-label="Zamknij menu"
-              onClick={closeMenu}
-              className="button-glass relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-deal-gradient text-white shadow-glow transition hover:-translate-y-0.5 hover:shadow-card"
-            >
-              <span className="absolute h-0.5 w-4 rotate-45 rounded-full bg-current" />
-              <span className="absolute h-0.5 w-4 -rotate-45 rounded-full bg-current" />
-            </button>
-          </div>
-
-          <nav className="relative z-10 mt-6 grid gap-2.5 sm:mt-8 sm:gap-3" aria-label="Nawigacja mobilna">
-            {siteConfig.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
+            <div className="relative z-10 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan">Menu</p>
+              </div>
+              <button
+                type="button"
+                aria-label="Zamknij menu"
                 onClick={closeMenu}
-                className="group flex items-center justify-between border border-white/12 bg-white/[0.035] px-4 py-2.5 text-sm font-bold text-white/76 backdrop-blur transition hover:-translate-y-0.5 hover:border-cyan/35 hover:bg-cyan/[0.055] hover:text-white sm:py-3 sm:text-base"
+                className="button-glass relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-deal-gradient text-white shadow-glow transition hover:-translate-y-0.5 hover:shadow-card"
               >
-                {item.label}
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </nav>
+                <span className="absolute h-0.5 w-4 rotate-45 rounded-full bg-current" />
+                <span className="absolute h-0.5 w-4 -rotate-45 rounded-full bg-current" />
+              </button>
+            </div>
 
-          <Link
-            href="/kontakt"
-            onClick={closeMenu}
-            className="button-glass relative z-10 isolate mt-6 inline-flex min-h-11 items-center justify-center overflow-hidden rounded-md bg-deal-gradient px-5 py-3 text-sm font-bold text-white shadow-glow"
-          >
-            <span className="relative z-10">Porozmawiajmy!</span>
-          </Link>
+            <nav className="relative z-10 mt-6 grid gap-2.5 sm:mt-8 sm:gap-3" aria-label="Nawigacja mobilna">
+              {siteConfig.nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={handleNavClick(item.href)}
+                  className="group flex items-center justify-between border border-white/12 bg-white/[0.035] px-4 py-2.5 text-sm font-bold text-white/76 backdrop-blur transition hover:-translate-y-0.5 hover:border-cyan/35 hover:bg-cyan/[0.055] hover:text-white sm:py-3 sm:text-base"
+                >
+                  {item.label}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
+              ))}
+            </nav>
 
-          <Link href="/" aria-label="dealshare - strona główna" onClick={closeMenu} className="relative z-10 mt-auto flex justify-center pb-2 pt-10">
-            <Image src="/logo-dark.png" alt="dealshare" width={204} height={76} className="h-auto w-[204px] opacity-95 drop-shadow-[0_8px_18px_rgba(0,31,77,0.24)]" />
-          </Link>
+            <Link
+              href="/kontakt"
+              onClick={handleNavClick("/kontakt")}
+              className="button-glass relative z-10 isolate mt-6 inline-flex min-h-11 items-center justify-center overflow-hidden rounded-md bg-deal-gradient px-5 py-3 text-sm font-bold text-white shadow-glow"
+            >
+              <span className="relative z-10">Porozmawiajmy!</span>
+            </Link>
+
+            <Link
+              href="/"
+              aria-label="dealshare - strona główna"
+              onClick={handleNavClick("/")}
+              className="relative z-10 mt-auto flex justify-center pb-2 pt-10"
+            >
+              <Image src="/logo-dark.png" alt="dealshare" width={204} height={76} className="h-auto w-[204px] opacity-95 drop-shadow-[0_8px_18px_rgba(0,31,77,0.24)]" />
+            </Link>
           </aside>
         </div>
       ) : null}

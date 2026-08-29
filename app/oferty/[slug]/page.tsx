@@ -47,68 +47,71 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
 
   return (
     <main className="bg-white text-ink">
-      <section className="relative overflow-hidden border-b border-slate-200 bg-white py-12 sm:py-16">
-        <div className="pointer-events-none absolute inset-y-10 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_center,rgba(0,91,255,0.08),transparent_56%)] lg:block" />
+      <section className="hero-dark-base py-12 text-white sm:py-16">
         <Container>
           <Breadcrumbs offer={offer} />
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_380px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-3">
                 {offer.categories.map((category) => (
-                  <Badge key={category.slug} tone={offer.isIndividual ? "dark" : "blue"}>
+                  <Badge key={category.slug} tone="teal">
                     {category.name}
                   </Badge>
                 ))}
-                <Badge tone={isClosed ? "dark" : "teal"}>{offer.status}</Badge>
+                <span className="rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-cyan">
+                  {offer.status}
+                </span>
               </div>
-              <h1 className="mt-5 text-4xl font-black tracking-tight text-navy sm:text-6xl">{offer.title}</h1>
-              <p className="mt-5 max-w-2xl text-xl font-semibold leading-8 text-slate-700">{offer.headline}</p>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">{offer.lead}</p>
+              <h1 className="heading-title-enter mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">{offer.title}</h1>
+              <p className="heading-copy-enter mt-5 max-w-2xl text-xl font-semibold leading-8 text-white/88">{offer.headline}</p>
+              <p className="heading-copy-enter mt-4 max-w-2xl text-base leading-8 text-white/72">{offer.lead}</p>
               <ul className="mt-7 grid gap-3">
-                {offer.heroBenefits.map((benefit) => (
-                  <li key={benefit} className="flex items-center gap-3 text-sm font-bold text-slate-700">
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-electric/30 text-electric">✓</span>
+                {offer.heroBenefits.map((benefit, index) => (
+                  <li key={benefit} className={`reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 3)}` : ""} flex items-center gap-3 text-sm font-bold text-white/84`}>
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-cyan/40 bg-cyan/10 text-xs text-cyan">✓</span>
                     {benefit}
                   </li>
                 ))}
               </ul>
               <div className="mt-8 flex flex-wrap gap-4">
-                {briefConfig ? <BriefModal config={briefConfig} buttonLabel={briefConfig.cta} /> : <Button href="/kontakt">{offer.ctaPrimary}</Button>}
-                <Button href="#proces" variant="ghost">
+                {briefConfig ? <BriefModal config={briefConfig} buttonLabel={briefConfig.cta} buttonVariant="cyan" /> : <Button href="/kontakt" variant="cyan">{offer.ctaPrimary}</Button>}
+                <Button href="#proces" variant="secondary">
                   {offer.ctaSecondary} <span className="ml-2">→</span>
                 </Button>
               </div>
             </div>
-            <div>
+            <div className="reveal-on-scroll reveal-delay-2">
               {offer.slug === "yamura-pro" ? (
-                <Image
-                  src="/yamura-logo-dark.png"
-                  alt="YAMURA"
-                  width={520}
-                  height={54}
-                  priority
-                  className="mx-auto mb-7 h-auto w-52 object-contain sm:w-64"
-                />
+                <div className="mx-auto mb-7 flex justify-center">
+                  <Image
+                    src="/yamura-logo-dark.png"
+                    alt="YAMURA"
+                    width={520}
+                    height={54}
+                    priority
+                    className="h-auto w-52 object-contain brightness-0 invert sm:w-64"
+                  />
+                </div>
               ) : null}
-              <aside className="rounded-lg border border-slate-200 bg-white p-6 shadow-card">
-              <h2 className="text-2xl font-black tracking-tight text-navy">{offer.sidePanel.title}</h2>
-              <ul className="mt-5 grid gap-4">
-                {offer.sidePanel.items.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-slate-700">
-                    <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-electric/30 text-xs text-electric">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {briefConfig ? (
-                <BriefModal config={briefConfig} buttonLabel={offer.sidePanel.cta} buttonClassName="mt-6 w-full" />
-              ) : (
-                <Button href="/kontakt" className="mt-6 w-full">
-                  {offer.sidePanel.cta}
-                </Button>
-              )}
-              <p className="mt-3 text-center text-xs font-semibold text-slate-500">Wstępna analiza jest całkowicie darmowa</p>
-              <p className="mt-4 text-xs leading-6 text-slate-500">{offer.sidePanel.note}</p>
+              <aside className="rounded-lg border border-cyan/35 bg-white/[0.05] p-6 text-white shadow-glow backdrop-blur-md">
+                <h2 className="text-2xl font-black tracking-tight text-white">{offer.sidePanel.title}</h2>
+                <ul className="mt-5 grid gap-3.5">
+                  {offer.sidePanel.items.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-white/80">
+                      <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-cyan/40 bg-cyan/10 text-xs text-cyan">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                {briefConfig ? (
+                  <BriefModal config={briefConfig} buttonLabel={offer.sidePanel.cta} buttonVariant="cyan" buttonClassName="mt-6 w-full" />
+                ) : (
+                  <Button href="/kontakt" variant="cyan" className="mt-6 w-full">
+                    {offer.sidePanel.cta}
+                  </Button>
+                )}
+                <p className="mt-3 text-center text-xs font-semibold text-cyan">Wstępna analiza jest całkowicie darmowa</p>
+                <p className="mt-3 text-xs leading-6 text-white/60">{offer.sidePanel.note}</p>
               </aside>
             </div>
           </div>
@@ -117,7 +120,7 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
 
       <ContentBand>
         <SplitIntro title={offer.problemTitle} paragraphs={offer.problemText} />
-        <CardGrid items={offer.problemCards} />
+        <CardGrid items={offer.problemCards} variant="problem" />
       </ContentBand>
 
       <ContentBand muted>
@@ -129,13 +132,13 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
         <Container>
           <div className="grid gap-6 lg:grid-cols-[240px_1fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-tight text-navy">{offer.forWhomTitle}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">Sprawdź, czy sytuacja pasuje do tej oferty.</p>
+              <h2 className="heading-title-enter text-3xl font-black tracking-tight text-navy">{offer.forWhomTitle}</h2>
+              <p className="heading-copy-enter mt-3 text-sm leading-7 text-slate-600">Sprawdź, czy sytuacja pasuje do tej oferty.</p>
             </div>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {offer.forWhom.map((item) => (
-                <li key={item} className="flex gap-2 text-sm font-semibold text-slate-700">
-                  <span className="mt-0.5 text-electric">✓</span>
+              {offer.forWhom.map((item, index) => (
+                <li key={item} className={`reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 5)}` : ""} flex gap-2 text-sm font-semibold text-slate-700`}>
+                  <span className="mt-0.5 text-teal">✓</span>
                   {item}
                 </li>
               ))}
@@ -160,9 +163,9 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
         <Container>
           <SectionTitle title={offer.processTitle} />
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-            {offer.process.map((step) => (
-              <article key={`${step.step}-${step.title}`} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="grid h-11 w-11 place-items-center rounded-full border border-electric/30 bg-electric/5 text-lg font-black text-electric">{step.step}</div>
+            {offer.process.map((step, index) => (
+              <article key={`${step.step}-${step.title}`} className={`card-glass soft-lift reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 5)}` : ""} group rounded-lg border border-slate-200/80 bg-white p-5 shadow-sm transition hover:border-cyan/40 hover:shadow-card`}>
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-deal-gradient text-lg font-black text-white">{step.step}</div>
                 <h3 className="mt-4 text-base font-black text-navy">{step.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-600">{step.text}</p>
               </article>
@@ -171,7 +174,7 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
         </Container>
       </section>
 
-      <section className="bg-mist py-14">
+      <section className="bg-[#f8fafc] py-14">
         <Container>
           <div className="grid gap-6 lg:grid-cols-2">
             <InfoPanel title={offer.documentsTitle} items={offer.documents} tone="blue" />
@@ -190,9 +193,9 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
       <section className="bg-white py-14">
         <Container>
           <SectionTitle title="Najczęściej zadawane pytania" />
-          <div className="mt-6 divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white">
-            {offer.faq.map((item) => (
-              <details key={item.question} className="group p-5">
+          <div className="mt-6 divide-y divide-slate-200 rounded-lg border border-slate-200/80 bg-white shadow-sm">
+            {offer.faq.map((item, index) => (
+              <details key={item.question} className={`reveal-on-scroll ${index > 0 ? `reveal-delay-${Math.min(index, 4)}` : ""} group p-5 transition hover:bg-slate-50/70`}>
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-black text-navy">
                   {item.question}
                   <span className="text-electric transition group-open:rotate-180">⌄</span>
@@ -207,12 +210,12 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
       {briefConfig ? (
         <BriefInlineForm config={briefConfig} title={offer.finalCta.title} text={offer.finalCta.text} />
       ) : (
-        <section id="formularz" className="bg-white pb-16">
+        <section id="formularz" className="bg-[#f8fafc] pb-16 pt-6">
           <Container>
-            <div className="rounded-lg border border-slate-200 bg-mist p-8 shadow-sm sm:p-10">
-              <h2 className="text-3xl font-black tracking-tight text-navy">{offer.finalCta.title}</h2>
-              <p className="mt-3 max-w-2xl text-base leading-8 text-slate-600">{offer.finalCta.text}</p>
-              <Button href="/kontakt" className="mt-7">
+            <div className="reveal-on-scroll rounded-lg border border-cyan/35 bg-navy-gradient p-8 text-white shadow-glow sm:p-10">
+              <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{offer.finalCta.title}</h2>
+              <p className="mt-3 max-w-2xl text-base leading-8 text-white/76">{offer.finalCta.text}</p>
+              <Button href="/kontakt" variant="cyan" className="mt-7">
                 {offer.finalCta.buttonLabel} <span className="ml-2">→</span>
               </Button>
             </div>
@@ -226,23 +229,23 @@ export default async function OfferDetailPage({ params }: OfferDetailPageProps) 
 
 function Breadcrumbs({ offer }: { offer: Offer }) {
   return (
-    <nav className="flex flex-wrap gap-2 text-sm font-semibold text-slate-500" aria-label="Breadcrumb">
-      <Link href="/" className="hover:text-electric">
+    <nav className="flex flex-wrap gap-2 text-sm font-bold text-white/60" aria-label="Breadcrumb">
+      <Link href="/" className="transition hover:text-cyan">
         Strona główna
       </Link>
       <span>/</span>
-      <Link href="/oferty" className="hover:text-electric">
+      <Link href="/oferty" className="transition hover:text-cyan">
         Oferty
       </Link>
       <span>/</span>
-      <span className="text-electric">{offer.title}</span>
+      <span className="text-cyan">{offer.title}</span>
     </nav>
   );
 }
 
 function ContentBand({ children, muted = false }: { children: React.ReactNode; muted?: boolean }) {
   return (
-    <section className={`${muted ? "bg-mist" : "bg-white"} py-14`}>
+    <section className={`${muted ? "bg-[#f8fafc]" : "bg-white"} py-14`}>
       <Container>{children}</Container>
     </section>
   );
@@ -254,7 +257,7 @@ function SplitIntro({ title, paragraphs }: { title: string; paragraphs: string[]
       <SectionTitle title={title} />
       <div className="max-w-3xl space-y-4 text-sm leading-7 text-slate-600">
         {paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={paragraph} className="heading-copy-enter">{paragraph}</p>
         ))}
       </div>
     </div>
@@ -262,17 +265,42 @@ function SplitIntro({ title, paragraphs }: { title: string; paragraphs: string[]
 }
 
 function SectionTitle({ title }: { title: string }) {
-  return <h2 className="text-3xl font-black tracking-tight text-navy">{title}</h2>;
+  return <h2 className="heading-title-enter text-3xl font-black tracking-tight text-navy">{title}</h2>;
 }
 
-function CardGrid({ items, columns = "3" }: { items: OfferCardItem[]; columns?: "3" | "4" | "5" }) {
+function CardGrid({
+  items,
+  columns = "3",
+  variant = "default"
+}: {
+  items: OfferCardItem[];
+  columns?: "3" | "4" | "5";
+  variant?: "default" | "problem";
+}) {
   const gridClass = columns === "5" ? "lg:grid-cols-5" : columns === "4" ? "lg:grid-cols-4" : "lg:grid-cols-3";
 
   return (
     <div className={`mt-8 grid gap-5 sm:grid-cols-2 ${gridClass}`}>
-      {items.map((item) => (
-        <article key={item.title} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="grid h-10 w-10 place-items-center rounded-full border border-electric/25 bg-electric/5 text-lg font-black text-electric">{item.icon ?? "✓"}</div>
+      {items.map((item, index) => (
+        <article
+          key={item.title}
+          className={`card-glass soft-lift reveal-on-scroll ${
+            index > 0 ? `reveal-delay-${Math.min(index, 5)}` : ""
+          } group rounded-lg border bg-white p-5 shadow-sm transition hover:shadow-card ${
+            variant === "problem"
+              ? "border-slate-200/80 hover:border-magenta/40"
+              : "border-slate-200/80 hover:border-cyan/40"
+          }`}
+        >
+          <div
+            className={`grid h-10 w-10 place-items-center rounded-full text-sm font-black ${
+              variant === "problem"
+                ? "border border-magenta/30 bg-magenta/10 text-magenta shadow-sm"
+                : "bg-deal-gradient text-white"
+            }`}
+          >
+            {variant === "problem" ? "✕" : (item.icon ?? "✓")}
+          </div>
           <h3 className="mt-4 text-base font-black text-navy">{item.title}</h3>
           <p className="mt-2 text-sm leading-6 text-slate-600">{item.text}</p>
         </article>
@@ -285,7 +313,7 @@ function InfoPanel({ title, paragraphs, items, tone }: { title: string; paragrap
   const toneClasses = tone === "amber" ? "border-amber-300/60 bg-amber-50 text-amber-700" : "border-electric/20 bg-white text-electric";
 
   return (
-    <section className={`rounded-lg border p-6 shadow-sm ${toneClasses}`}>
+    <section className={`card-glass soft-lift reveal-on-scroll rounded-lg border p-6 shadow-sm ${toneClasses}`}>
       <h2 className="text-2xl font-black tracking-tight text-navy">{title}</h2>
       {paragraphs?.map((paragraph) => (
         <p key={paragraph} className="mt-3 text-sm leading-7 text-slate-600">
@@ -295,7 +323,7 @@ function InfoPanel({ title, paragraphs, items, tone }: { title: string; paragrap
       <ul className="mt-5 grid gap-2 text-sm font-semibold text-slate-700">
         {items.map((item) => (
           <li key={item} className="flex gap-2">
-            <span className="mt-0.5 text-electric">✓</span>
+            <span className="mt-0.5 text-teal">✓</span>
             {item}
           </li>
         ))}

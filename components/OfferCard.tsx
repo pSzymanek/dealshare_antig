@@ -9,14 +9,12 @@ type OfferCardProps = {
 };
 
 const offerIcons: Record<string, string> = {
-  "farma-pv-bess": "/dealshare_farmy_energii_panel.svg",
-  "infrastruktura-gpu": "/dealshare_infrastruktura_gpu_serwer.svg",
-  "kontrakty-flotowe": "/dealshare_kontrakty_flotowe_fleet.svg",
+  "yamura-pro": "/yamura-logo-dark.png",
   "kredyty-dla-firm": "/dealshare_kredyty_dla_firm_banknot.svg",
   restrukturyzacje: "/dealshare_restrukturyzacje_naprawa.svg",
-  "optymalizacja-kosztow-energii": "/dealshare_umowy_na_energie_bolt.svg",
+  "farma-pv-bess": "/dealshare_farmy_energii_panel.svg",
   "sankcja-kredytu-darmowego": "/dealshare_uniewaznienia_kredytow_cancel.svg",
-  "yamura-pro": "/yamura-logo-dark.png"
+  "optymalizacja-kosztow-energii": "/dealshare_umowy_na_energie_bolt.svg"
 };
 
 export function OfferCard({ offer, className = "" }: OfferCardProps) {

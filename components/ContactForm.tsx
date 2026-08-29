@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 
 const initialState = {
-  needCategory: "",
   name: "",
   email: "",
   phone: "",
@@ -15,14 +14,8 @@ type FormValues = typeof initialState;
 type FieldName = keyof FormValues;
 type Errors = Partial<Record<FieldName, string>>;
 
-const needCategories = ["Finansowanie", "Obniżenie kosztów", "Partner biznesowy", "Kontrakt / sprzedaż", "Prawo i restrukturyzacja", "Technologia / inwestycja", "Inna potrzeba"];
-
 function validate(values: FormValues) {
   const errors: Errors = {};
-
-  if (!values.needCategory) {
-    errors.needCategory = "Wybierz obszar potrzeby.";
-  }
 
   if (!values.name.trim()) {
     errors.name = "Podaj imię i nazwisko.";
@@ -100,36 +93,8 @@ export function ContactForm() {
   }
 
   return (
-    <form id="formularz" onSubmit={submitForm} className="card-glass scroll-mt-28 rounded-lg border border-slate-200 bg-white p-6 shadow-card" noValidate>
-      <div>
-        <span className="flex items-center gap-2 text-sm font-bold text-navy">
-          Z czym przychodzisz?
-          {errors.needCategory ? <ErrorMark /> : null}
-        </span>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {needCategories.map((category) => {
-            const selected = values.needCategory === category;
-
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => updateValue("needCategory", category)}
-                aria-pressed={selected}
-                className={cx(
-                  "min-h-11 rounded-md border px-3 py-2 text-left text-sm font-bold transition",
-                  selected ? "border-electric bg-electric text-white shadow-glow" : "border-slate-200 bg-white text-navy hover:border-electric/35 hover:bg-electric/5"
-                )}
-              >
-                {category}
-              </button>
-            );
-          })}
-        </div>
-        {errors.needCategory ? <p className="mt-2 text-xs font-semibold text-teal">{errors.needCategory}</p> : null}
-      </div>
-
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+    <form id="formularz" onSubmit={submitForm} className="card-glass scroll-mt-28 rounded-lg border border-slate-200/90 bg-white p-6 shadow-card transition hover:border-slate-300 sm:p-8" noValidate>
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Imię i nazwisko" name="name" value={values.name} error={errors.name} onChange={(value) => updateValue("name", value)} required />
         <Field label="E-mail" name="email" type="email" value={values.email} error={errors.email} onChange={(value) => updateValue("email", value)} required />
         <Field label="Telefon" name="phone" value={values.phone} onChange={(value) => updateValue("phone", value)} />
@@ -148,7 +113,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
           className={cx(
-            "mt-2 min-h-36 w-full rounded-md border px-4 py-3 text-sm outline-none transition hover:border-slate-400 focus:border-electric focus:ring-4 focus:ring-electric/10",
+            "mt-2 min-h-36 w-full rounded-md border px-4 py-3 text-sm outline-none transition duration-200 hover:border-slate-400 focus:border-cyan focus:ring-4 focus:ring-cyan/15",
             errors.message ? "border-cyan bg-cyan/5 ring-4 ring-cyan/10" : "border-slate-300"
           )}
           required
@@ -156,21 +121,21 @@ export function ContactForm() {
         {errors.message ? <p id="message-error" className="mt-2 text-xs font-semibold text-teal">{errors.message}</p> : null}
       </label>
       {status === "success" ? (
-        <p className="mt-5 rounded-md border border-teal/20 bg-teal/10 px-4 py-3 text-sm font-semibold text-teal">
-          {feedback}
+        <p className="mt-5 rounded-md border border-teal/30 bg-teal/10 px-4 py-3 text-sm font-semibold text-teal">
+          ✓ {feedback}
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="mt-5 rounded-md border border-electric/20 bg-electric/10 px-4 py-3 text-sm font-semibold text-electric">
-          {feedback}
+        <p className="mt-5 rounded-md border border-cyan/30 bg-cyan/10 px-4 py-3 text-sm font-semibold text-navy">
+          ! {feedback}
         </p>
       ) : null}
       <button
         type="submit"
         disabled={status === "loading"}
-        className="button-glass relative isolate mt-6 inline-flex min-h-11 items-center justify-center overflow-hidden rounded-md bg-deal-gradient px-6 py-3 text-sm font-bold text-white shadow-glow transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+        className="button-glass relative isolate mt-6 inline-flex min-h-12 items-center justify-center overflow-hidden rounded-md bg-deal-gradient px-8 py-3 text-sm font-black text-white shadow-glow transition duration-300 hover:-translate-y-0.5 hover:shadow-card disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
+        {status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość →"}
       </button>
     </form>
   );
@@ -204,7 +169,7 @@ function Field({ label, name, value, error, onChange, required, type = "text" }:
         aria-describedby={error ? errorId : undefined}
         required={required}
         className={cx(
-          "mt-2 h-12 w-full rounded-md border px-4 text-sm outline-none transition hover:border-slate-400 focus:border-electric focus:ring-4 focus:ring-electric/10",
+          "mt-2 h-12 w-full rounded-md border px-4 text-sm outline-none transition duration-200 hover:border-slate-400 focus:border-cyan focus:ring-4 focus:ring-cyan/15",
           error ? "border-cyan bg-cyan/5 ring-4 ring-cyan/10" : "border-slate-300"
         )}
       />

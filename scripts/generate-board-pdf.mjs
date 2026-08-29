@@ -19,7 +19,7 @@ const htmlContent = `<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Zarząd dealshare — Instrukcja Aktywacji</title>
+  <title>Zarząd DS — Instrukcja Aktywacji</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
@@ -260,7 +260,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="brand-row">
       <img src="${logoBase64}" alt="dealshare" class="logo-img">
       <div class="badge-board">
-        <span>●</span> Aplikacja: Zarząd dealshare
+        <span>●</span> Aplikacja: Zarząd DS
       </div>
     </div>
     <h1 class="header-title">Instrukcja Aktywacji Aplikacji Zarządu</h1>
@@ -332,7 +332,7 @@ const htmlContent = `<!DOCTYPE html>
           </p>
         </div>
         <p class="step-desc" style="margin-top: 8px; font-weight: 700; color: #041738;">
-          Ikonka <strong>„Zarząd dealshare”</strong> pojawi się na Twoim pulpicie.
+          Ikonka <strong>„Zarząd DS”</strong> pojawi się na Twoim pulpicie.
         </p>
       </div>
 

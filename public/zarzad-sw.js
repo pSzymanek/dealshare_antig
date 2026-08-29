@@ -1,47 +1,14 @@
-const CACHE_NAME = "dealshare-board-v5";
-const APP_SHELL = ["/zarzad-manifest.webmanifest", "/zarzad-icon-192.png", "/zarzad-icon-512.png", "/zarzad-icon-maskable-512.png", "/sygnet-white.png", "/logo-dark.png"];
+const CACHE_NAME = "dealshare-board-v6";
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
-  );
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+      Promise.all(keys.map((key) => caches.delete(key)))
     ).then(() => self.clients.claim())
-  );
-});
-
-// Pass-through fetch with safe cache fallback for static shell assets
-self.addEventListener("fetch", (event) => {
-  const requestUrl = new URL(event.request.url);
-
-  if (event.request.method !== "GET" || requestUrl.origin !== self.location.origin) {
-    return;
-  }
-
-  // Never intercept navigation, dynamic Next.js bundles, or API calls
-  if (
-    event.request.mode === "navigate" ||
-    requestUrl.pathname.startsWith("/api/") ||
-    requestUrl.pathname.startsWith("/_next/")
-  ) {
-    return;
-  }
-
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response.ok) {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
-        }
-        return response;
-      })
-      .catch(() => caches.match(event.request))
   );
 });
 
@@ -51,11 +18,11 @@ self.addEventListener("push", (event) => {
 
   try {
     const data = event.data.json();
-    const title = data.title || "DEALSHARE Board";
+    const title = data.title || "Zarząd DS";
     const options = {
       body: data.body || "Nowe powiadomienie z panelu Zarządu",
-      icon: "/sygnet-white.png",
-      badge: "/sygnet-white.png",
+      icon: "/zarzad-icon-192.png",
+      badge: "/zarzad-icon-192.png",
       vibrate: [200, 100, 200, 100, 200],
       tag: data.tag || "dealshare-push",
       renotify: true,

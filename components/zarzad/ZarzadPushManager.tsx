@@ -89,10 +89,21 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
       setIsSupported(true);
       setPermissionState(Notification.permission);
 
+      // Clean up any legacy root-scoped service worker registrations so they don't interfere with /blog or other pages
+      try {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const r of registrations) {
+          const scopePath = new URL(r.scope).pathname;
+          if (scopePath === "/" || !scopePath.startsWith("/zarzad")) {
+            await r.unregister();
+          }
+        }
+      } catch {}
+
       if (Notification.permission === "granted") {
         try {
           const reg = await navigator.serviceWorker.getRegistration("/zarzad");
-          const activeReg = reg || (await navigator.serviceWorker.register("/zarzad-sw.js"));
+          const activeReg = reg || (await navigator.serviceWorker.register("/zarzad-sw.js", { scope: "/zarzad" }));
           const sub = await activeReg.pushManager.getSubscription();
           if (sub) {
             setIsSubscribed(true);
@@ -143,7 +154,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
         return;
       }
 
-      const registration = await navigator.serviceWorker.register("/zarzad-sw.js");
+      const registration = await navigator.serviceWorker.register("/zarzad-sw.js", { scope: "/zarzad" });
       let subscription = await registration.pushManager.getSubscription();
 
       if (!subscription) {
@@ -170,7 +181,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
     setStatusMessage(null);
 
     try {
-      const registration = await navigator.serviceWorker.getRegistration();
+      const registration = await navigator.serviceWorker.getRegistration("/zarzad");
       if (registration) {
         const subscription = await registration.pushManager.getSubscription();
         if (subscription) {
@@ -204,7 +215,7 @@ export function ZarzadPushManager({ supabase }: { supabase: SupabaseClient }) {
     setStatusMessage("Wysyłam powiadomienie testowe...");
 
     try {
-      const registration = await navigator.serviceWorker.register("/zarzad-sw.js");
+      const registration = await navigator.serviceWorker.register("/zarzad-sw.js", { scope: "/zarzad" });
       let subscription = await registration.pushManager.getSubscription();
 
       if (!subscription) {

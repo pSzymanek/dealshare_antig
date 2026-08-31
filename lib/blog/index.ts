@@ -11,26 +11,66 @@ export function getBlogProvider(): BlogContentProvider {
 }
 
 export async function getBlogPosts(options?: Parameters<BlogContentProvider["getPosts"]>[0]) {
-  return getBlogProvider().getPosts(options);
+  try {
+    const provider = getBlogProvider();
+    const posts = await provider.getPosts(options);
+    if (posts && posts.length > 0) {
+      return posts;
+    }
+  } catch (error) {
+    console.error("Błąd pobierania postów bloga:", error);
+  }
+
+  // Fallback to static blog provider
+  return staticBlogProvider.getPosts(options);
 }
 
 export async function getBlogPostBySlug(slug: string) {
-  return getBlogProvider().getPostBySlug(slug);
+  try {
+    const provider = getBlogProvider();
+    const post = await provider.getPostBySlug(slug);
+    if (post) {
+      return post;
+    }
+  } catch (error) {
+    console.error(`Błąd pobierania wpisu "${slug}":`, error);
+  }
+
+  // Fallback to static blog provider
+  return staticBlogProvider.getPostBySlug(slug);
 }
 
 export async function getBlogCategories() {
-  return getBlogProvider().getCategories();
+  try {
+    const provider = getBlogProvider();
+    const categories = await provider.getCategories();
+    if (categories && categories.length > 0) {
+      return categories;
+    }
+  } catch (error) {
+    console.error("Błąd pobierania kategorii bloga:", error);
+  }
+
+  // Fallback to static blog provider
+  return staticBlogProvider.getCategories();
 }
 
 export async function getRelatedBlogPosts(...args: Parameters<BlogContentProvider["getRelatedPosts"]>) {
-  return getBlogProvider().getRelatedPosts(...args);
+  try {
+    const provider = getBlogProvider();
+    const related = await provider.getRelatedPosts(...args);
+    if (related && related.length > 0) {
+      return related;
+    }
+  } catch (error) {
+    console.error("Błąd pobierania powiązanych wpisów:", error);
+  }
+
+  // Fallback to static blog provider
+  return staticBlogProvider.getRelatedPosts(...args);
 }
 
 export function getStaticBlogSlugs() {
-  if (process.env.BLOG_PROVIDER === "wordpress") {
-    return [];
-  }
-
   return getStaticBlogPostsForBuild().map((post) => ({ slug: post.slug }));
 }
 

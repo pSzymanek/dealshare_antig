@@ -458,7 +458,7 @@ export function ZarzadApp() {
     ) : activeTab === "announcements" ? (
       <AnnouncementsView {...commonProps} announcements={announcements} />
     ) : activeTab === "mail" ? (
-      <MailView supabase={supabase} />
+      <MailView supabase={supabase} profiles={profiles} />
     ) : activeTab === "chat" ? (
       <ChatView {...commonProps} messages={messages} />
     ) : (
@@ -1754,7 +1754,26 @@ function ChatView({
   );
 }
 
-function MailView({ supabase }: { supabase: ReturnType<typeof createZarzadSupabaseClient> }) {
+type MailLogEntry = {
+  id: string;
+  actor_id: string;
+  action: string;
+  entity_type: string;
+  entity_id: string | null;
+  metadata: {
+    templateId?: string;
+    recipients?: string[];
+  } | null;
+  created_at: string;
+};
+
+function MailView({
+  supabase,
+  profiles
+}: {
+  supabase: ReturnType<typeof createZarzadSupabaseClient>;
+  profiles: Profile[];
+}) {
   const [templateId, setTemplateId] = useState(mailTemplates[0].id);
   const [recipientsInput, setRecipientsInput] = useState("");
   const [message, setMessage] = useState("");
@@ -1762,6 +1781,39 @@ function MailView({ supabase }: { supabase: ReturnType<typeof createZarzadSupaba
   const [isSending, setIsSending] = useState(false);
   const selectedTemplate = mailTemplates.find((template) => template.id === templateId) ?? mailTemplates[0];
   const recipients = parseRecipients(recipientsInput);
+
+  // History & Reporting state
+  const [logs, setLogs] = useState<MailLogEntry[]>([]);
+  const [loadingLogs, setLoadingLogs] = useState(true);
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+  const [selectedSender, setSelectedSender] = useState("all");
+  const [searchEmail, setSearchEmail] = useState("");
+  const [copiedNotification, setCopiedNotification] = useState<string | null>(null);
+  const [expandedLogId, setExpandedLogId] = useState<string | null>(null);
+
+  const fetchLogs = useCallback(async () => {
+    setLoadingLogs(true);
+    try {
+      const { data, error } = await supabase
+        .from("board_activity_log")
+        .select("id, actor_id, action, entity_type, entity_id, metadata, created_at")
+        .eq("action", "mail_sent")
+        .order("created_at", { ascending: false });
+
+      if (!error && data) {
+        setLogs(data as MailLogEntry[]);
+      }
+    } catch (err) {
+      console.error("Błąd ładowania historii maili:", err);
+    } finally {
+      setLoadingLogs(false);
+    }
+  }, [supabase]);
+
+  useEffect(() => {
+    fetchLogs();
+  }, [fetchLogs]);
 
   async function sendMail(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -1783,6 +1835,10 @@ function MailView({ supabase }: { supabase: ReturnType<typeof createZarzadSupaba
       const result = (await response.json()) as { message?: string };
       setMessageType(response.ok ? "success" : "error");
       setMessage(result.message ?? (response.ok ? "Maile zostały wysłane." : "Nie udało się wysłać maili."));
+      if (response.ok) {
+        setRecipientsInput("");
+        fetchLogs();
+      }
     } catch {
       setMessageType("error");
       setMessage("Nie udało się połączyć z serwerem wysyłki.");
@@ -1791,63 +1847,434 @@ function MailView({ supabase }: { supabase: ReturnType<typeof createZarzadSupaba
     }
   }
 
+  // Filtered logs calculation
+  const filteredLogs = useMemo(() => {
+    return logs.filter((log) => {
+      const logDate = new Date(log.created_at);
+
+      if (dateFrom) {
+        const from = new Date(dateFrom);
+        from.setHours(0, 0, 0, 0);
+        if (logDate < from) return false;
+      }
+
+      if (dateTo) {
+        const to = new Date(dateTo);
+        to.setHours(23, 59, 59, 999);
+        if (logDate > to) return false;
+      }
+
+      if (selectedSender !== "all" && log.actor_id !== selectedSender) {
+        return false;
+      }
+
+      if (searchEmail.trim()) {
+        const query = searchEmail.trim().toLowerCase();
+        const list = log.metadata?.recipients ?? [];
+        const hasMatch = list.some((r) => r.toLowerCase().includes(query));
+        if (!hasMatch) return false;
+      }
+
+      return true;
+    });
+  }, [logs, dateFrom, dateTo, selectedSender, searchEmail]);
+
+  // Total emails & unique recipients across filtered logs
+  const totalSentCount = useMemo(() => {
+    return filteredLogs.reduce((acc, log) => acc + (log.metadata?.recipients?.length ?? 0), 0);
+  }, [filteredLogs]);
+
+  const uniqueRecipientsList = useMemo(() => {
+    const set = new Set<string>();
+    filteredLogs.forEach((log) => {
+      (log.metadata?.recipients ?? []).forEach((r) => set.add(r.trim().toLowerCase()));
+    });
+    return Array.from(set);
+  }, [filteredLogs]);
+
+  function copyToClipboard(text: string, label: string) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedNotification(label);
+      setTimeout(() => setCopiedNotification(null), 3000);
+    }
+  }
+
+  function exportCsvReport() {
+    if (filteredLogs.length === 0) return;
+
+    const rows: string[] = [];
+    rows.push(["Data wysyłki", "Godzina", "Nadawca", "E-mail nadawcy", "Szablon", "Adres odbiorcy"].join(";"));
+
+    filteredLogs.forEach((log) => {
+      const dateObj = new Date(log.created_at);
+      const dateStr = dateObj.toLocaleDateString("pl-PL");
+      const timeStr = dateObj.toLocaleTimeString("pl-PL", { hour: "2-digit", minute: "2-digit" });
+      const profile = profiles.find((p) => p.id === log.actor_id);
+      const senderName = profile?.full_name || "Nieznany";
+      const senderEmail = profile?.email || "";
+      const templateName = mailTemplates.find((t) => t.id === log.metadata?.templateId)?.name || log.metadata?.templateId || "Brak";
+      const logRecipients = log.metadata?.recipients || [];
+
+      logRecipients.forEach((recipient) => {
+        rows.push([
+          `"${dateStr}"`,
+          `"${timeStr}"`,
+          `"${senderName.replace(/"/g, '""')}"`,
+          `"${senderEmail.replace(/"/g, '""')}"`,
+          `"${templateName.replace(/"/g, '""')}"`,
+          `"${recipient.replace(/"/g, '""')}"`
+        ].join(";"));
+      });
+    });
+
+    const csvContent = "\uFEFF" + rows.join("\r\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    const today = new Date().toISOString().split("T")[0];
+    link.href = url;
+    link.setAttribute("download", `raport_maili_dealshare_${today}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  function reuseRecipients(recipientsList: string[]) {
+    setRecipientsInput(recipientsList.join("\n"));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-        <SectionTitle eyebrow="Mail" title="Wysyłka gotowych materiałów do klientów" />
-        <span className="w-fit rounded-md border border-electric/20 bg-electric/8 px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-electric">
-          Osobny mail na każdy adres
-        </span>
-      </div>
-      <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <form onSubmit={sendMail} className="rounded-lg border border-slate-200 bg-mist p-5">
-          <Field label="Wzór maila">
-            <select value={templateId} onChange={(event) => setTemplateId(event.target.value)} className="input">
-              {mailTemplates.map((template) => (
-                <option key={template.id} value={template.id}>
-                  {template.name}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Adresy odbiorców">
-            <textarea
-              value={recipientsInput}
-              onChange={(event) => setRecipientsInput(event.target.value)}
-              placeholder={"adres1@example.com, adres2@example.com\nadres3@example.com"}
-              className="input min-h-40"
-              required
-            />
-          </Field>
-          <div className="mt-3 rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">
-            Wykryte adresy: <strong className="text-navy">{recipients.length}</strong>
+    <div className="grid gap-6">
+      {/* 1. Formularz nowej wysyłki */}
+      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+          <SectionTitle eyebrow="Mail" title="Wysyłka gotowych materiałów do klientów" />
+          <span className="w-fit rounded-md border border-electric/20 bg-electric/8 px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-electric">
+            Osobny mail na każdy adres
+          </span>
+        </div>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <form onSubmit={sendMail} className="rounded-lg border border-slate-200 bg-mist p-5">
+            <Field label="Wzór maila">
+              <select value={templateId} onChange={(event) => setTemplateId(event.target.value)} className="input">
+                {mailTemplates.map((template) => (
+                  <option key={template.id} value={template.id}>
+                    {template.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Adresy odbiorców (jeden pod drugim lub po przecinku)">
+              <textarea
+                value={recipientsInput}
+                onChange={(event) => setRecipientsInput(event.target.value)}
+                placeholder={"adres1@example.com\nadres2@example.com\nadres3@example.com"}
+                className="input min-h-36"
+                required
+              />
+            </Field>
+            <div className="mt-3 flex items-center justify-between rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700">
+              <span>Wykryte adresy: <strong className="text-navy">{recipients.length}</strong></span>
+              {recipients.length > 0 ? (
+                <button
+                  type="button"
+                  onClick={() => setRecipientsInput("")}
+                  className="text-xs font-semibold text-slate-400 hover:text-red-600"
+                >
+                  Wyczyść
+                </button>
+              ) : null}
+            </div>
+            {message ? (
+              <p
+                className={`mt-4 rounded-md border px-4 py-3 text-sm font-semibold ${
+                  messageType === "success"
+                    ? "border-teal/20 bg-teal/10 text-teal"
+                    : messageType === "error"
+                    ? "border-red-200 bg-red-50 text-red-700"
+                    : "border-slate-200 bg-white text-slate-700"
+                }`}
+              >
+                {message}
+              </p>
+            ) : null}
+            <button
+              type="submit"
+              disabled={isSending || recipients.length === 0}
+              className="mt-5 min-h-12 w-full rounded-md bg-deal-gradient px-5 text-sm font-black text-white shadow-glow transition disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isSending ? "Wysyłam..." : "Wyślij osobne maile"}
+            </button>
+          </form>
+
+          <aside className="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-teal">Podgląd ustawień</p>
+              <h3 className="mt-2 text-xl font-black tracking-tight text-navy">{selectedTemplate.name}</h3>
+              <dl className="mt-5 grid gap-4 text-sm">
+                <Info label="Nadawca" value={selectedTemplate.from} />
+                <Info label="Tytuł" value={selectedTemplate.subject} />
+                <Info label="Załącznik" value={selectedTemplate.attachment} />
+              </dl>
+            </div>
+            <div className="mt-6 rounded-md border border-cyan/20 bg-cyan/5 p-4 text-xs leading-relaxed text-slate-600">
+              💡 <strong>Bezpieczeństwo wysyłki:</strong> Każdy odbiorca otrzymuje całkowicie odrębną wiadomość, bez widoczności adresów innych osób (ukryte przed innymi).
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* 2. Historia wysyłek i generator raportów */}
+      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <SectionTitle eyebrow="Raporty" title="Historia wysłanych maili" />
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={fetchLogs}
+              disabled={loadingLogs}
+              className="rounded-md border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:border-cyan hover:text-navy disabled:opacity-50"
+            >
+              {loadingLogs ? "Odświeżam..." : "🔄 Odśwież"}
+            </button>
+            <button
+              type="button"
+              onClick={exportCsvReport}
+              disabled={filteredLogs.length === 0}
+              className="rounded-md bg-deal-gradient px-4 py-2 text-xs font-black text-white shadow-glow hover:opacity-95 disabled:opacity-50"
+            >
+              📥 Pobierz raport CSV
+            </button>
           </div>
-          {message ? (
-            <p className={`mt-4 rounded-md border px-4 py-3 text-sm font-semibold ${
-              messageType === "success" ? "border-teal/20 bg-teal/10 text-teal" : messageType === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-slate-200 bg-white text-slate-700"
-            }`}>
-              {message}
-            </p>
+        </div>
+
+        {/* Statystyki podsumowujące */}
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5">
+            <span className="text-xs font-semibold text-slate-500">Wysłanych wiadomości</span>
+            <p className="mt-1 text-2xl font-black text-navy">{totalSentCount}</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5">
+            <span className="text-xs font-semibold text-slate-500">Unikalnych odbiorców</span>
+            <p className="mt-1 text-2xl font-black text-teal">{uniqueRecipientsList.length}</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5">
+            <span className="text-xs font-semibold text-slate-500">Wysyłek w okresie</span>
+            <p className="mt-1 text-2xl font-black text-navy">{filteredLogs.length}</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5">
+            <span className="text-xs font-semibold text-slate-500">Kopiowanie bazy</span>
+            <button
+              type="button"
+              onClick={() => copyToClipboard(uniqueRecipientsList.join("\n"), "Skopiowano unikalne adresy!")}
+              disabled={uniqueRecipientsList.length === 0}
+              className="mt-1.5 flex w-full items-center justify-center rounded border border-slate-300 bg-white py-1 text-xs font-bold text-slate-700 hover:border-cyan hover:text-navy disabled:opacity-50"
+            >
+              📋 Kopiuj maile ({uniqueRecipientsList.length})
+            </button>
+          </div>
+        </div>
+
+        {/* Powiadomienie o skopiowaniu */}
+        {copiedNotification ? (
+          <div className="mt-3 rounded-md border border-teal/30 bg-teal/10 px-4 py-2 text-xs font-bold text-teal">
+            ✓ {copiedNotification}
+          </div>
+        ) : null}
+
+        {/* Filtry raportu */}
+        <div className="mt-5 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Filtruj zestawienie i raport</p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <label className="block text-xs font-semibold text-slate-600">Data od</label>
+              <input
+                type="date"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+                className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-slate-600">Data do</label>
+              <input
+                type="date"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+                className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-slate-600">Nadawca</label>
+              <select
+                value={selectedSender}
+                onChange={(e) => setSelectedSender(e.target.value)}
+                className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-800"
+              >
+                <option value="all">Wszyscy członkowie</option>
+                {profiles.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.full_name || p.email}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-slate-600">Szukaj e-mail</label>
+              <input
+                type="text"
+                placeholder="np. studio4design..."
+                value={searchEmail}
+                onChange={(e) => setSearchEmail(e.target.value)}
+                className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-800"
+              />
+            </div>
+          </div>
+
+          {(dateFrom || dateTo || selectedSender !== "all" || searchEmail) ? (
+            <div className="mt-3 flex items-center justify-between border-t border-slate-200 pt-2.5">
+              <span className="text-xs text-slate-500">
+                Aktywne filtry zawężają widok do <strong>{filteredLogs.length}</strong> wysyłek.
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setDateFrom("");
+                  setDateTo("");
+                  setSelectedSender("all");
+                  setSearchEmail("");
+                }}
+                className="text-xs font-bold text-electric hover:underline"
+              >
+                Wyczyść filtry
+              </button>
+            </div>
           ) : null}
-          <button
-            type="submit"
-            disabled={isSending || recipients.length === 0}
-            className="mt-5 min-h-12 w-full rounded-md bg-deal-gradient px-5 text-sm font-black text-white shadow-glow transition disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {isSending ? "Wysyłam..." : "Wyślij osobne maile"}
-          </button>
-        </form>
-        <aside className="rounded-lg border border-slate-200 bg-white p-5">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-teal">Podgląd ustawień</p>
-          <h3 className="mt-2 text-xl font-black tracking-tight text-navy">{selectedTemplate.name}</h3>
-          <dl className="mt-5 grid gap-4 text-sm">
-            <Info label="Nadawca" value={selectedTemplate.from} />
-            <Info label="Tytuł" value={selectedTemplate.subject} />
-            <Info label="Załącznik" value={selectedTemplate.attachment} />
-          </dl>
-        </aside>
-      </div>
-    </section>
+        </div>
+
+        {/* Lista wpisów */}
+        <div className="mt-6">
+          {loadingLogs ? (
+            <div className="py-10 text-center text-sm font-semibold text-slate-400">
+              Ładowanie historii wysyłek...
+            </div>
+          ) : filteredLogs.length === 0 ? (
+            <div className="rounded-lg border border-dashed border-slate-200 py-10 text-center text-sm font-semibold text-slate-500">
+              Brak zarejestrowanych wysyłek w wybranym przedziale czasowym.
+            </div>
+          ) : (
+            <div className="grid gap-3">
+              {filteredLogs.map((log) => {
+                const profile = profiles.find((p) => p.id === log.actor_id);
+                const senderName = profile?.full_name || "Członek Zarządu";
+                const dateObj = new Date(log.created_at);
+                const formattedDate = dateObj.toLocaleDateString("pl-PL", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric"
+                });
+                const formattedTime = dateObj.toLocaleTimeString("pl-PL", {
+                  hour: "2-digit",
+                  minute: "2-digit"
+                });
+                const logRecipients = log.metadata?.recipients || [];
+                const isExpanded = expandedLogId === log.id;
+                const templateName = mailTemplates.find((t) => t.id === log.metadata?.templateId)?.name || "Materiały YamuraPRO";
+
+                return (
+                  <div
+                    key={log.id}
+                    className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300"
+                  >
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-navy text-xs font-black text-cyan">
+                          {senderName.charAt(0).toUpperCase()}
+                        </span>
+                        <span className="text-sm font-black text-navy">{senderName}</span>
+                        <span className="rounded bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
+                          {formattedDate}, {formattedTime}
+                        </span>
+                        <span className="rounded bg-electric/10 px-2 py-0.5 text-xs font-bold text-electric">
+                          {templateName}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-teal/10 px-2.5 py-0.5 text-xs font-black text-teal">
+                          {logRecipients.length} {logRecipients.length === 1 ? "mail" : "maili"}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => reuseRecipients(logRecipients)}
+                          className="rounded border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-700 hover:border-cyan hover:text-navy"
+                          title="Wstaw te adresy do formularza powyżej"
+                        >
+                          Wstaw do wysyłki ↺
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setExpandedLogId(isExpanded ? null : log.id)}
+                          className="text-xs font-bold text-slate-500 hover:text-navy"
+                        >
+                          {isExpanded ? "Zwiń ▲" : "Szczegóły ▼"}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Skrót lub pełna lista odbiorców */}
+                    <div className="mt-3">
+                      {isExpanded ? (
+                        <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
+                          <div className="flex items-center justify-between pb-2">
+                            <span className="text-xs font-bold text-slate-600">Adresaci tej wysyłki:</span>
+                            <button
+                              type="button"
+                              onClick={() => copyToClipboard(logRecipients.join("\n"), "Skopiowano adresy odbiorców!")}
+                              className="text-xs font-bold text-electric hover:underline"
+                            >
+                              Kopiuj tę listę
+                            </button>
+                          </div>
+                          <ul className="grid gap-1 sm:grid-cols-2">
+                            {logRecipients.map((email, idx) => (
+                              <li key={idx} className="flex items-center gap-1.5 text-xs font-mono text-slate-700">
+                                <span className="text-slate-400">•</span>
+                                <span className="select-all">{email}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : (
+                        <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-600">
+                          <span className="font-semibold text-slate-500">Odbiorcy:</span>
+                          {logRecipients.slice(0, 3).map((r, i) => (
+                            <span key={i} className="rounded bg-slate-100 px-2 py-0.5 font-mono text-[11px] text-slate-700">
+                              {r}
+                            </span>
+                          ))}
+                          {logRecipients.length > 3 ? (
+                            <button
+                              type="button"
+                              onClick={() => setExpandedLogId(log.id)}
+                              className="text-xs font-bold text-electric hover:underline"
+                            >
+                              +{logRecipients.length - 3} więcej...
+                            </button>
+                          ) : null}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
   );
 }
 
